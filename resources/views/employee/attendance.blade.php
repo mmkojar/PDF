@@ -7,7 +7,7 @@
       <div class="card">   
         <div class="card-body">
             
-        <ul class="nav nav-pills nav-pills-primary nav-pills-icons" role="tablist">    
+        <ul class="nav nav-pills nav-pills-primary nav-pills-icons mb-4" role="tablist">    
             <li class="nav-item">
                 <a class="nav-link active" data-toggle="tab" href="#entry" role="tablist">
                 <i class="now-ui-icons shopping_shop"></i>
@@ -28,19 +28,20 @@
             </li>
         </ul>
         
-        <div class="tab-content tab-space tab-subcategories">      
+        <div class="tab-content">      
             <div class="tab-pane active" id="entry">
                 <form action="{{route('attendance.store')}}" accept="" role="form" method="post" id="processing_form">
                     <div class="row">
                         <div class="col-md-4 mb-4">
                             <div class="form-group">
                                 <label>Date</label>
-                                <input type="text" name="date" class="form-control datepicker" placeholder="Date Picker Here">
+                                <input type="text" name="date" class="form-control datepicker" placeholder="Date Picker Here" required>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         @csrf
+                        <?php $count1 = 10;$count2 = 20;$count3 = 30 ?>
                         @foreach ($emps as $res)
                             <div class="col-md-2">
                                 <h4 class="mt-0">{{$res->name}}</h4>
@@ -49,18 +50,19 @@
                             </div>
                             <div class="col-md-10">
                                 <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" class="select_entry  w-auto d-inline" value="1">
-                                    <label class="text-success">Full Day</label>
+                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count1}}" class="select_entry  w-auto d-inline" value="1" required>
+                                    <label for="{{$count1}}" class="text-success">Full Day</label>
                                 </div>
                                 <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" class="select_entry  w-auto d-inline" value="0.5">
-                                    <label class="text-warning">Half Day</label>
+                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count2}}" class="select_entry  w-auto d-inline" value="0.5" required>
+                                    <label for="{{$count2}}" class="text-warning">Half Day</label>
                                 </div>
                                 <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" class="select_entry  w-auto d-inline" value="0">
-                                    <label class="text-danger">Absent</label>
+                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count3}}" class="select_entry  w-auto d-inline" value="0" required>
+                                    <label for="{{$count3}}" class="text-danger">Absent</label>
                                 </div>
                             </div>
+                            <?php $count1++;$count2++;$count3++ ?>
                         @endforeach
                     </div>
                     <input type="submit" class="btn btn-info btn-round" value="Submit"> 

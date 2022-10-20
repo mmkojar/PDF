@@ -23,8 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('milk_rate')->nullable();
             $table->string('morning')->nullable();
             $table->string('evening')->nullable();
-            $table->string('mobile_no1')->nullable();
-            $table->bigInteger('mobile_no2')->nullable();
+            $table->bigInteger('mobile_no',15)->nullable();
             $table->string('email')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();

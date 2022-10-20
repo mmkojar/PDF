@@ -27,13 +27,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Party Name</label>
-                                <input type="text" name="party_name" class="form-control" value="{{$data->party_name}}" required>
+                                <input type="text" name="party_name" class="form-control" value="{{$data->party_name}}">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Qty</label>
-                                <input type="number" name="qty" class="form-control" min="1" value="{{$data->qty}}" readonly>
+                                <input type="number" name="qty" class="form-control" min="1" value="{{$data->qty}}">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -45,13 +45,14 @@
                                     <option value="LTR" {{$data->unit === 'LTR' ? 'selected' : ''}}>LTR</option>
                                     <option value="BOX" {{$data->unit === 'BOX' ? 'selected' : ''}}>BOX</option>
                                     <option value="PCS" {{$data->unit === 'PCS' ? 'selected' : ''}}>PCS</option>
+                                    <option value="GUNI" {{$data->unit === 'GUNI' ? 'selected' : ''}}>GUNI</option>
                                 </select>
                             </div> 
                         </div>                    
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Purchase Rate</label>
-                                <input type="number" min="1" name="rate" class="form-control" value="{{$data->rate}}" required>
+                                <input type="number" min="0"  name="rate" class="form-control" value="{{$data->rate}}" required>
                             </div>
                         </div>
                         <div class="col-md-6">

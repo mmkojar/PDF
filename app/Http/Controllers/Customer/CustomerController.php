@@ -36,7 +36,7 @@ class CustomerController extends Controller
         $customer->milk_rate = $request->input('milk_rate');
         $customer->morning = $request->input('morning');
         $customer->evening = $request->input('evening');
-        $customer->mobile_no1 = $request->input('c_mobile_no1');
+        $customer->mobile_no = $request->input('mobile_no');
         $customer->email = $request->input('c_email');
         $customer->status = 'active';
         $customer->save();
@@ -62,7 +62,7 @@ class CustomerController extends Controller
         $customer->milk_rate = $request->input('milk_rate');
         $customer->morning = $request->input('morning');
         $customer->evening = $request->input('evening');
-        $customer->mobile_no1 = $request->input('c_mobile_no1');
+        $customer->mobile_no = $request->input('mobile_no');
         $customer->email = $request->input('c_email');
         $customer->status = $request->input('c_status');
         $customer->save();

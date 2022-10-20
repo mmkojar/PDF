@@ -25,7 +25,7 @@ class AttendanceController extends Controller
                     // ->where('date',$data['date'])
                     ->get();
        
-        return view('employees.attendance')->with(['emps'=>$employees,'attendance'=>$attendance]);
+        return view('employee.attendance')->with(['emps'=>$employees,'attendance'=>$attendance]);
     }
 
     public function store(Request $req) {

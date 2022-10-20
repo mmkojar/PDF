@@ -44,7 +44,7 @@
                   <td>{{$customer->milk_rate}}</td>
                   <td>{{$customer->morning}}</td>
                   <td>{{$customer->evening}}</td>
-                  <td>{{$customer->mobile_no1}}</td>
+                  <td>{{$customer->mobile_no}}</td>
                   <td>{{$customer->email ? $customer->email : '-'}}</td>
                   <td class="{{($customer->status === 'active' ? 'font-weight-bold text-success' : 'font-weight-bold text-danger') }}">{{ucfirst($customer->status ? $customer->status : '-')}}</td>
                   @can('all-access')

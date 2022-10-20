@@ -5,14 +5,14 @@
     <div class="main-panel">
         @include('inc.topnavbar1')
         <div class="content">
-            @include('inc.messages')
-                {{-- @if(!Request::is('/'))
-                <div class="row">
-                    <div class="col-md-12 text-right">
-                        <a onclick="history.back()" class="text-dark nc-icon x3"><i class="fa fa-long-arrow-left" aria-hidden="true"></i></a>
-                    </div>
+            @if(!Request::is('/'))
+            <div class="row">
+                <div class="col-md-12">
+                    <a onclick="history.back()" class="text-dark nc-icon x3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
-                @endif --}}
+            </div>
+            @endif
+            @include('inc.messages')
             @yield('content')
         </div>
 

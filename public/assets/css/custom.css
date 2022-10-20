@@ -83,7 +83,12 @@ div.dt-buttons, .dataTables_wrapper .dataTables_filter {
 #dashboard-cards h3 {
     margin: 10px 0px;
 }
-
+#dashboard-cards .card{
+    height: 100px;
+}
+#stock_page .tab-content .card{
+    box-shadow: 0 10px 20px 0px rgb(0 0 0 / 15%);
+}
 tr.group, tr.group:hover {
     background-color: #ddd !important;
 }
@@ -122,9 +127,25 @@ tr.group, tr.group:hover {
 } */
 
 /* .table {
-    font-size: 10px;
+    font-size: 14px;
+} */
+.table th{
+    font-weight: bold;
 }
- */
+.sidebar,
+.navbar-minimize,
+.navbar-toggle{
+    display: none;
+}
+.main-panel{
+    width:100%;
+}
+.main-panel>.content{
+    margin-top: 80px;
+}
+.card-footer {
+    padding-top: 0.25rem!important;
+}
 /*Invoice*/
 
 /* .invoice .table-row .table>thead {

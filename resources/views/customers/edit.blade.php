@@ -69,7 +69,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Mobile No.</label>
-                                    <input type="text" value="{{$customer->mobile_no1}}" name="c_mobile_no1" class="form-control" min="0" required>
+                                    <input type="text" value="{{$customer->mobile_no}}" name="mobile_no" class="form-control" maxlength="10" minlength="10" required>
                                 </div>
                             </div>
                             <div class="col-md-4">

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Employee\EmployeeController;
 use App\Http\Controllers\Employee\AttendanceController;
 use App\Http\Controllers\CommonController;
 use App\Http\Controllers\ProfileController;
@@ -55,7 +56,8 @@ Route::middleware(['disablebackbtn'])->group(function () {
         Route::get('/api', [AttendanceController::class,'getattendanceapi'])->name('attendance.api');
     });
 
-    
+    Route::delete('/employee/delete/{id}', [EmployeeController::class,'delete'])->name('employee.delete');
+    Route::resource('/employee', EmployeeController::class)->except(['show','destroy']);
 
     Route::get('/common/api/{name}/{tbl}/{col}', [CommonController::class,'unique_name'])->name('common.api');
     Route::get('/notifications', [CommonController::class,'index'])->name('common.index');
@@ -187,14 +189,11 @@ Route::middleware(['disablebackbtn'])->group(function () {
     // For Stock
     Route::prefix('stock')->group(function() {
         Route::get('/',[StockController::class,'index'])->name('stock.index');
-        Route::get('/api',[StockController::class,'stock_api'])->name('stock.api');
-        Route::post('/in/store',[StockController::class,'store_stock'])->name('stock.store');
-        Route::get('/in/create',[StockController::class,'stock_in_create'])->name('stock.in.create');
+        Route::get('/api/{id?}',[StockController::class,'stock_api'])->name('stock.api');
+        Route::post('/insert',[StockController::class,'stock_insert'])->name('stock.insert');               
         Route::get('/in/{id}/edit',[StockController::class,'stock_in_edit'])->name('stock.in.edit');
         Route::put('/in/update',[StockController::class,'stock_in_update'])->name('stock.in.update');
-        Route::delete('/in/delete/{id}/{itmid}',[StockController::class,'stock_in_delete'])->name('stock.in.delete');
-        Route::get('/out/create',[StockController::class,'stock_out_create'])->name('stock.out.create');
-        Route::post('/out/store',[StockController::class,'stock_out_store'])->name('stock.out.store');
+        Route::delete('/in/delete/{id}/{itmid}',[StockController::class,'stock_in_delete'])->name('stock.in.delete');        
         Route::get('/out/{id}/edit',[StockController::class,'stock_out_edit'])->name('stock.out.edit');
         Route::put('/out/update',[StockController::class,'stock_out_update'])->name('stock.out.update');
         Route::delete('/out/delete/{id}/{itmid}/{qty}',[StockController::class,'stock_out_delete'])->name('stock.out.delete');
