@@ -59,15 +59,20 @@ class MilkSoldController extends Controller
 
     public function create()
     {
-        $sold_date =  DB::table('milksolds')->latest('sold_date')->first();        
+        $sold_date =  DB::table('milksolds')->latest('sold_date')->first();
         if($sold_date) {
             $next_date = date('Y-m-d',strtotime($sold_date->sold_date . "+1 day")); 
         } else {
             $next_date = date('Y-m-d'); 
         }
+
+        $prev_date = date('Y-m-d',strtotime(date('Y-m-d') . "-1 day"));
+        $ext_coll = DB::table('external_collection')->where(['date'=> $prev_date,'type'=>'fr'])->select('*')->first();
+        
         $customers = Customer::where(['status'=>'active'])->get();
+        $milkusers = DB::table('milk_users')->select('*')->get();
         // $customers2 = Customer::where(['status'=>'active','customer_type'=> 'Home Customer'])->get();
-        return view('customers.solds.create')->with(['customers'=> $customers, 'next_date' => $next_date]);
+        return view('customers.solds.create')->with(['customers'=> $customers, 'milkusers'=>$milkusers,'next_date' => $next_date]);
     }
 
     public function store(Request $request)

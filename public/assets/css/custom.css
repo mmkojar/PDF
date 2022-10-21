@@ -94,8 +94,9 @@ tr.group, tr.group:hover {
 }
 
 .sold_me_cust_class {
+    display: inline;
     width: 28%;
-    float: right;
+    /* float: right; */
     margin: 2px;
 }
 

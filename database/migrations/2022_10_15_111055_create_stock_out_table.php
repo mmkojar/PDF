@@ -17,7 +17,7 @@ class CreateStockOutTable extends Migration
             $table->id();
             $table->bigInteger('item_id')->unsigned();
             $table->string('unit')->nullable();
-            $table->bigInteger('qty')->unsigned()->nullable();
+            $table->bigInteger('qty',20)->unsigned()->nullable();
             $table->string('rate')->nullable();
             $table->string('total_amount')->nullable();
             $table->date('date')->nullable();

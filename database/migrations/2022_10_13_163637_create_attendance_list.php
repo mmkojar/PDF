@@ -17,8 +17,8 @@ class CreateAttendanceList extends Migration
             $table->id();
             $table->bigInteger('eid')->unsigned();
             $table->string('entry',20)->nullable();
-            $table->string('per_day_salary')->nullable();
-            $table->string('month')->nullable();
+            $table->string('per_day_salary',20)->nullable();
+            $table->string('month',20)->nullable();
             $table->date('date')->nullable();            
             $table->timestamps();
 

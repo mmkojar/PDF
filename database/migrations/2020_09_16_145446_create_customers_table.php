@@ -20,9 +20,9 @@ class CreateCustomersTable extends Migration
             $table->string('bill_period')->nullable();
             $table->string('customer_location')->nullable();
             $table->string('description')->nullable();
-            $table->string('milk_rate')->nullable();
-            $table->string('morning')->nullable();
-            $table->string('evening')->nullable();
+            $table->string('milk_rate',20)->nullable();
+            $table->string('morning',20)->nullable();
+            $table->string('evening',20)->nullable();
             $table->bigInteger('mobile_no',15)->nullable();
             $table->string('email')->nullable();
             $table->string('status')->nullable();

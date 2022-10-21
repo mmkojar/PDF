@@ -5,23 +5,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card ">
-            {{-- <div class="card-header">
-                <h4 class="card-title">Add Data</h4>
-            </div> --}}
             <form action="{{route('milk_entries.store')}}" accept="" role="form" method="post" id="milk_sold_form">
                 @csrf
                 <div class="card-body">
-                        <div class="row">
-                            {{-- <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Customer Type</label>
-                                    <select class="form-control" name="customer_type" id="customer_type">                         
-                                        <option value="Regular Customer" selected>Regular Customer</option>
-                                        <option value="Home Customer">Home Customer</option>
-                                        <option value="Normal Customer">Normal Customer</option>
-                                    </select>
-                                </div>  
-                            </div> --}}
+                        <div class="row mb-4">                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Sold Date</label>
@@ -29,11 +16,33 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row">                            
+                            <div class="col-md-6">
+                                <div class="row">
+                                    @foreach($milkusers as $row)
+                                        <div class="col-md-2">
+                                            <h5 class="my-2">{{$row->name}}</h5>
+                                        </div>
+                                        <div class="col-md-10">
+                                            {{-- <div class="form-group"> --}}
+                                                <input type="number" value="{{$row->morning}}" id="morning" name="morning[]" step="0.1" min="0" class="sold_me_cust_class getme_data form-control" required>
+                                            {{-- </div>
+                                            <div class="form-group"> --}}
+                                                <input type="number" value="{{$row->evening}}" id="evening" name="evening[]" step="0.1" min="0" class="sold_me_cust_class getme_data form-control" required>
+                                            {{-- </div> --}}
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
                         <div class="row my-4">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-5">
-                                        <h6 class="float-left">Regular Customer</h6>
+                                        <h6 class="float-left">Customer Name</h6>
                                     </div>
                                     <div class="col-md-7 rme_tag">
                                         <span>Morning</span>
@@ -57,33 +66,6 @@
                                     </div>
                                 @endforeach
                             </div>
-                            {{-- <div class="col-md-6">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <h6 class="float-left">Home Customer</h6>
-                                    </div>
-                                    <div class="col-md-7 rme_tag">
-                                        <span>Morning</span>
-                                        <span>Evening</span>
-                                        <span>Rate</span>
-                                    </div>
-                                </div>
-                                <br>
-                                @foreach ($customers2 as $customer)
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <p>{{$customer->customer_name}}</p>
-                                        </div>
-                                        <div class="col-md-8">
-                                            <input type="hidden" name="customer_name[]" value="{{$customer->id}}">
-                                            <input type="hidden" name="customer_type[]" value="{{$customer->customer_type}}">
-                                            <input type="number" value="{{$customer->milk_rate}}" name="milk_rate[]" step="0.1" min="0" class="sold_me_cust_class form-control" required>                                    
-                                            <input type="number" value="{{$customer->evening}}" id="evening" name="evening[]" step="0.1" min="0" class="sold_me_cust_class getme_data form-control" required>
-                                            <input type="number" value="{{$customer->morning}}" id="morning" name="morning[]" step="0.1" min="0" class="sold_me_cust_class getme_data form-control" required><br>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div> --}}
                             <div class="col-md-6 mt-3"> 
                                 <h6 class="float-left">Normal Customer</h6>
                                 <table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
@@ -101,7 +83,7 @@
                                     <tbody id="append_nor_cust_rows">
                                     </tbody>
                                 </table>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-3">

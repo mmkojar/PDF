@@ -17,7 +17,7 @@ class CreateStockAvailableTable extends Migration
             $table->id();
             $table->bigInteger('item_id')->unsigned();
             $table->string('unit')->nullable();
-            $table->bigInteger('qty')->unsigned();
+            $table->bigInteger('qty',20)->unsigned();
             $table->string('rate')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();

@@ -18,7 +18,7 @@ class CreateStockInTable extends Migration
             $table->bigInteger('item_id')->unsigned();
             $table->string('party_name')->nullable();
             $table->string('unit')->nullable();
-            $table->bigInteger('qty')->unsigned();
+            $table->bigInteger('qty',20)->unsigned();
             $table->string('rate')->nullable();
             $table->string('total_amount')->nullable();
             $table->date('date')->nullable();            

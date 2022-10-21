@@ -20,7 +20,7 @@ class CreateWeeklyBillingTable extends Migration
             $table->string('bill_period')->nullable();
             $table->date('from_date')->nullable();
             $table->date('to_date')->nullable();
-            $table->string('month')->nullable();
+            $table->string('month',20)->nullable();
             $table->string('total_litres')->nullable();
             $table->string('amount')->nullable();
             $table->string('previous_balance')->nullable();
