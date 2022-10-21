@@ -30,10 +30,10 @@ class AttendanceController extends Controller
 
     public function store(Request $req) {
         
-        $data = $req->all();        
+        $data = $req->all();
         $checkData = DB::table('attendance_list')->where('date',$data['date'])->get();
         
-        if(count($checkData) == 0) {        
+        if(count($checkData) == 0) {
             foreach(request()->empid as $eid) {
                 if($data['empid'][$eid]) {
                     $salary = '';
@@ -59,14 +59,16 @@ class AttendanceController extends Controller
                     );
                 }
             }
-            return redirect('/attendance')->with('success','Data Added');  
+            // return redirect('/attendance')->with('success','Data Added');
+            return ['status' => 1, 'msg'=>'Attendace Added'];
         }
         else {
-            return redirect('/attendance')->with('error','Entry Already Exist of Date '.$data['date']);  
+            return ['status' => 0, 'msg'=>'Entry Already Exist of Date '.$data['date']];
+            // return redirect('/attendance')->with('error','Entry Already Exist of Date '.$data['date']);  
         }                
     }
 
-    public function getattendanceapi() {
+    public function month_wise_data() {
 
         $responce = DB::table('attendance_list')
                     ->Join('employees', 'employees.id', '=', 'attendance_list.eid')

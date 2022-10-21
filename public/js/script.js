@@ -49,7 +49,13 @@ $(document).ready(function() {
             console.log(err);
         }
     }) */    
-    
+
+    $("form").addClass('form_reset');
+    //Go back
+    $(".goback").on('click',() => {        
+        $(".form_reset")[0].reset()
+        window.history.go(-1)        
+    })
     var listItems = $(".sidebar-wrapper .nav .collapse .nav li a");
         listItems.each(function(idx, li) {
         if($(this).attr('href') == window.location.href) {
@@ -842,6 +848,7 @@ $(document).ready(function() {
 
         // For Deleting All
         $(document).on('click', '.delete_all', function(e) {
+           
             e.preventDefault();
             var id = $(this).attr('id');
             var url = $(this).attr('url');
@@ -865,6 +872,7 @@ $(document).ready(function() {
                 confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
                 if (result.value) {
+                    $("#preloader").show();
                     $.ajax({
                         // url: base_url+"/" + url + "/" + "delete/" + id,
                         url : deleteurl,
@@ -877,6 +885,7 @@ $(document).ready(function() {
                         },
                         dataType: 'json',
                         success: function(res) {
+                            $("#preloader").hide();
                             if (res.status == 1) {
                                 Swal.fire(
                                     'Deleted!',

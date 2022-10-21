@@ -39,13 +39,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Customer Location</label>
-                                    <input type="text" value="{{$customer->customer_location}}" name="c_location" class="form-control" required>
+                                    <input type="text" value="{{$customer->customer_location}}" name="c_location" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Description</label>
-                                    <input type="text" value="{{$customer->description}}" class="form-control" name="c_description" required>
+                                    <input type="text" value="{{$customer->description}}" class="form-control" name="c_description">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -69,7 +69,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Mobile No.</label>
-                                    <input type="text" value="{{$customer->mobile_no}}" name="mobile_no" class="form-control" maxlength="10" minlength="10" required>
+                                    <input type="text" value="{{$customer->mobile_no}}" name="mobile_no" class="form-control" maxlength="10" minlength="10">
                                 </div>
                             </div>
                             <div class="col-md-4">

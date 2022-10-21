@@ -19,12 +19,6 @@ class CustomerController extends Controller
         return view('customers.index')->with('customers', $customers);
     }
 
-
-    public function create()
-    {
-        return view('customers.create');
-    }
-
     public function store(Request $request)
     {
         $customer = new Customer();
@@ -41,7 +35,8 @@ class CustomerController extends Controller
         $customer->status = 'active';
         $customer->save();
 
-        return redirect('/customer')->with('success','Customer Created');
+        return ['status' =>1, 'msg'=>'Customer Created'];
+        // return redirect('/customer')->with('success','Customer Created');
     }
 
     public function edit($id)

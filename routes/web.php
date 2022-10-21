@@ -53,11 +53,11 @@ Route::middleware(['disablebackbtn'])->group(function () {
     Route::prefix('attendance')->group(function() {
         Route::get('/', [AttendanceController::class,'index'])->name('attendance.index');
         Route::post('/store', [AttendanceController::class,'store'])->name('attendance.store');
-        Route::get('/api', [AttendanceController::class,'getattendanceapi'])->name('attendance.api');
+        Route::get('/api', [AttendanceController::class,'month_wise_data'])->name('attendance.api');
     });
 
     Route::delete('/employee/delete/{id}', [EmployeeController::class,'delete'])->name('employee.delete');
-    Route::resource('/employee', EmployeeController::class)->except(['show','destroy']);
+    Route::resource('/employee', EmployeeController::class)->except(['show','destroy','create']);
 
     Route::get('/common/api/{name}/{tbl}/{col}', [CommonController::class,'unique_name'])->name('common.api');
     Route::get('/notifications', [CommonController::class,'index'])->name('common.index');
@@ -86,7 +86,7 @@ Route::middleware(['disablebackbtn'])->group(function () {
     Route::resource('/categories', ProductController::class)->except(['show','create','update','destroy']);
 
     Route::delete('/customer/delete/{id}', [CustomerController::class,'delete'])->name('customer.delete');
-    Route::resource('/customer', CustomerController::class)->except(['show','destroy']);
+    Route::resource('/customer', CustomerController::class)->except(['show','destroy','create']);
 
     // Route::delete('/collection/delete/{id}', [MilkCollectionController::class,'delete'])->name('collection.delete');
     // Route::resource('/milk_collection', MilkCollectionController::class)->except(['show','destroy']);
@@ -198,8 +198,9 @@ Route::middleware(['disablebackbtn'])->group(function () {
         Route::put('/out/update',[StockController::class,'stock_out_update'])->name('stock.out.update');
         Route::delete('/out/delete/{id}/{itmid}/{qty}',[StockController::class,'stock_out_delete'])->name('stock.out.delete');
         Route::get('/out/api/{id}',[StockController::class,'stock_out_api'])->name('stock.out.api');
-
-        Route::get('/items',[StockController::class,'items'])->name('stock.items');
+    
+            
+        Route::delete('/items/delete/{id}',[StockController::class,'delete_items'])->name('stock.items.delete');
         Route::get('/form/{id?}',[StockController::class,'items_form'])->name('stock.items.form');
         Route::post('/store',[StockController::class,'store_items'])->name('stock.items.store');
     });

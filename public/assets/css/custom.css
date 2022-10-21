@@ -143,6 +143,9 @@ tr.group, tr.group:hover {
 .main-panel>.content{
     margin-top: 80px;
 }
+.card-header{
+    background-color: rgba(0,0,0,.03) !important;
+}
 .card-footer {
     padding-top: 0.25rem!important;
 }

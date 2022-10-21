@@ -20,12 +20,6 @@ class EmployeeController extends Controller
         return view('employee.index')->with('employee', $employee);
     }
 
-
-    public function create()
-    {
-        return view('employee.create');
-    }
-
     public function store(Request $request)
     {
         $employee = new Employee();
@@ -35,8 +29,9 @@ class EmployeeController extends Controller
         $employee->salary = $request->input('salary');
         $employee->status = 'active';
         $employee->save();
-
-        return redirect('/employee')->with('success','Employee Created');
+        
+        return ['status' =>1, 'msg'=>'Employee Created'];
+        // return redirect('/employee')->with('success','Employee Created');
     }
 
     public function edit($id)
@@ -56,7 +51,7 @@ class EmployeeController extends Controller
         $employee->status = $request->input('status');
         $employee->save();
 
-        return redirect('/employee')->with('success','Employee Updated');
+        return redirect('/attendance')->with('success','Employee Updated');
     }
 
     public function delete($id)

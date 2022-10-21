@@ -6735,7 +6735,7 @@ tr:first-child>td>.fc-day-grid-event {
 
 .btn-round {
     border-width: 1px;
-    border-radius: 3px;
+    border-radius: 3fpx;
     padding-right: 23px;
     padding-left: 23px
 }
@@ -7224,7 +7224,7 @@ input[type=checkbox], input[type=radio] {
 /* checkbox and radio buttons */
 .form-control {
     background-color: #f3f2ee;
-    border: 1px solid #ddd;
+    border: 3px solid #ddd;
     border-radius: 4px;
     color: #66615b;
     line-height: normal;

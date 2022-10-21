@@ -89,6 +89,15 @@ class StockController extends Controller
         }
     }
 
+    public function delete_items($id) {
+
+        DB::table('stock_items')->where('id',$id)->delete();
+        DB::table('stock_in')->where('item_id',$id)->delete();
+        DB::table('stock_out')->where('item_id',$id)->delete();
+        DB::table('stock_available')->where('item_id',$id)->delete();
+        return ['status' => 1 ];
+    }
+
     // Stock In
     public function stock_insert(Request $request) {
 

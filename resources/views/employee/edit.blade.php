@@ -21,13 +21,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Mobile No.</label>
-                                    <input type="text" value="{{$employee->mobile_no}}" name="mobile_no" class="form-control" maxlength="10" minlength="10" required>
+                                    <input type="text" value="{{$employee->mobile_no}}" name="mobile_no" class="form-control" maxlength="10" minlength="10">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Location</label>
-                                    <input type="text" value="{{$employee->location}}" name="location" class="form-control" required>
+                                    <input type="text" value="{{$employee->location}}" name="location" class="form-control">
                                 </div>
                             </div>                           
                             <div class="col-md-4">

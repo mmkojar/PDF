@@ -8,7 +8,7 @@
             @if(!Request::is('/'))
             <div class="row">
                 <div class="col-md-12">
-                    <a onclick="history.back()" class="text-dark nc-icon x3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    <a class="goback text-dark nc-icon x3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
                 </div>
             </div>
             @endif

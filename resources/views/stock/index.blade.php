@@ -168,6 +168,7 @@
 @endsection
 
 @section('stock_script')
+  <script src="{{ asset('js/api.js') }}"></script>
   <script type="text/javascript">
 
       $(document).ready(function() {
@@ -192,26 +193,23 @@
                 $("#party_name_col, #purchase_rate_col").hide();
                 $("#preloader").show();
                 var item_id = $("#hidden_item_id").val();
-                $.ajax({
-                  url:base_url+"/stock/out/api/"+item_id,
-                  method:"GET",
-                  dataType:'json',
-                  success:function(res)
-                  {
+
+                ajaxGetApi("/stock/out/api/"+item_id, function(res) {
                     console.log(res);
-                      $("#preloader").hide();
-                      if(res.length > 0) {
-                        var res = res[0];
-                        $('#unit').val(res.unit);
-                        $('#qty').val(res.qty);
-                        $('#hidden_qty').val(res.qty);
-                      }
-                      else {
-                          $('#qty').val('');
-                          $('<div class="alert alert-danger alert-dismissible"><h6 class="my-0" data-dismiss="alert">Stock Not available</h6></div>').insertBefore('#stock_entry_form .card-body .row');
-                          $('#qty,#unit,#stock_entry_button').attr('disabled',true);
-                      }                    
-                  }
+                    $("#preloader").hide();
+                    if(res.length > 0) {
+                      var res = res[0];
+                      $('#unit').val(res.unit);
+                      $('#qty').val(res.qty);
+                      $('#hidden_qty').val(res.qty);
+                    }
+                    else {
+                        $('#qty').val('');
+                        $('<div class="alert alert-danger alert-dismissible"><h6 class="my-0" data-dismiss="alert">Stock Not available</h6></div>').insertBefore('#stock_entry_form .card-body .row');
+                        $('#qty,#unit,#stock_entry_button').attr('disabled',true);
+                    }
+                }, function (data) {
+                    console.log(data);
                 })
               }
               else {
@@ -288,12 +286,8 @@
           function stock_calculation() {
             $("#preloader").show();
             // var url = id ? base_url+"/stock/api/"+id : base_url+"/stock/api";
-            $.ajax({
-              url:base_url+"/stock/api",
-              method:"GET",
-              dataType:'json',
-              success:function(res)
-              {
+
+            ajaxGetApi("/stock/api", function(res) {
                 $("#preloader").hide();
                 const concatresult = [...res.purchase,...res.use];
                 
@@ -310,171 +304,166 @@
                     concatresult[i].uqty == null ? (concatresult[i].uqty = 0) : '';
                     
                 }
-                  var response = concatresult.reduce((a2, c2) => {
-                      let filteredP = a2.filter(el => el.item_name === c2.item_name)
-                      if (filteredP.length > 0) {
-                          a2[a2.indexOf(filteredP[0])].pqty += +c2.pqty;
-                          a2[a2.indexOf(filteredP[0])].uqty += +c2.uqty;
-                      } else {
-                          a2.push(c2);
-                      }
-                      return a2;
-                  }, []);
-                  console.log(response);
-                  var html = '';     
-                  html += `<thead><tr><th></th>`    
-                  for(var i in response) {
-                      html += `
-                          <th><a id="show_stock_modal" data-item_name=${response[i].item_name} item-id=${response[i].item_id}>${response[i].item_name}</a></th>
-                      `;
-                  }
-                  html += ` </tr>
-                      </thead>
-                      <tbody>                    
-                          <tr><td>Purchase</td>           
-                      `;
-                  for(var i in response) {
-                      html += `                     
-                            <td>${response[i].pqty}</td>
-                      `;
-                  }
-                  html += `                 
-                          </tr> <tr><td>Use</td>           
-                      `;
-                  for(var i in response) {
-                      html += `                     
-                            <td>${response[i].uqty}</td>
-                      `;
-                  }
-                  html += `                  
-                          </tr> <tr><td>Stock</td>           
-                      `;
-                  for(var i in response) {
-                      html += `
-                            <td>${response[i].pqty - response[i].uqty}</td>
-                      `;
-                  }   
-                  html += `</tr></tbody>`
-                  $("#main_stock").html(html);
-              }
+                var response = concatresult.reduce((a2, c2) => {
+                    let filteredP = a2.filter(el => el.item_name === c2.item_name)
+                    if (filteredP.length > 0) {
+                        a2[a2.indexOf(filteredP[0])].pqty += +c2.pqty;
+                        a2[a2.indexOf(filteredP[0])].uqty += +c2.uqty;
+                    } else {
+                        a2.push(c2);
+                    }
+                    return a2;
+                }, []);
+                console.log(response);
+                var html = '';     
+                html += `<thead><tr><th></th>`    
+                for(var i in response) {
+                    html += `
+                        <th><a id="show_stock_modal" data-item_name=${response[i].item_name} item-id=${response[i].item_id}>${response[i].item_name}</a></th>
+                    `;
+                }
+                html += ` </tr>
+                    </thead>
+                    <tbody>                    
+                        <tr><td>Purchase</td>           
+                    `;
+                for(var i in response) {
+                    html += `                     
+                          <td>${response[i].pqty}</td>
+                    `;
+                }
+                html += `                 
+                        </tr> <tr><td>Use</td>           
+                    `;
+                for(var i in response) {
+                    html += `                     
+                          <td>${response[i].uqty}</td>
+                    `;
+                }
+                html += `                  
+                        </tr> <tr><td>Stock</td>           
+                    `;
+                for(var i in response) {
+                    html += `
+                          <td>${response[i].pqty - response[i].uqty}</td>
+                    `;
+                }   
+                html += `</tr></tbody>`
+                $("#main_stock").html(html);
+            },
+            function (data) {
+                console.log(data);
             })
           }
 
           stock_in();
           function stock_in() {       
-            $("#preloader").show();
-            $.ajax({
-              url:base_url+"/stock/api",
-              method:"GET",
-              dataType:'json',
-              success:function(res)
-              {
-                $("#preloader").hide();
-                var resp = res.stockin;
-                var html = '';
-                var sr_no = 1;
-                html += `
-                      <thead>
-                          <tr>
-                              <th>Id</th>
-                              <th>Party Name</th>
-                              <th>Item Name</th>
-                              <th>Unit</th>
-                              <th>Qty</th>
-                              <th>Purchase Rate</th>
-                              <th>Total Amount</th>
-                              <th>Date</th>
-                              <th>Action</th>
-                          </tr>
-                        </thead>
-                      <tbody>
-                `;
-                for(var i in resp) {
-                    html += `
-                          <tr>
-                            <td>${resp[i].id}</td>
-                            <td>${resp[i].party_name ? resp[i].party_name : '-'}</td>
-                            <td>${resp[i].item_name}</td>
-                            <td>${resp[i].unit}</td>
-                            <td>${resp[i].qty}</td>
-                            <td>${resp[i].rate}</td>
-                            <td>${resp[i].total_amount}</td>
-                            <td>${moment(resp[i].created_at).format("DD-MMM-YYYY")}</td>
-                            <td>
-                              <a href="{{config('app.url')}}/stock/in/${resp[i].id}/edit" class="btn btn-sm btn-warning edit"><i class="fa fa-edit"></i></a>   
-                              <a id="${resp[i].id}" class="btn btn-sm btn-danger delete_all" tbname="${resp[i].item_id}" url="stock/in"><i class="fa fa-times"></i></a>
-                            </td>
+            $("#preloader").show();            
+            ajaxGetApi("/stock/api", function(res) {
+              $("#preloader").hide();
+              var resp = res.stockin;
+              var html = '';
+              var sr_no = 1;
+              html += `
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Party Name</th>
+                            <th>Item Name</th>
+                            <th>Unit</th>
+                            <th>Qty</th>
+                            <th>Purchase Rate</th>
+                            <th>Total Amount</th>
+                            <th>Date</th>
+                            <th>Action</th>
                         </tr>
-                    `;
-                    sr_no++;
-                }
-                html += `
-                </tbody>
-                  <tfoot>
-                    <tr>
-                      <th colspan="4" style="text-align:right">Total:</th>
-                      <th></th>
-                      <th colspan="4"></th>
-                    </tr>
-                  </tfoot>
-                ` ;
-                $('#stockin_dt').html(html);
-                $('#stockin_dt').DataTable({
-                      order: [[0,'desc']],
-                    /*  order: [[1,'desc']],
-                      rowGroup: {
-                          dataSrc: [1]
-                      }, */
-                      columnDefs: [{
-                          targets: [0],
-                          visible: false,
-                      }],
-                      dom: 'lBfrtip',
-                      buttons: [
-                          'pdf'
-                      ],
-                      responsive: true,
-                      footerCallback: function (row, data, start, end, display) {
-                        var api = this.api();
-                        
-                        // Remove the formatting to get integer data for summation
-                        var intVal = function (i) {
-                          return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
-                        };
-                  
-                        // Total over all pages
-                        total = api
-                          .column(4)
-                          .data()
-                          .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                          }, 0);
-                  
-                        // Total over this page
-                        pageTotal = api
-                          .column(4, { page: 'current' })
-                          .data()
-                          .reduce(function (a, b) {
-                            return intVal(a) + intVal(b);
-                          }, 0);
-                  
-                        // Update footer
-                        $(api.column(4).footer()).html(pageTotal + ' ( ' + total + ' total)');
-                      },
-                });
+                      </thead>
+                    <tbody>
+              `;
+              for(var i in resp) {
+                  html += `
+                        <tr>
+                          <td>${resp[i].id}</td>
+                          <td>${resp[i].party_name ? resp[i].party_name : '-'}</td>
+                          <td>${resp[i].item_name}</td>
+                          <td>${resp[i].unit}</td>
+                          <td>${resp[i].qty}</td>
+                          <td>${resp[i].rate}</td>
+                          <td>${resp[i].total_amount}</td>
+                          <td>${moment(resp[i].created_at).format("DD-MMM-YYYY")}</td>
+                          <td>
+                            <a href="{{config('app.url')}}/stock/in/${resp[i].id}/edit" class="btn btn-sm btn-warning edit"><i class="fa fa-edit"></i></a>   
+                            <a id="${resp[i].id}" class="btn btn-sm btn-danger delete_all" tbname="${resp[i].item_id}" url="stock/in"><i class="fa fa-times"></i></a>
+                          </td>
+                      </tr>
+                  `;
+                  sr_no++;
               }
+              html += `
+              </tbody>
+                <tfoot>
+                  <tr>
+                    <th colspan="4" style="text-align:right">Total:</th>
+                    <th></th>
+                    <th colspan="4"></th>
+                  </tr>
+                </tfoot>
+              ` ;
+              $('#stockin_dt').html(html);
+              $('#stockin_dt').DataTable({
+                    order: [[0,'desc']],
+                  /*  order: [[1,'desc']],
+                    rowGroup: {
+                        dataSrc: [1]
+                    }, */
+                    columnDefs: [{
+                        targets: [0],
+                        visible: false,
+                    }],
+                    dom: 'lBfrtip',
+                    buttons: [
+                        'pdf'
+                    ],
+                    responsive: true,                    
+                    "pagingType": "simple",
+                    footerCallback: function (row, data, start, end, display) {
+                      var api = this.api();
+                      
+                      // Remove the formatting to get integer data for summation
+                      var intVal = function (i) {
+                        return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                      };
+                
+                      // Total over all pages
+                      total = api
+                        .column(4)
+                        .data()
+                        .reduce(function (a, b) {
+                          return intVal(a) + intVal(b);
+                        }, 0);
+                
+                      // Total over this page
+                      pageTotal = api
+                        .column(4, { page: 'current' })
+                        .data()
+                        .reduce(function (a, b) {
+                          return intVal(a) + intVal(b);
+                        }, 0);
+                
+                      // Update footer
+                      $(api.column(4).footer()).html(pageTotal + ' ( ' + total + ' total)');
+                    },
+              });
+            },
+            function (data) {
+                console.log(data);
             })
           }
           
           stock_out();
           function stock_out() {
             $("#preloader").show();
-            $.ajax({
-              url:base_url+"/stock/api",
-              method:"GET",
-              dataType:'json',
-              success:function(res)
-              {
+            ajaxGetApi("/stock/api", function(res) {
                 $("#preloader").hide();
                 var resp = res.stockout;
                 var html = '';
@@ -534,6 +523,7 @@
                           'pdf'
                       ],
                       responsive: true,
+                      "pagingType": "simple",
                       footerCallback: function (row, data, start, end, display) {
                         var api = this.api();
                   
@@ -561,9 +551,11 @@
                         // Update footer
                         $(api.column(2).footer()).html(pageTotal + ' ( ' + total + ' total)');
                       },
-                  });
-              }
-            })
+                });
+            }, 
+            function (data) {
+                console.log(data);
+            });
           }
         
       })

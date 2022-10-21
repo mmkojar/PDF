@@ -29,11 +29,10 @@
             {{ ucfirst(Auth::user()->name) }}
           </span>
         </a>
-        <div class="clearfix"></div>        
+        <div class="clearfix"></div>
       </div>
     </div>
-    <ul class="nav">         
-      {{-- || 'product/stock' || 'customer' || 'salve' || 'days/processing' || 'days/medical1' || 'days/medical2' || 'days/salves' --}}
+    {{-- <ul class="nav">         
       <li id="master">
         <a data-toggle="collapse" href="#pagesExamples">
           <i class="nc-icon nc-paper"></i>
@@ -106,16 +105,6 @@
                 <span class="sidebar-normal"> Milk Entry <span>(દૂધની એન્ટ્રી)</span> </span>
               </a>
             </li>
-            {{-- <li>
-              <a href="{{route('milk_collection.internal')}}">
-                <span class="sidebar-normal"> Internal Collection <span>(આંતરિક સંગ્રહ)</span> </span>
-              </a>
-            </li>
-            <li>
-              <a href="{{route('milk_collection.external')}}">
-                <span class="sidebar-normal"> External Collection <span>(બાહ્ય સંગ્રહ)</span> </span>
-              </a>
-            </li> --}}
           </ul>
         </div>
       </li>
@@ -167,17 +156,6 @@
                 <span class="sidebar-normal"> Reports <span>(અહેવાલો)</span> </span>
               </a>
             </li>
-            {{-- <li class="{{ Request::is('salve/transfer') ? 'active' : '' }}">
-              <a href="{{route('salve.transfer')}}">
-                <span class="sidebar-normal"> Transfer To salve <span>(સોલ્વ)</span> </span>
-              </a>
-            </li> --}}
-            {{-- <li class="{{ Request::is('sold') ? 'active' : '' }}">
-              <a href="{{route('sold.index')}}">
-                <span class="sidebar-mini-icon">MC2</span>
-                <span class="sidebar-normal"> Medical Checkup 2 <span>(દૂધ વેચાય છે)</span> </span>
-              </a>
-            </li> --}}
           </ul>
         </div>
       </li>
@@ -196,22 +174,6 @@
                 <span class="sidebar-normal"> Manage Stocks  <span>(સ્ટોક્સ મેનેજ કરો)</span></span>
               </a>
             </li>
-            {{-- 
-              <li>
-                <a href="{{route('category_management.index')}}">
-                  <span class="sidebar-normal"> Manage Category Stock <br><span>(કેટેગરી સ્ટોક મેનેજ કરો)</span></span>
-                </a>
-              </li>
-              <li>
-                <a href="{{route('medical.index')}}">
-                  <span class="sidebar-normal"> Medical Stock  <span>(તબીબી સ્ટોક)</span></span>
-                </a>
-              </li>
-              <li>
-                <a href="{{route('food.index')}}">
-                  <span class="sidebar-normal"> Food Stock  <span>(ફૂડ સ્ટોક)</span></span>
-                </a>
-              </li> --}}
             <li>
               <a href="{{route('rent.index')}}">
                 <span class="sidebar-normal"> Income  <span>(આવક)</span></span>
@@ -225,7 +187,7 @@
           </ul>
         </div>
       </li>      
-    </ul>
+    </ul> --}}
   </div>
 </div>
 
