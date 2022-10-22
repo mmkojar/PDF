@@ -50,6 +50,7 @@
 @yield('stockout_script')
 @yield('attendance_script')
 @yield('customer_script')
+@yield('milk_scripts')
 </body>
 
 </html>

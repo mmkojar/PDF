@@ -569,7 +569,11 @@ $(document).ready(function() {
             html += '</div>';
             $('#show_textboxes1').append(html);
         }
-
+        
+        $(document).on('click', '.add_row_icon1', function(e) {
+            add_PLk_in_product_stock();
+        });
+        
         // For Dynamic Product Stock khilla        
         $(document).on('change', '.get_dynamic_khillno_on_change', function(e) {
             var id = $(this).val();
@@ -650,16 +654,13 @@ $(document).ready(function() {
             }
         });
 
-        $(document).on('click', '.add_row_icon1', function(e) {
-            add_PLk_in_product_stock();
-        });
 
         $(document).on('click', '.delete_row_icon1', function(e) {
             $(this).closest('.row').remove();
         });
 
         // For Dynamic External collection
-        var count = 0;
+       /*  var count = 0;
 
         function add_ext_col_rows() {
             count += 1;
@@ -721,25 +722,10 @@ $(document).ready(function() {
 
         $(document).on('click', '.del_ext_col_rows', function() {
             $(this).closest('tr').remove();
-        });
-
-        function total_collection() {
-            var me_data = [];
-            $(".getme_data").each(function() {
-                me_data.push(Number($(this).val()));
-            })
-            var set_allme_values = me_data.reduce((total, values) => total + values, 0);
-            $("#get_allme_values").val(set_allme_values);
-        }
-        total_collection();
-
-        $(document).on('keyup change', '.getme_data', function() {
-            total_collection();
-        })
-
+        }); */        
 
         // For Dynamic Normal Customer
-        var count = 0;
+        /* var count = 0;
 
         function add_nor_cust_rows() {
             count += 1;
@@ -772,7 +758,7 @@ $(document).ready(function() {
                 $(this).val('0');
                 total_collection();
             })
-        });
+        }); */
 
 
         // For Categories

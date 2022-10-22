@@ -20,7 +20,7 @@ class CreateMilkcollectionsTable extends Migration
             $table->string('morning',20)->nullable();
             $table->string('evening',20)->nullable();
             // $table->string('given')->nullable();
-            // $table->string('givenreturn')->nullable();            
+            // $table->string('givenreturn')->nullable();
             // $table->string('taken')->nullable();
             // $table->string('takenreturn')->nullable();
             $table->string('total_litres')->nullable();

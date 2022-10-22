@@ -99,6 +99,12 @@ tr.group, tr.group:hover {
     /* float: right; */
     margin: 2px;
 }
+.clabelstyle {
+    border: 0;
+    text-align: center;
+    margin-bottom:10px;
+    width: 28%;
+}
 
 .cash_entry_class {
     width: 15%;
