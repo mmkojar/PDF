@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 18, 2022 at 05:34 PM
+-- Generation Time: Nov 05, 2022 at 06:03 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.29
 
@@ -37,6 +37,297 @@ CREATE TABLE `attendance_list` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `attendance_list`
+--
+
+INSERT INTO `attendance_list` (`id`, `eid`, `entry`, `per_day_salary`, `month`, `date`, `created_at`, `updated_at`) VALUES
+(1, 1, '1', '406.57', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(2, 2, '1', '425.30', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(3, 3, '1', '406.93', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(4, 4, '1', '380.03', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(5, 5, '1', '449.23', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(7, 7, '1', '415.13', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(8, 8, '1', '483.27', 'Oct', '2022-10-01', '2022-10-19 05:56:15', NULL),
+(9, 9, '1', '306.13', 'Oct', '2022-10-01', '2022-10-19 05:56:16', NULL),
+(21, 1, '1', '406.57', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(22, 2, '1', '425.30', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(23, 3, '1', '500.00', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(24, 4, '1', '380.03', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(25, 5, '1', '449.23', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(27, 7, '1', '415.13', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(28, 8, '1', '483.27', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(29, 9, '0.5', '153.07', 'Oct', '2022-10-02', '2022-10-19 21:11:17', NULL),
+(31, 1, '1', '406.57', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(32, 2, '1', '425.30', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(33, 3, '1', '500.00', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(34, 4, '1', '380.03', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(35, 5, '1', '449.23', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(36, 7, '1', '415.13', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(37, 8, '0.5', '241.63', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(38, 9, '0', '0', 'Oct', '2022-10-03', '2022-10-19 22:25:39', NULL),
+(39, 10, '1', '400.00', 'Nov', '2022-11-02', '2022-10-20 03:31:11', NULL),
+(40, 1, '1', '406.57', 'Nov', '2022-11-02', '2022-10-20 03:31:11', NULL),
+(41, 2, '1', '425.30', 'Nov', '2022-11-02', '2022-10-20 03:31:11', NULL),
+(42, 3, '1', '500.00', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(43, 4, '1', '380.03', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(44, 5, '1', '449.23', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(45, 7, '1', '415.13', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(46, 8, '0.5', '241.63', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(47, 9, '0', '0', 'Nov', '2022-11-02', '2022-10-20 03:31:12', NULL),
+(49, 10, '1', '400.00', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(50, 1, '1', '406.57', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(51, 2, '1', '425.30', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(52, 3, '1', '500.00', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(53, 4, '1', '380.03', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(54, 5, '1', '449.23', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(55, 7, '1', '415.13', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(56, 8, '1', '483.27', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(57, 9, '1', '306.13', 'Oct', '2022-10-04', '2022-10-20 04:16:24', NULL),
+(59, 10, '1', '400.00', 'Oct', '2022-10-05', '2022-10-20 04:20:33', NULL),
+(60, 1, '1', '406.57', 'Oct', '2022-10-05', '2022-10-20 04:20:33', NULL),
+(61, 2, '1', '425.30', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(62, 3, '1', '500.00', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(63, 4, '1', '380.03', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(64, 5, '1', '449.23', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(65, 7, '1', '415.13', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(66, 8, '1', '483.27', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(67, 9, '1', '306.13', 'Oct', '2022-10-05', '2022-10-20 04:20:34', NULL),
+(69, 10, '1', '400.00', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(70, 1, '1', '406.57', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(71, 2, '1', '425.30', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(72, 3, '1', '500.00', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(73, 4, '1', '380.03', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(74, 5, '1', '449.23', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(75, 7, '1', '415.13', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(76, 8, '1', '483.27', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(77, 9, '1', '306.13', 'Oct', '2022-10-06', '2022-10-20 04:22:14', NULL),
+(79, 10, '1', '400.00', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(80, 1, '1', '406.57', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(81, 2, '1', '425.30', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(82, 3, '1', '500.00', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(83, 4, '1', '380.03', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(84, 5, '1', '449.23', 'Oct', '2022-10-07', '2022-10-20 04:23:49', NULL),
+(85, 7, '1', '415.13', 'Oct', '2022-10-07', '2022-10-20 04:23:50', NULL),
+(86, 8, '1', '483.27', 'Oct', '2022-10-07', '2022-10-20 04:23:50', NULL),
+(87, 9, '1', '306.13', 'Oct', '2022-10-07', '2022-10-20 04:23:50', NULL),
+(88, 10, '1', '400.00', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(89, 1, '1', '406.57', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(90, 2, '1', '425.30', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(91, 3, '1', '500.00', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(92, 4, '1', '380.03', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(93, 5, '1', '449.23', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(94, 7, '1', '415.13', 'Oct', '2022-10-08', '2022-10-20 05:43:55', NULL),
+(95, 8, '1', '483.27', 'Oct', '2022-10-08', '2022-10-20 05:43:56', NULL),
+(96, 9, '1', '306.13', 'Oct', '2022-10-08', '2022-10-20 05:43:56', NULL),
+(97, 10, '1', '400.00', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(98, 1, '1', '500.00', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(99, 2, '1', '425.30', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(100, 3, '1', '500.00', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(101, 4, '1', '380.03', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(102, 5, '1', '449.23', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(103, 7, '1', '415.13', 'Oct', '2022-10-09', '2022-10-20 21:47:41', NULL),
+(104, 8, '1', '483.27', 'Oct', '2022-10-09', '2022-10-20 21:47:42', NULL),
+(105, 9, '1', '306.13', 'Oct', '2022-10-09', '2022-10-20 21:47:42', NULL),
+(106, 10, '1', '400.00', 'Oct', '2022-10-10', '2022-10-20 21:48:20', NULL),
+(107, 1, '1', '500.00', 'Oct', '2022-10-10', '2022-10-20 21:48:20', NULL),
+(108, 2, '1', '425.30', 'Oct', '2022-10-10', '2022-10-20 21:48:20', NULL),
+(109, 3, '1', '500.00', 'Oct', '2022-10-10', '2022-10-20 21:48:20', NULL),
+(110, 4, '1', '380.03', 'Oct', '2022-10-10', '2022-10-20 21:48:21', NULL),
+(111, 5, '1', '449.23', 'Oct', '2022-10-10', '2022-10-20 21:48:21', NULL),
+(112, 7, '1', '415.13', 'Oct', '2022-10-10', '2022-10-20 21:48:21', NULL),
+(113, 8, '1', '483.27', 'Oct', '2022-10-10', '2022-10-20 21:48:21', NULL),
+(114, 9, '1', '306.13', 'Oct', '2022-10-10', '2022-10-20 21:48:21', NULL),
+(115, 10, '1', '400.00', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(116, 1, '1', '500.00', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(117, 2, '1', '425.30', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(118, 3, '1', '500.00', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(119, 4, '1', '380.03', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(120, 5, '1', '449.23', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(121, 7, '1', '415.13', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(122, 8, '1', '483.27', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(123, 9, '1', '306.13', 'Oct', '2022-10-11', '2022-10-20 21:48:50', NULL),
+(124, 10, '1', '400.00', 'Oct', '2022-10-12', '2022-10-20 21:49:00', NULL),
+(125, 1, '1', '500.00', 'Oct', '2022-10-12', '2022-10-20 21:49:00', NULL),
+(126, 2, '1', '425.30', 'Oct', '2022-10-12', '2022-10-20 21:49:00', NULL),
+(127, 3, '1', '500.00', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(128, 4, '1', '380.03', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(129, 5, '1', '449.23', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(130, 7, '1', '415.13', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(131, 8, '1', '483.27', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(132, 9, '1', '306.13', 'Oct', '2022-10-12', '2022-10-20 21:49:01', NULL),
+(133, 10, '1', '400.00', 'Oct', '2022-10-13', '2022-10-20 21:49:05', NULL),
+(134, 1, '1', '500.00', 'Oct', '2022-10-13', '2022-10-20 21:49:05', NULL),
+(135, 2, '1', '425.30', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(136, 3, '1', '500.00', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(137, 4, '1', '380.03', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(138, 5, '1', '449.23', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(139, 7, '1', '415.13', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(140, 8, '1', '483.27', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(141, 9, '1', '306.13', 'Oct', '2022-10-13', '2022-10-20 21:49:06', NULL),
+(142, 10, '1', '400.00', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(143, 1, '1', '500.00', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(144, 2, '1', '425.30', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(145, 3, '1', '500.00', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(146, 4, '1', '380.03', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(147, 5, '1', '449.23', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(148, 7, '1', '415.13', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(149, 8, '1', '483.27', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(150, 9, '1', '306.13', 'Oct', '2022-10-14', '2022-10-20 21:49:10', NULL),
+(151, 10, '1', '400.00', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(152, 1, '1', '500.00', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(153, 2, '1', '425.30', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(154, 3, '1', '500.00', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(155, 4, '1', '380.03', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(156, 5, '1', '449.23', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(157, 7, '1', '415.13', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(158, 8, '1', '483.27', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(159, 9, '1', '306.13', 'Oct', '2022-10-15', '2022-10-20 21:49:14', NULL),
+(160, 10, '1', '400.00', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(161, 1, '1', '500.00', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(162, 2, '1', '425.30', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(163, 3, '1', '500.00', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(164, 4, '1', '380.03', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(165, 5, '1', '449.23', 'Oct', '2022-10-16', '2022-10-20 21:49:18', NULL),
+(166, 7, '1', '415.13', 'Oct', '2022-10-16', '2022-10-20 21:49:19', NULL),
+(167, 8, '1', '483.27', 'Oct', '2022-10-16', '2022-10-20 21:49:19', NULL),
+(168, 9, '1', '306.13', 'Oct', '2022-10-16', '2022-10-20 21:49:19', NULL),
+(169, 10, '1', '400.00', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(170, 1, '1', '500.00', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(171, 2, '1', '425.30', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(172, 3, '1', '500.00', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(173, 4, '1', '380.03', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(174, 5, '1', '449.23', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(175, 7, '1', '415.13', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(176, 8, '1', '483.27', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(177, 9, '1', '306.13', 'Oct', '2022-10-17', '2022-10-20 21:49:22', NULL),
+(178, 10, '1', '400.00', 'Oct', '2022-10-18', '2022-10-20 21:49:25', NULL),
+(179, 1, '1', '500.00', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(180, 2, '1', '425.30', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(181, 3, '1', '500.00', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(182, 4, '1', '380.03', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(183, 5, '1', '449.23', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(184, 7, '1', '415.13', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(185, 8, '1', '483.27', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(186, 9, '1', '306.13', 'Oct', '2022-10-18', '2022-10-20 21:49:26', NULL),
+(187, 10, '1', '400.00', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(188, 1, '1', '500.00', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(189, 2, '1', '425.30', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(190, 3, '1', '500.00', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(191, 4, '1', '380.03', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(192, 5, '1', '449.23', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(193, 7, '1', '415.13', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(194, 8, '1', '483.27', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(195, 9, '1', '306.13', 'Oct', '2022-10-19', '2022-10-20 21:49:29', NULL),
+(196, 10, '1', '400.00', 'Oct', '2022-10-20', '2022-10-20 21:49:32', NULL),
+(197, 1, '1', '500.00', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(198, 2, '1', '425.30', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(199, 3, '1', '500.00', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(200, 4, '1', '380.03', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(201, 5, '1', '449.23', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(202, 7, '1', '415.13', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(203, 8, '1', '483.27', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(204, 9, '1', '306.13', 'Oct', '2022-10-20', '2022-10-20 21:49:33', NULL),
+(205, 10, '1', '400.00', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(206, 1, '1', '500.00', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(207, 2, '1', '425.30', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(208, 3, '1', '500.00', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(209, 4, '1', '380.03', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(210, 5, '1', '449.23', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(211, 7, '1', '415.13', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(212, 8, '1', '483.27', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(213, 9, '1', '306.13', 'Oct', '2022-10-21', '2022-10-20 21:49:36', NULL),
+(214, 10, '1', '400.00', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(215, 1, '1', '500.00', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(216, 2, '1', '425.30', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(217, 3, '1', '500.00', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(218, 4, '1', '380.03', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(219, 5, '1', '449.23', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(220, 7, '1', '415.13', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(221, 8, '1', '483.27', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(222, 9, '1', '306.13', 'Oct', '2022-10-22', '2022-10-20 21:49:40', NULL),
+(223, 10, '1', '400.00', 'Oct', '2022-10-23', '2022-10-20 21:49:43', NULL),
+(224, 1, '1', '500.00', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(225, 2, '1', '425.30', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(226, 3, '1', '500.00', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(227, 4, '1', '380.03', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(228, 5, '1', '449.23', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(229, 7, '1', '415.13', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(230, 8, '1', '483.27', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(231, 9, '1', '306.13', 'Oct', '2022-10-23', '2022-10-20 21:49:44', NULL),
+(232, 10, '1', '400.00', 'Oct', '2022-10-24', '2022-10-20 21:49:47', NULL),
+(233, 1, '1', '500.00', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(234, 2, '1', '425.30', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(235, 3, '1', '500.00', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(236, 4, '1', '380.03', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(237, 5, '1', '449.23', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(238, 7, '1', '415.13', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(239, 8, '1', '483.27', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(240, 9, '1', '306.13', 'Oct', '2022-10-24', '2022-10-20 21:49:48', NULL),
+(241, 10, '1', '400.00', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(242, 1, '1', '500.00', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(243, 2, '1', '425.30', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(244, 3, '1', '500.00', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(245, 4, '1', '380.03', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(246, 5, '1', '449.23', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(247, 7, '1', '415.13', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(248, 8, '0.5', '241.63', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(249, 9, '1', '306.13', 'Oct', '2022-10-25', '2022-10-20 21:49:56', NULL),
+(250, 10, '1', '400.00', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(251, 1, '1', '500.00', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(252, 2, '1', '425.30', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(253, 3, '1', '500.00', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(254, 4, '1', '380.03', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(255, 5, '1', '449.23', 'Oct', '2022-10-26', '2022-10-20 21:49:59', NULL),
+(256, 7, '1', '415.13', 'Oct', '2022-10-26', '2022-10-20 21:50:00', NULL),
+(257, 8, '0.5', '241.63', 'Oct', '2022-10-26', '2022-10-20 21:50:00', NULL),
+(258, 9, '1', '306.13', 'Oct', '2022-10-26', '2022-10-20 21:50:00', NULL),
+(259, 10, '1', '400.00', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(260, 1, '1', '500.00', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(261, 2, '1', '425.30', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(262, 3, '1', '500.00', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(263, 4, '1', '380.03', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(264, 5, '1', '449.23', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(265, 7, '1', '415.13', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(266, 8, '0.5', '241.63', 'Oct', '2022-10-27', '2022-10-20 21:50:03', NULL),
+(267, 9, '1', '306.13', 'Oct', '2022-10-27', '2022-10-20 21:50:04', NULL),
+(268, 10, '1', '400.00', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(269, 1, '1', '500.00', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(270, 2, '1', '425.30', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(271, 3, '1', '500.00', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(272, 4, '1', '380.03', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(273, 5, '1', '449.23', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(274, 7, '1', '415.13', 'Oct', '2022-10-28', '2022-10-20 21:50:07', NULL),
+(275, 8, '0.5', '241.63', 'Oct', '2022-10-28', '2022-10-20 21:50:08', NULL),
+(276, 9, '1', '306.13', 'Oct', '2022-10-28', '2022-10-20 21:50:08', NULL),
+(277, 10, '1', '400.00', 'Oct', '2022-10-29', '2022-10-20 21:50:12', NULL),
+(278, 1, '1', '500.00', 'Oct', '2022-10-29', '2022-10-20 21:50:12', NULL),
+(279, 2, '1', '425.30', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(280, 3, '1', '500.00', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(281, 4, '1', '380.03', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(282, 5, '1', '449.23', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(283, 7, '1', '415.13', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(284, 8, '0.5', '241.63', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(285, 9, '1', '306.13', 'Oct', '2022-10-29', '2022-10-20 21:50:13', NULL),
+(286, 10, '1', '400.00', 'Oct', '2022-10-30', '2022-10-20 21:50:16', NULL),
+(287, 1, '1', '500.00', 'Oct', '2022-10-30', '2022-10-20 21:50:16', NULL),
+(288, 2, '1', '425.30', 'Oct', '2022-10-30', '2022-10-20 21:50:16', NULL),
+(289, 3, '1', '500.00', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(290, 4, '1', '380.03', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(291, 5, '1', '449.23', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(292, 7, '1', '415.13', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(293, 8, '0.5', '241.63', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(294, 9, '1', '306.13', 'Oct', '2022-10-30', '2022-10-20 21:50:17', NULL),
+(295, 10, '1', '400.00', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(296, 1, '1', '500.00', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(297, 2, '1', '425.30', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(298, 3, '1', '500.00', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(299, 4, '1', '380.03', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(300, 5, '1', '449.23', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(301, 7, '1', '415.13', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(302, 8, '0.5', '241.63', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL),
+(303, 9, '1', '306.13', 'Oct', '2022-10-31', '2022-10-20 21:50:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -73,13 +364,27 @@ CREATE TABLE `customers` (
   `milk_rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `morning` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `evening` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mobile_no1` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mobile_no2` bigint(20) DEFAULT NULL,
+  `mobile_no` bigint(15) DEFAULT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`id`, `customer_name`, `customer_type`, `bill_period`, `customer_location`, `description`, `milk_rate`, `morning`, `evening`, `mobile_no`, `email`, `status`, `created_at`, `updated_at`) VALUES
+(10, 'Noble', NULL, NULL, NULL, NULL, '75', '480', '320', NULL, NULL, 'active', '2022-10-21 12:11:25', '2022-10-21 12:11:25'),
+(11, 'Punjab', NULL, NULL, NULL, NULL, '77', '240', '0', NULL, NULL, 'active', '2022-10-21 12:31:47', '2022-10-21 12:31:47'),
+(12, 'Royal In', NULL, NULL, NULL, NULL, '74', '400', '0', NULL, NULL, 'active', '2022-10-21 12:32:00', '2022-10-21 12:32:00'),
+(13, 'United', NULL, NULL, NULL, NULL, '75', '0', '80', NULL, NULL, 'active', '2022-10-21 12:32:13', '2022-10-21 12:32:13'),
+(14, 'Shantilal', NULL, NULL, NULL, NULL, '78', '0', '70', NULL, NULL, 'active', '2022-10-21 12:32:39', '2022-10-21 12:32:39'),
+(15, 'Madhvi', NULL, NULL, NULL, NULL, '76', '40', '40', NULL, NULL, 'active', '2022-10-21 12:32:51', '2022-10-21 12:32:51'),
+(16, 'Harish', NULL, NULL, NULL, NULL, '77', '40', '35', NULL, NULL, 'active', '2022-10-21 12:33:09', '2022-10-21 12:33:09'),
+(17, 'Bharat', NULL, NULL, NULL, NULL, '78', '45', '25', NULL, NULL, 'active', '2022-10-21 12:33:23', '2022-10-21 12:33:23'),
+(18, 'Kailash', NULL, NULL, NULL, NULL, '78', '35', '10', NULL, NULL, 'active', '2022-10-21 12:33:37', '2022-10-21 12:33:37');
 
 -- --------------------------------------------------------
 
@@ -106,7 +411,7 @@ CREATE TABLE `days` (
 CREATE TABLE `employees` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `mobile_no` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mobile_no` bigint(15) DEFAULT NULL,
   `location` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `salary` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -119,16 +424,15 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `mobile_no`, `location`, `salary`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Magni.', '(626) 517-0113 x4984', 'Et.', '12197', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(2, 'Illum.', '537.266.2469', 'Rem.', '12759', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(3, 'Nostrum.', '595-851-0640 x650', 'Amet.', '12208', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(4, 'Nihil.', '1-370-629-6687', 'Aut.', '11401', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(5, 'Nulla.', '446.848.5566 x27454', 'Enim.', '13477', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(6, 'Beatae.', '1-536-708-0729 x256', 'Et.', '14298', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(7, 'Soluta.', '+1.437.757.2012', 'Ut.', '12454', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(8, 'Ut.', '(592) 235-0557', 'Illo.', '14498', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(9, 'Fuga in.', '+1.351.433.3593', 'Enim.', '9184', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
-(10, 'Quo eos.', '1-412-288-9983 x8679', 'Et.', '10146', '1', '2022-10-15 05:56:53', '2022-10-15 05:56:53');
+(1, 'Employee 1', 9999999991, 'goregaon (W)', '15000', 'active', '2022-10-15 05:56:53', '2022-10-21 09:44:06'),
+(2, 'Employee 2', 9999999992, 'goregaon(E)', '12759', 'active', '2022-10-15 05:56:53', '2022-10-20 09:00:48'),
+(3, 'Employee 3', 9999999997, 'malad(W)', '15000', 'active', '2022-10-15 05:56:53', '2022-10-20 09:05:00'),
+(4, 'Employee 4', 9999999998, 'malad(E)', '11401', 'active', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
+(5, 'Employee 5', 446848, 'Enim.', '13477', 'active', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
+(7, 'Employee 7', 1437, 'Ut.', '12454', 'active', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
+(8, 'Employee 8', 0, 'Illo.', '14498', 'active', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
+(9, 'Employee 9', 1351, 'Enim.', '9184', 'active', '2022-10-15 05:56:53', '2022-10-15 05:56:53'),
+(10, 'alex wade', 4646456456, 'sdasd', '12000', 'active', '2022-10-20 14:21:38', '2022-10-21 09:40:25');
 
 -- --------------------------------------------------------
 
@@ -161,11 +465,19 @@ CREATE TABLE `external_collection` (
   `total_given_taken` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `rate` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` date DEFAULT NULL,
-  `total_amount` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_litres` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount_paid` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `external_collection`
+--
+
+INSERT INTO `external_collection` (`id`, `type`, `party_name`, `ext_party_name`, `morning`, `evening`, `total_given_taken`, `rate`, `date`, `total_litres`, `amount_paid`, `created_at`, `updated_at`) VALUES
+(4, 'bazaar', NULL, NULL, '200', '0', NULL, NULL, '2022-10-22', '200', NULL, '2022-10-22 06:26:44', NULL),
+(5, 'fridge', NULL, NULL, '100', '408', NULL, NULL, '2022-10-22', '508', NULL, '2022-10-22 06:26:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -392,7 +704,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (39, '2022_10_15_111045_create_stock_items_table', 1),
 (40, '2022_10_15_111046_create_stock_in_table', 1),
 (41, '2022_10_15_111055_create_stock_out_table', 1),
-(42, '2022_10_15_112527_create_stock_available_table', 1);
+(42, '2022_10_15_112527_create_stock_available_table', 1),
+(43, '2022_10_21_190906_create_milk_users_table', 2),
+(44, '2022_10_21_190907_create_milk_users_table', 3),
+(45, '2022_10_21_210409_create_milk_user_entry_table', 4),
+(46, '2022_10_21_190908_create_milk_users_table', 5),
+(47, '2022_10_21_190910_create_milk_users_table', 6),
+(48, '2022_10_21_210411_create_milk_user_entry_table', 6);
 
 -- --------------------------------------------------------
 
@@ -414,6 +732,13 @@ CREATE TABLE `milkcollections` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `milkcollections`
+--
+
+INSERT INTO `milkcollections` (`id`, `morning`, `evening`, `given`, `givenreturn`, `taken`, `takenreturn`, `total_litres`, `grand_total`, `collection_date`, `created_at`, `updated_at`) VALUES
+(3, '1280', '580', NULL, NULL, NULL, NULL, '1860', NULL, '2022-10-22', '2022-10-22 06:26:43', '2022-10-22 06:26:44');
 
 -- --------------------------------------------------------
 
@@ -437,6 +762,72 @@ CREATE TABLE `milksolds` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `milksolds`
+--
+
+INSERT INTO `milksolds` (`id`, `customer_id`, `type`, `normal_customer_name`, `milk_rate`, `morning`, `evening`, `total_litres`, `amount_paid`, `pending_amount`, `total_amount`, `sold_date`, `created_at`, `updated_at`) VALUES
+(12, 10, NULL, NULL, NULL, '480', '320', '800', NULL, NULL, '60000', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(13, 11, NULL, NULL, NULL, '240', '0', '240', NULL, NULL, '18480', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(14, 12, NULL, NULL, NULL, '400', '0', '400', NULL, NULL, '29600', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(15, 13, NULL, NULL, NULL, '0', '80', '80', NULL, NULL, '6000', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(16, 14, NULL, NULL, NULL, '0', '70', '70', NULL, NULL, '5460', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(17, 15, NULL, NULL, NULL, '40', '40', '80', NULL, NULL, '6080', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(18, 16, NULL, NULL, NULL, '40', '35', '75', NULL, NULL, '5775', '2022-10-22', '2022-10-22 18:26:43', '2022-10-22 18:26:43'),
+(19, 17, NULL, NULL, NULL, '45', '25', '70', NULL, NULL, '5460', '2022-10-22', '2022-10-22 18:26:44', '2022-10-22 18:26:44'),
+(20, 18, NULL, NULL, NULL, '35', '10', '45', NULL, NULL, '3510', '2022-10-22', '2022-10-22 18:26:44', '2022-10-22 18:26:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `milk_users`
+--
+
+CREATE TABLE `milk_users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `morning` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `evening` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_litres` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `milk_users`
+--
+
+INSERT INTO `milk_users` (`id`, `name`, `morning`, `evening`, `total_litres`, `created_at`, `updated_at`) VALUES
+(1, 'N.Patel', '195', '190', '385', '2022-10-20 21:37:08', NULL),
+(2, 'Patel', '442', '417', '859', '2022-10-20 21:37:08', NULL),
+(3, 'Altaf', '193', '181', '859', '2022-10-20 21:37:08', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `milk_user_entry`
+--
+
+CREATE TABLE `milk_user_entry` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `morning` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `evening` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `total_litres` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `milk_user_entry`
+--
+
+INSERT INTO `milk_user_entry` (`id`, `user_id`, `morning`, `evening`, `total_litres`, `date`, `created_at`, `updated_at`) VALUES
+(4, 1, '195', '190', '385', '2022-10-22', '2022-10-22 06:26:44', NULL),
+(5, 2, '442', '417', '859', '2022-10-22', '2022-10-22 06:26:44', NULL),
+(6, 3, '193', '181', '374', '2022-10-22', '2022-10-22 06:26:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -491,6 +882,14 @@ CREATE TABLE `oauth_clients` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `oauth_clients`
+--
+
+INSERT INTO `oauth_clients` (`id`, `user_id`, `name`, `secret`, `provider`, `redirect`, `personal_access_client`, `password_client`, `revoked`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'PATEL_DAIRY_FARM Personal Access Client', 'LhdKMEwS3wivDS53jW5KeCCfFNGswz2e6kG8vksM', NULL, 'http://localhost', 1, 0, 0, '2022-10-20 14:15:30', '2022-10-20 14:15:30'),
+(2, NULL, 'PATEL_DAIRY_FARM Password Grant Client', '9zVeJufjCuRnELncYcc94PQIxZESYZDZC5L5WIeA', 'users', 'http://localhost', 0, 1, 0, '2022-10-20 14:15:31', '2022-10-20 14:15:31');
+
 -- --------------------------------------------------------
 
 --
@@ -503,6 +902,13 @@ CREATE TABLE `oauth_personal_access_clients` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `oauth_personal_access_clients`
+--
+
+INSERT INTO `oauth_personal_access_clients` (`id`, `client_id`, `created_at`, `updated_at`) VALUES
+(1, 1, '2022-10-20 14:15:30', '2022-10-20 14:15:30');
 
 -- --------------------------------------------------------
 
@@ -702,8 +1108,11 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('krCPqIB3Dah3DECcV1ABMtT3Ii6zZ66DrYuQdeF0', NULL, '::1', 'PostmanRuntime/7.29.2', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiVHUwOXNvRW5pTjM2VW1GNjhnRUREa0ZCTzJCeWI0clIxd2VTU0t4aiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo1MjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL215cHJvamVjdHMvUERGL3N0b2NrL291dC9hcGkvMyI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjUyOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbXlwcm9qZWN0cy9QREYvc3RvY2svb3V0L2FwaS8xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1666022552),
-('qZdXjdtV3I3cL0iJP3Kp7Jt97v6F6dRPvlGCisvr', 1, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiSzdwZTYxSmttVjdGMXB4c0k2RDFhbmNid3hQVEFldUR5NWtRQjJiOCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9teXByb2plY3RzL1BERi9zdG9jayI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRTOGxEaXVLWTUvWG9nNVlLblZjendlUy9GUENNSTBRRERQU1czM0pwNFVNTmFJNU5JMGdEYSI7fQ==', 1666027838);
+('aKJABCimCc3CK0WprW80ZGDK49p7KBcQcU1rFH8n', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiRlFJRldSYldpUVR0eUVKc2JPdmhsMVBCV1A5SU55RzFqQThEU1Q2RSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ1OiJodHRwOi8vbG9jYWxob3N0OjgwODAvUERGL21pbGtfZW50cmllcy9jcmVhdGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkUzhsRGl1S1k1L1hvZzVZS25WY3p3ZVMvRlBDTUkwUUREUFNXMzNKcDRVTU5hSTVOSTBnRGEiO30=', 1666442599),
+('rom8C1WuKdfecwp6J3DfecGiExOWlNC57jjdKZG4', NULL, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiSEhESmRQMGNmd3JjQ1pBNDN6SGowbmRKUlM5NzBkY1JCRG9tUXRFWiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czo0NToiaHR0cDovL2xvY2FsaG9zdDo4MDgwL1BERi9taWxrX2VudHJpZXMvY3JlYXRlIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4MC9QREYvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1666842774),
+('YhfUUKviQz99lYTVoirwCXz4qHbuQKCVpJvpAB8q', NULL, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiWXFUekVaR0w3bkV3V3BsTHdGSUFrQ1VueDZSS1psbHBCMkN6S2FOaiI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNzoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL215cHJvamVjdHMvUERGMSI7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQzOiJodHRwOi8vbG9jYWxob3N0OjgwODAvbXlwcm9qZWN0cy9QREYxL2xvZ2luIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1666874181),
+('yQoUKnN1MvPdSnFd2jSJgWagKIEza2ORSWiuG0bQ', 1, '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiMU5HZUtpaWQ2ejR6azVuT1F0U3JOTEpxeEJ0eThFa016NGkwNzRYNCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ3OiJodHRwOi8vbG9jYWxob3N0OjgwODAvbXlwcm9qZWN0cy9QREYvYXR0ZW5kYW5jZSI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoxNzoicGFzc3dvcmRfaGFzaF93ZWIiO3M6NjA6IiQyeSQxMCRTOGxEaXVLWTUvWG9nNVlLblZjendlUy9GUENNSTBRRERQU1czM0pwNFVNTmFJNU5JMGdEYSI7fQ==', 1667624566),
+('ZLH926TqpTMVRqX1FDQUAT8ppcGGxqYyUIGq7Hbw', 1, '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiTk53TmtDak5iMk5odm5neG54RU1yWk9iaVpTOW40RDRnTGtaMWVpYSI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjQ1OiJodHRwOi8vbG9jYWxob3N0OjgwODAvUERGL21pbGtfZW50cmllcy9jcmVhdGUiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO3M6MTc6InBhc3N3b3JkX2hhc2hfd2ViIjtzOjYwOiIkMnkkMTAkUzhsRGl1S1k1L1hvZzVZS25WY3p3ZVMvRlBDTUkwUUREUFNXMzNKcDRVTU5hSTVOSTBnRGEiO30=', 1666465053);
 
 -- --------------------------------------------------------
 
@@ -727,9 +1136,10 @@ CREATE TABLE `stock_available` (
 --
 
 INSERT INTO `stock_available` (`id`, `item_id`, `unit`, `qty`, `rate`, `date`, `created_at`, `updated_at`) VALUES
-(1, 2, 'PCS', 118, '95.85', '2022-10-15', '2022-10-15 06:56:51', '2022-10-17 04:54:03'),
-(2, 1, 'BOX', 52, '62', '2022-10-19', '2022-10-15 07:28:48', '2022-10-15 05:53:32'),
-(3, 3, 'PCS', 0, '54', '2022-10-17', '2022-10-17 05:28:51', '2022-10-17 05:30:08');
+(1, 2, 'PCS', 106, '95.85', '2022-10-15', '2022-10-15 06:56:51', '2022-10-19 05:55:01'),
+(2, 1, 'BOX', 25, '52.43', '2022-10-19', '2022-10-15 07:28:48', '2022-10-20 22:53:50'),
+(3, 3, 'PCS', 113, '54', '2022-10-17', '2022-10-17 05:28:51', '2022-10-18 22:46:46'),
+(5, 4, 'GUNI', 25, '789.47', '2022-10-19', '2022-10-19 00:04:11', '2022-10-20 22:53:09');
 
 -- --------------------------------------------------------
 
@@ -759,7 +1169,13 @@ INSERT INTO `stock_in` (`id`, `item_id`, `party_name`, `unit`, `qty`, `rate`, `t
 (2, 1, 'raj', 'BOX', 65, '62', '4030', '2022-10-19', '2022-10-15 07:28:47', NULL),
 (3, 2, 'raju', 'BOX', 40, '62', '2480', '2022-10-25', '2022-10-15 00:28:41', NULL),
 (4, 2, 'raju', 'BOX', 40, '62', '2480', '2022-10-25', '2022-10-15 00:29:06', NULL),
-(7, 3, 'test', 'PCS', 129, '54', '6966', '2022-10-17', '2022-10-17 05:28:51', NULL);
+(7, 3, 'test', 'PCS', 129, '54', '6966', '2022-10-17', '2022-10-17 05:28:51', NULL),
+(8, 1, NULL, 'BOX', 20, '0', '0', '2022-10-19', '2022-10-19 07:21:40', NULL),
+(9, 1, 'test', 'BOX', 20, '100', '2000', '2022-10-25', '2022-10-18 21:05:32', NULL),
+(12, 4, 'TEST', 'GUNI', 10, '1500', '15000', '2022-10-19', '2022-10-19 00:04:11', NULL),
+(13, 4, NULL, 'GUNI', 8, '1500', '12000', '2022-10-20', '2022-10-19 00:05:02', '2022-10-19 00:08:16'),
+(14, 4, 'FS', 'GUNI', 20, '150', '3000', '2022-10-20', '2022-10-19 21:57:16', NULL),
+(15, 1, 'test', 'GUNI', 10, '0', '0', '2022-10-21', '2022-10-20 22:53:50', NULL);
 
 -- --------------------------------------------------------
 
@@ -770,7 +1186,7 @@ INSERT INTO `stock_in` (`id`, `item_id`, `party_name`, `unit`, `qty`, `rate`, `t
 CREATE TABLE `stock_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -779,9 +1195,10 @@ CREATE TABLE `stock_items` (
 --
 
 INSERT INTO `stock_items` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(1, 'tuwar', NULL, NULL),
-(2, 'chana', NULL, NULL),
-(3, 'daal', NULL, NULL);
+(1, 'tuwar', '2022-10-19 00:00:00', NULL),
+(2, 'chana', '2022-10-19 00:00:00', NULL),
+(3, 'daal', '2022-10-19 00:00:00', NULL),
+(4, 'bhusa', '2022-10-19 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -808,7 +1225,17 @@ CREATE TABLE `stock_out` (
 INSERT INTO `stock_out` (`id`, `item_id`, `unit`, `qty`, `rate`, `total_amount`, `date`, `created_at`, `updated_at`) VALUES
 (1, 2, 'PCS', 12, '1', '12', '2022-10-15', '2022-10-15 06:59:38', NULL),
 (3, 1, 'PCS', 13, NULL, NULL, '2022-10-15', '2022-10-15 05:53:32', NULL),
-(5, 3, 'PCS', 130, NULL, NULL, '2022-10-17', '2022-10-17 05:30:08', NULL);
+(6, 3, 'PCS', 12, NULL, NULL, '2022-10-19', '2022-10-19 07:03:30', NULL),
+(8, 1, 'PCS', 3, NULL, NULL, '2022-10-19', '2022-10-19 07:20:08', NULL),
+(9, 1, 'PCS', 49, NULL, NULL, '2022-10-19', '2022-10-19 07:20:36', NULL),
+(10, 3, 'PCS', 4, NULL, NULL, '2022-10-19', '2022-10-18 22:46:45', NULL),
+(12, 4, 'GUNI', 6, NULL, NULL, '2022-10-19', '2022-10-19 00:04:42', NULL),
+(13, 4, 'GUNI', 1, NULL, NULL, '2022-10-19', '2022-10-19 00:19:42', '2022-10-19 00:20:05'),
+(14, 2, 'PCS', 12, NULL, NULL, '2022-10-19', '2022-10-19 05:55:00', NULL),
+(15, 4, 'GUNI', 1, NULL, NULL, '2022-10-20', '2022-10-19 21:57:49', NULL),
+(16, 4, 'GUNI', 2, NULL, NULL, NULL, '2022-10-20 05:07:21', NULL),
+(17, 4, 'GUNI', 3, NULL, NULL, NULL, '2022-10-20 22:53:09', NULL),
+(18, 1, 'GUNI', 25, NULL, NULL, '2022-10-21', '2022-10-20 22:53:32', NULL);
 
 -- --------------------------------------------------------
 
@@ -853,7 +1280,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `two_factor_secret`, `two_factor_recovery_codes`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'mmk', 'mmk@gmail.com', '2022-10-15 05:56:49', '$2y$10$S8lDiuKY5/Xog5YKnVczweS/FPCMI0QDDPSW33Jp4UMNaI5NI0gDa', NULL, NULL, 'tIEb42AH1ofPY6ynqCW9G69PjocNiJtsIkIWqVsfqZhXodipxtEyJUdHVSRk', NULL, NULL, '2022-10-15 05:56:49', '2022-10-15 05:56:49'),
+(1, 'mmk', 'mmk@gmail.com', '2022-10-15 05:56:49', '$2y$10$S8lDiuKY5/Xog5YKnVczweS/FPCMI0QDDPSW33Jp4UMNaI5NI0gDa', NULL, NULL, 'zaXAzUpOxPzSxNy8CoFvpcbEamtqXNmjYPjg0Ezjegeq8qCwTmnkbzbmoiZs', NULL, NULL, '2022-10-15 05:56:49', '2022-10-15 05:56:49'),
 (2, 'admin', 'admin@gmail.com', '2022-10-15 05:56:49', '$2y$10$LYm0AhrRw/oBu6z58uwyK.wMkF3rjQqCFDKqF06MxlnC.xK8iBCP.', NULL, NULL, 'ecd49ONzA4', NULL, NULL, '2022-10-15 05:56:49', '2022-10-15 05:56:49');
 
 -- --------------------------------------------------------
@@ -1020,6 +1447,19 @@ ALTER TABLE `milksolds`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `milk_users`
+--
+ALTER TABLE `milk_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `milk_user_entry`
+--
+ALTER TABLE `milk_user_entry`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `milk_user_entry_user_id_foreign` (`user_id`);
+
+--
 -- Indexes for table `oauth_access_tokens`
 --
 ALTER TABLE `oauth_access_tokens`
@@ -1177,7 +1617,7 @@ ALTER TABLE `weights`
 -- AUTO_INCREMENT for table `attendance_list`
 --
 ALTER TABLE `attendance_list`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
 
 --
 -- AUTO_INCREMENT for table `audit_log`
@@ -1189,7 +1629,7 @@ ALTER TABLE `audit_log`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `days`
@@ -1213,7 +1653,7 @@ ALTER TABLE `expenses`
 -- AUTO_INCREMENT for table `external_collection`
 --
 ALTER TABLE `external_collection`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1273,31 +1713,43 @@ ALTER TABLE `medical_checkup`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `milkcollections`
 --
 ALTER TABLE `milkcollections`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `milksolds`
 --
 ALTER TABLE `milksolds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `milk_users`
+--
+ALTER TABLE `milk_users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `milk_user_entry`
+--
+ALTER TABLE `milk_user_entry`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
 --
 ALTER TABLE `oauth_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `oauth_personal_access_clients`
 --
 ALTER TABLE `oauth_personal_access_clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1351,25 +1803,25 @@ ALTER TABLE `salves`
 -- AUTO_INCREMENT for table `stock_available`
 --
 ALTER TABLE `stock_available`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `stock_in`
 --
 ALTER TABLE `stock_in`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `stock_items`
 --
 ALTER TABLE `stock_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `stock_out`
 --
 ALTER TABLE `stock_out`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `transfer_salve`
@@ -1404,6 +1856,12 @@ ALTER TABLE `weights`
 --
 ALTER TABLE `attendance_list`
   ADD CONSTRAINT `attendance_list_eid_foreign` FOREIGN KEY (`eid`) REFERENCES `employees` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `milk_user_entry`
+--
+ALTER TABLE `milk_user_entry`
+  ADD CONSTRAINT `milk_user_entry_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `milk_users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `stock_available`
