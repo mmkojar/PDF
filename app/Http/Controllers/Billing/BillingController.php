@@ -22,15 +22,15 @@ class BillingController extends Controller
 
         $total_billings = DB::table('weekly_billing')
             ->Join('customers', 'weekly_billing.customer_id', '=', 'customers.id')
-            ->select('weekly_billing.*','customers.customer_name','customers.customer_type')
+            ->select('weekly_billing.*','customers.customer_name','customers.mobile_no','customers.customer_type')
             ->orderBy('weekly_billing.bill_no', 'DESC')
             ->get();
         
         
-        $amount_paid_data = DB::table('wekkly_billing_pending_amount')
-            ->Join('customers', 'wekkly_billing_pending_amount.customer_id', '=', 'customers.id')
-            ->select('wekkly_billing_pending_amount.*','customers.customer_name')
-            ->orderBy('wekkly_billing_pending_amount.id', 'DESC')
+        $amount_paid_data = DB::table('weekly_billing_paid_amount')
+            ->Join('customers', 'weekly_billing_paid_amount.customer_id', '=', 'customers.id')
+            ->select('weekly_billing_paid_amount.*','customers.customer_name')
+            ->orderBy('weekly_billing_paid_amount.id', 'DESC')
             ->get();
 
        /*  $weekly_billings_all = DB::table('weekly_billing_all_customers')
@@ -128,14 +128,15 @@ class BillingController extends Controller
                     // 'total_litres' => $request->total_litres,
                     'total_amount' => $request->total_amount[$i],
                     'amount_paid' => $get_pd_amt->amount_paid+$request->amount_paid[$i],
-                    'pending_amount' => $request->total_amount[$i]-($get_pd_amt->amount_paid+$request->amount_paid[$i]+$request->adjusted[$i]+$get_pd_amt->adjusted),
-                    'adjusted' => $get_pd_amt->adjusted+$request->adjusted[$i],
+                    // 'pending_amount' => $request->total_amount[$i]-($get_pd_amt->amount_paid+$request->amount_paid[$i]+$request->adjusted[$i]+$get_pd_amt->adjusted),
+                    'pending_amount' => $request->total_amount[$i]-($get_pd_amt->amount_paid+$request->amount_paid[$i]),
+                    // 'adjusted' => $get_pd_amt->adjusted+$request->adjusted[$i],
                     'updated_at' => date('Y-m-d h:i:s')
                 ]);
                 
                 if($billing) {
                     if($request->amount_paid[$i] != 0) {
-                        DB::table('wekkly_billing_pending_amount')
+                        DB::table('weekly_billing_paid_amount')
                         ->insert([
                             'customer_id' => $request->hidden_customer_id[$i],
                             'bill_no' => $request->hidden_bill_no[$i],
@@ -178,228 +179,167 @@ class BillingController extends Controller
         else {
             
             foreach($request->customer_id as $cid) {
-                $diff_days = (strtotime($request->to_date) - strtotime($request->from_date)) / (60 * 60 * 24)+1;                
-                if($diff_days <= 31) {
-    
-                    $soldsdata = DB::table('milksolds')
+                
+                $diff_days = (strtotime($request->to_date) - strtotime($request->from_date)) / (60 * 60 * 24)+1;
+
+                if($diff_days > 31) {
+                    return redirect('/billing/create')->with('error','Difference Between Two Dates cannot be greater than 31');
+                }
+                
+                $soldsdata = DB::table('milksolds')
                     ->whereBetween('sold_date', [$request->from_date, $request->to_date])
                     ->where('customer_id', '=', $cid)
                     ->orderBy('milksolds.sold_date', 'ASC')
                     ->get();
-    
-                    if(count($soldsdata) > 0) {
-                        
-                        $checkGeneratedInvoice = DB::table('weekly_billing')
+
+                if(count($soldsdata) == 0) {
+                    return redirect('/billing/create')->with('error','No Record Found');
+                }
+
+                $checkGeneratedInvoice = DB::table('weekly_billing')
                         ->where(['customer_id' => $cid, 'from_date' => $request->from_date, 'to_date' => $request->to_date])
                         ->get();
-                        
-                        if(count($checkGeneratedInvoice) < 1) {
-                                        
-                            $set_total_amt = 0;
-                            $set_total_lit = 0;
-                            foreach($soldsdata as $t) {
-                                $set_total_amt += $t->total_amount;
-                                $set_total_lit += $t->total_litres;
-                            }
-                            
-                            //$diff_days = (strtotime($request->to_date) - strtotime($request->from_date)) / (60 * 60 * 24)+1;
-                            // echo $diff_days.'<br>';
-                            // echo $request->from_date.'<br>';
-                            // echo $request->to_date.'<br>';
-                            // echo date('Y-m-d',strtotime($request->from_date .'-'.$diff_days." day"));
-                            // echo date('Y-m-d',strtotime($request->to_date .'-'.$diff_days." day"));
-                            
-                            /* if($diff_days == 7) {
-                                $get_pending_amount_for_week = DB::table('weekly_billing')
-                                    ->where(['customer_id' => $cid])
-                                    ->whereNotBetween('from_date', [$request->from_date, $request->to_date])
-                                    ->whereNotBetween('to_date', [$request->from_date, $request->to_date])
-                                    ->where('from_date','=',date('Y-m-d',strtotime($request->from_date .'-'.$diff_days." day")))
-                                    ->where('to_date','=',date('Y-m-d',strtotime($request->to_date .'-'.$diff_days." day")))                                    
-                                    ->get();
-                            }
-                            else if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {                                
-                                $currentMonth = date('M Y',strtotime($request->from_date));
-                                $last_month =  Date('M Y', strtotime($currentMonth . " last month"));
-                                $get_pending_amount_for_week = DB::table('weekly_billing')
-                                    ->where(['customer_id' => $cid])
-                                    ->whereNotBetween('from_date', [$request->from_date, $request->to_date])
-                                    ->whereNotBetween('to_date', [$request->from_date, $request->to_date])                                    
-                                    ->where('month',$last_month)
-                                    ->get();                                    
-                            } */
-                                $get_pending_amount_for_week = DB::table('weekly_billing')
-                                    ->where('customer_id',$cid)
-                                    ->orderBy('created_at', 'desc')
-                                    ->take(1)
-                                    ->get();
-                            /* $get_pending_amount_for_week = DB::table('weekly_billing')
-                                ->where(['customer_id' => $cid])
-                                ->orderBy('created_at', 'desc')
-                                ->skip(1)
-                                ->take(1)
-                                ->get();
-                             */
-                            // Helper::debug($get_pending_amount_for_week);
-                            $set_pending_amount = 0;
-                            foreach($get_pending_amount_for_week as $pw) {
-                                $set_pending_amount += $pw->pending_amount;
-                            }
-                            
-                            // Generate Bill No                            
-                            $newbillno = 0;
-                            $bill_no = DB::table('weekly_billing')->latest('bill_no')->first();
-                            if($bill_no) {
-                                $newbillno += $bill_no->bill_no+1;
-                            }
-                            else {
-                                $newbillno += $bill_no+1;
-                            }                          
-                            /* if($diff_days == 7 || $diff_days == 8) {
-                                $bill_period = 'weekly';
-                            }
-                            if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {
-                                $bill_period = 'monthly';
-                            } */
-                            $w_billing = DB::table('weekly_billing')
-                            ->insert([
-                                'customer_id' => $cid,
-                                'bill_no' => $newbillno,
-                                'bill_period' => '',
-                                'from_date' => $request->from_date,
-                                'to_date' => $request->to_date,
-                                'month' => date('M Y',strtotime($request->from_date)),
-                                'total_litres' => $set_total_lit,
-                                'amount' => $set_total_amt,
-                                'previous_balance' => $set_pending_amount,
-                                'total_amount' => $set_total_amt+$set_pending_amount,
-                                'amount_paid' => 0,
-                                'pending_amount' => $set_total_amt+$set_pending_amount,
-                                'adjusted' => 0,
-                                'created_at' => date('Y-m-d h:i:s')
-                            ]);   
 
-                            /* if($w_billing) {
-                                $check_weekly_billing_all_customers = DB::table('weekly_billing_all_customers')
-                                ->where(['from_date' => $request->from_date, 'to_date' => $request->to_date])
-                                ->get();                                
-
-                                // changes
-                                // Fetch All Data From Sold
-                                $mystring = implode(",",$request->customer_id);
-                                $myarray = explode(",",$mystring);
-                                $all_customer_data = DB::table('milksolds')
-                                ->Join('customers', 'milksolds.customer_id', '=', 'customers.id')
-                                ->whereBetween('sold_date', [$request->from_date, $request->to_date])
-                                // ->whereIn('customer_id', $myarray)
-                                ->where('customers.bill_period',$bill_period)
-                                ->orderBy('milksolds.sold_date', 'ASC')
-                                ->get();
-                                // changes
-                                
-                                $set_all_total_amt = 0;
-                                $set_all_total_lit = 0;
-                                foreach($all_customer_data as $t) {
-                                    $set_all_total_amt += $t->total_amount;
-                                    $set_all_total_lit += $t->total_litres;
-                                }
-                                                    
-                               $diff_days = (strtotime($request->to_date) - strtotime($request->from_date)) / (60 * 60 * 24)+1;
-                                
-                                // Get Pending Amount Of All Customer
-
-                                if($diff_days == 7 || $diff_days == 8) {
-                                    
-                                    $all_week_pending_amount = DB::table('weekly_billing')
-                                    ->whereNotBetween('from_date', [$request->from_date, $request->to_date])
-                                    ->whereNotBetween('to_date', [$request->from_date, $request->to_date])
-                                    ->where('from_date','=',date('Y-m-d',strtotime($request->from_date .'-'.$diff_days." day")))
-                                    ->where('to_date','=',date('Y-m-d',strtotime($request->to_date .'-'.$diff_days." day")))                                    
-                                    ->get();
-                                }
-                                else if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {
-                                    
-                                    $currentMonth = date('M Y',strtotime($request->from_date));
-                                    $last_month =  Date('M Y', strtotime($currentMonth . " last month"));
-                                    $all_week_pending_amount = DB::table('weekly_billing')
-                                    ->whereNotBetween('from_date', [$request->from_date, $request->to_date])
-                                    ->whereNotBetween('to_date', [$request->from_date, $request->to_date])
-                                    ->where('month',$last_month)
-                                    ->get();
-                                }                        
-                                $set_previous_bal = 0;
-                                foreach($all_week_pending_amount as $wp) {
-                                    $set_previous_bal += $wp->pending_amount;
-                                }
-                                
-                                // Get Paid Amount Of Current Week
-                                $current_week_paid_amount = DB::table('weekly_billing')
-                                ->whereBetween('from_date',[$request->from_date, $request->to_date])
-                                ->whereBetween('to_date',[$request->from_date, $request->to_date])
-                                ->get();
-                                                                        
-                                $set_paid_amount = 0;
-                                $set_adjusted = 0;
-                                foreach($current_week_paid_amount as $w) {
-                                    $set_paid_amount += $w->amount_paid;
-                                    $set_adjusted += $w->adjusted;
-                                }
-                                // if($diff_days == 7) {
-                                //     $bill_period = 'weekly';
-                                // }
-                                // if($diff_days == 10) {
-                                //     $bill_period = 'ten_days';
-                                // }
-                                // if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {
-                                //     $bill_period = 'monthly';
-                                // }
-                                if(count($check_weekly_billing_all_customers) < 1) {
+                if(count($checkGeneratedInvoice) > 0) {
+                    return redirect('/billing/create')->with('error','The Invoice is Already Created For This Dates');
+                }
                 
-                                    $billing = DB::table('weekly_billing_all_customers')
-                                    ->insert([
-                                        // 'bill_no' => $newbillno,
-                                        'from_date' => $request->from_date,
-                                        'to_date' => $request->to_date,
-                                        'bill_period' => $bill_period,
-                                        'total_litres' => $set_all_total_lit,
-                                        'amount' => $set_all_total_amt,
-                                        'previous_balance' => $set_previous_bal,
-                                        'total_amount' => $set_all_total_amt+$set_previous_bal,
-                                        'amount_paid' => $set_paid_amount,
-                                        'adjusted' => $set_adjusted,
-                                        'remaining_balance' => ($set_all_total_amt+$set_previous_bal)-($set_paid_amount+$set_adjusted),
-                                        'created_at' => date('Y-m-d h:i:s')
-                                    ]); 
-                                }
-                                if(count($check_weekly_billing_all_customers) > 0) {
-                                    
-                                    $billing = DB::table('weekly_billing_all_customers')
-                                    ->where(['from_date'=> $request->from_date,'to_date'=> $request->to_date])
-                                    ->update([
-                                        'total_litres' => $set_all_total_lit,
-                                        'amount' => $set_all_total_amt,
-                                        'previous_balance' => $set_previous_bal,
-                                        'total_amount' => $set_all_total_amt+$set_previous_bal,
-                                        'amount_paid' => $set_paid_amount,
-                                        'adjusted' => $set_adjusted,
-                                        'remaining_balance' => ($set_all_total_amt+$set_previous_bal)-($set_paid_amount+$set_adjusted),
-                                        'created_at' => date('Y-m-d h:i:s')
-                                    ]); 
-                                }
-                            } */
-                            
-                        }
-                        else {
-                            return redirect('/billing/create')->with('error','The Invoice is Already Created For This Dates');  
-                        }
-                    }
-                    else {
-                        return redirect('/billing/create')->with('error','No Record Found');  
-                    }                
+                $set_total_amt = 0;
+                $set_total_lit = 0;
+                foreach($soldsdata as $t) {
+                    $set_total_amt += $t->total_amount;
+                    $set_total_lit += $t->total_litres;
+                }                                                        
+                $get_pending_amount_for_week = DB::table('weekly_billing')
+                    ->where('customer_id',$cid)
+                    ->orderBy('created_at', 'desc')
+                    ->take(1)
+                    ->get();
+                /* $get_pending_amount_for_week = DB::table('weekly_billing')
+                    ->where(['customer_id' => $cid])
+                    ->orderBy('created_at', 'desc')
+                    ->skip(1)
+                    ->take(1)
+                    ->get();
+                    */
+                // Helper::debug($get_pending_amount_for_week);
+                $set_pending_amount = 0;
+                foreach($get_pending_amount_for_week as $pw) {
+                    $set_pending_amount += $pw->pending_amount;
+                }
+                
+                // Generate Bill No                            
+                $newbillno = 0;
+                $bill_no = DB::table('weekly_billing')->latest('bill_no')->first();
+                if($bill_no) {
+                    $newbillno += $bill_no->bill_no+1;
                 }
                 else {
-                    return redirect('/billing/create')->with('error','Difference Between Two Dates cannot be greater than 31');
+                    $newbillno += $bill_no+1;
+                }                          
+                /* if($diff_days == 7 || $diff_days == 8) {
+                    $bill_period = 'weekly';
                 }
+                if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {
+                    $bill_period = 'monthly';
+                } */
+                $w_billing = DB::table('weekly_billing')
+                ->insert([
+                    'customer_id' => $cid,
+                    'bill_no' => $newbillno,
+                    'bill_period' => '',
+                    'from_date' => $request->from_date,
+                    'to_date' => $request->to_date,
+                    'month' => date('M Y',strtotime($request->from_date)),
+                    'total_litres' => $set_total_lit,
+                    'amount' => $set_total_amt,
+                    'previous_balance' => $set_pending_amount,
+                    'total_amount' => $set_total_amt+$set_pending_amount,
+                    'amount_paid' => 0,
+                    'pending_amount' => $set_total_amt+$set_pending_amount,
+                    // 'adjusted' => 0,
+                    'created_at' => date('Y-m-d h:i:s')
+                ]);
+
+                // if($diff_days <= 31) {
+                            
+                //     if(count($soldsdata) > 0) {
+                        
+                //         $checkGeneratedInvoice = DB::table('weekly_billing')
+                //         ->where(['customer_id' => $cid, 'from_date' => $request->from_date, 'to_date' => $request->to_date])
+                //         ->get();
+                        
+                //         if(count($checkGeneratedInvoice) < 1) {
+                                        
+                //             $set_total_amt = 0;
+                //             $set_total_lit = 0;
+                //             foreach($soldsdata as $t) {
+                //                 $set_total_amt += $t->total_amount;
+                //                 $set_total_lit += $t->total_litres;
+                //             }                                                        
+                //             $get_pending_amount_for_week = DB::table('weekly_billing')
+                //                 ->where('customer_id',$cid)
+                //                 ->orderBy('created_at', 'desc')
+                //                 ->take(1)
+                //                 ->get();
+                //             /* $get_pending_amount_for_week = DB::table('weekly_billing')
+                //                 ->where(['customer_id' => $cid])
+                //                 ->orderBy('created_at', 'desc')
+                //                 ->skip(1)
+                //                 ->take(1)
+                //                 ->get();
+                //              */
+                //             // Helper::debug($get_pending_amount_for_week);
+                //             $set_pending_amount = 0;
+                //             foreach($get_pending_amount_for_week as $pw) {
+                //                 $set_pending_amount += $pw->pending_amount;
+                //             }
+                            
+                //             // Generate Bill No                            
+                //             $newbillno = 0;
+                //             $bill_no = DB::table('weekly_billing')->latest('bill_no')->first();
+                //             if($bill_no) {
+                //                 $newbillno += $bill_no->bill_no+1;
+                //             }
+                //             else {
+                //                 $newbillno += $bill_no+1;
+                //             }                          
+                //             /* if($diff_days == 7 || $diff_days == 8) {
+                //                 $bill_period = 'weekly';
+                //             }
+                //             if($diff_days == 31 || $diff_days == 30 || $diff_days == 29 || $diff_days == 28) {
+                //                 $bill_period = 'monthly';
+                //             } */
+                //             $w_billing = DB::table('weekly_billing')
+                //             ->insert([
+                //                 'customer_id' => $cid,
+                //                 'bill_no' => $newbillno,
+                //                 'bill_period' => '',
+                //                 'from_date' => $request->from_date,
+                //                 'to_date' => $request->to_date,
+                //                 'month' => date('M Y',strtotime($request->from_date)),
+                //                 'total_litres' => $set_total_lit,
+                //                 'amount' => $set_total_amt,
+                //                 'previous_balance' => $set_pending_amount,
+                //                 'total_amount' => $set_total_amt+$set_pending_amount,
+                //                 'amount_paid' => 0,
+                //                 'pending_amount' => $set_total_amt+$set_pending_amount,
+                //                 'adjusted' => 0,
+                //                 'created_at' => date('Y-m-d h:i:s')
+                //             ]);
+                            
+                //         }
+                //         else {
+                //             return redirect('/billing/create')->with('error','The Invoice is Already Created For This Dates');  
+                //         }
+                //     }
+                //     else {
+                //         return redirect('/billing/create')->with('error','No Record Found');  
+                //     }                
+                // }
+                // else {
+                    
+                // }
             }
             return redirect('/billing')->with('success','Invoice Created');
         }
@@ -432,20 +372,19 @@ class BillingController extends Controller
             'total_amount' => $request->total_amount,
             // 'amount_paid' => ($get_pd_amt->amount_paid ? $get_pd_amt->amount_paid : 0)+$request->amount_paid,
             'amount_paid' => $request->amount_paid,
-            'pending_amount' => $request->total_amount-($request->amount_paid+($request->adjusted?$request->adjusted:0)),
-            'adjusted' => $request->adjusted,
+            // 'pending_amount' => $request->total_amount-($request->amount_paid+($request->adjusted?$request->adjusted:0)),
+            'pending_amount' => $request->total_amount-($request->amount_paid),
+            // 'adjusted' => $request->adjusted,
             'updated_at' => date('Y-m-d h:i:s')
         ]);
         
         if($billing) {
-            $billing = DB::table('wekkly_billing_pending_amount')
-            ->insert([
-                'customer_id' => $request->customer_id,
-                'bill_no' => $request->bill_no,
+            $billing = DB::table('weekly_billing_paid_amount')
+            ->where('bill_no',$request->bill_no)
+            ->update([
                 'amount' => $request->amount_paid,
-                'from_to_date' => $request->from_date.' to '.$request->to_date,
-                'date' => date('Y-m-d'),
-                'created_at' => date('Y-m-d h:i:s')
+                'from_to_date' => $request->from_date.' to '.$request->to_date,                
+                'updated_at' => date('Y-m-d h:i:s')
             ]);
             
             /*$get_pd_amt_week = DB::table('weekly_billing')
@@ -542,8 +481,8 @@ class BillingController extends Controller
             } */
             $week_data = DB::table('weekly_billing')
                 // ->Join('customers', 'weekly_billing.customer_id', '=', 'customers.id')
-                ->Join('wekkly_billing_pending_amount', 'weekly_billing.bill_no', '=', 'wekkly_billing_pending_amount.bill_no')
-                ->select('weekly_billing.*','wekkly_billing_pending_amount.amount as last_payment')
+                ->leftJoin('weekly_billing_paid_amount', 'weekly_billing.customer_id', '=', 'weekly_billing_paid_amount.customer_id')
+                ->select('weekly_billing.*','weekly_billing_paid_amount.amount as last_payment')
                 ->where('weekly_billing.customer_id',$cid)
                 ->where('weekly_billing.id','<',$bill_id)
                 // ->orderBy('created_at', 'desc')
@@ -623,8 +562,26 @@ class BillingController extends Controller
                 return ['status' => 1, 'data' => $current_week_paid_amount];
         } */
         if($id==0) {
-            $customers = DB::table('customers')->where('status','active')->get();
-            return ['status' => 1, 'data' => $customers];
+            $customers = DB::table('customers')->where('status','active')->select('id')->get();        
+            $ids = [];
+            foreach($customers as $val) {
+                array_push($ids,$val->id);
+            }
+            $customer_last_entries = DB::table('weekly_billing')
+                ->select('weekly_billing.*', 'customers.customer_name')
+                ->leftJoin('customers','customers.id','=','weekly_billing.customer_id')
+                ->whereIn('weekly_billing.created_at',function ($query) {
+                        $query->select(DB::raw('MAX(weekly_billing.created_at)'))                          
+                          ->from('weekly_billing')
+                          ->groupBy('weekly_billing.customer_id');
+                })
+                ->get();
+            if($customer_last_entries) {
+                return ['status' => 1, 'data' => $customer_last_entries];
+            }
+            else {
+                return ['status' => 0, 'data' => []];
+            }
         }
         if($id==1) {
             $customer_last_entries = DB::table('weekly_billing')

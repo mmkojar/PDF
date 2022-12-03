@@ -40,8 +40,8 @@
                                 <div class="form-group">
                                     <label>Select Status</label>
                                     <select class="form-control" name="status" required>                        
-                                        <option @if($employee->status == 'active') checked @endif value="active">Active</option>
-                                        <option @if($employee->status == 'inactive') checked @endif value="inactive">Inactive</option>
+                                        <option @if($employee->status == 'active') selected @endif value="active">Active</option>
+                                        <option @if($employee->status == 'inactive') selected @endif value="inactive">Inactive</option>
                                     </select>
                                 </div>     
                             </div>    

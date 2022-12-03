@@ -55,12 +55,12 @@
                                 <input type="text" value="{{$weekly_billing->amount_paid}}" name="amount_paid" class="form-control">
                             </div>
                         </div> 
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="form-group">
                                 <label>Adjusted</label>
                                 <input type="text" value="{{$weekly_billing->adjusted}}" name="adjusted" class="form-control">
                             </div>
-                        </div>                          
+                        </div>   --}}                        
                     </div>                                                               
                 </div>
                 <div class="card-footer">

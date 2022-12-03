@@ -67,10 +67,10 @@ class MilkCollectionController extends Controller
                 $value->collection_date = date('M j Y',strtotime($value->collection_date));
                 $value->morning = $value->morning ? $value->morning : '0';
                 $value->evening = $value->evening ? $value->evening : '0';
-                $value->given = $value->given ? $value->given : '0' ;
-                $value->givenreturn = $value->givenreturn ? $value->givenreturn : '0' ;
-                $value->taken = $value->taken ? $value->taken : '0' ;
-                $value->takenreturn = $value->takenreturn ? $value->takenreturn : '0' ;
+                // $value->given = $value->given ? $value->given : '0' ;
+                // $value->givenreturn = $value->givenreturn ? $value->givenreturn : '0' ;
+                // $value->taken = $value->taken ? $value->taken : '0' ;
+                // $value->takenreturn = $value->takenreturn ? $value->takenreturn : '0' ;
             }
             return Datatables::of($data)
                     ->addIndexColumn()
@@ -94,7 +94,7 @@ class MilkCollectionController extends Controller
             $data = DB::table('external_collection')->orderBy('date', 'desc')->get();
             foreach ($data as $value) {
                 $value->date = date('M j Y',strtotime($value->date));
-                $value->party_name = $value->party_name !== null ? $value->party_name : $value->ext_party_name;
+                // $value->party_name = $value->party_name !== null ? $value->party_name : $value->ext_party_name;
             }
             return Datatables::of($data)
                     ->addIndexColumn()

@@ -34,7 +34,7 @@
              <div class="card-body">
                   <?php $count=1 ?>
                   @if(count($total_billings) > 0)
-                  <table id="week_billing_datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                  <table id="group5dt" class="table table-striped table-bordered" cellspacing="0" width="100%">
                      <thead>
                         <tr>
                            <th>Sr.No</th>
@@ -50,7 +50,7 @@
                            <th>Total Amount</th>
                            <th>Amount Paid</th>
                            <th>Remaining Balance</th>
-                           <th>Adjusted</th>
+                           {{-- <th>Adjusted</th> --}}
                            <th>Created At</th>
                            <th>Updated At</th>
                            @can('all-access')
@@ -63,7 +63,10 @@
                         <tr>
                            <td>{{$count}}</td>
                            @can('all-access')
-                              <td><a class="btn btn-sm btn-primary" bill_type="{{$weekly_billing->bill_period}}" bill_id="{{$weekly_billing->id}}" bno="{{$weekly_billing->bill_no}}" cid="{{$weekly_billing->customer_id}}" cname="{{$weekly_billing->customer_name}}" fdate="{{$weekly_billing->from_date}}" tdate="{{$weekly_billing->to_date}}" 
+                              <td><a class="btn btn-sm btn-primary" bill_type="{{$weekly_billing->bill_period}}" bill_id="{{$weekly_billing->id}}" 
+                                    bno="{{$weekly_billing->bill_no}}" cid="{{$weekly_billing->customer_id}}" 
+                                    cname="{{$weekly_billing->customer_name}}" cmobile="{{$weekly_billing->mobile_no}}"
+                                    fdate="{{$weekly_billing->from_date}}" tdate="{{$weekly_billing->to_date}}" 
                                  id="open_print_modal"><i class="fa fa-print"></i></a>
                               </td>
                            @endcan
@@ -76,9 +79,9 @@
                            <td>{{$weekly_billing->total_amount}}</td>
                            <td>{{$weekly_billing->amount_paid ? $weekly_billing->amount_paid : 0}}</td>
                            <td>{{$weekly_billing->pending_amount ? $weekly_billing->pending_amount : 0}}</td>
-                           <td>{{$weekly_billing->adjusted ? $weekly_billing->adjusted : 0}}</td>
-                           <td>{{date('M j Y',strtotime($weekly_billing->created_at))}}</td>
-                           <td>{{$weekly_billing->updated_at ? date('M j Y',strtotime($weekly_billing->updated_at)) : '-'}}</td>
+                           {{-- <td>{{$weekly_billing->adjusted ? $weekly_billing->adjusted : 0}}</td> --}}
+                           <td>{{date('M j Y h:i:s',strtotime($weekly_billing->created_at))}}</td>
+                           <td>{{$weekly_billing->updated_at ? date('M j Y h:i:s',strtotime($weekly_billing->updated_at)) : '-'}}</td>
                            @can('all-access')
                            <td class="text-right">
                               <a id="{{$weekly_billing->id}}" class="btn btn-sm text-white btn-danger delete_all" url="billing" tbname="weekly_billing"><i class="fa fa-trash"></i></a>                    

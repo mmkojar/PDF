@@ -93,7 +93,7 @@ $(document).ready(function() {
     
     if (pathname !== '' || pathname !== 'dashboard') {
 
-        var table = $('#milk_sold_datatable').DataTable({
+        /* var table = $('#milk_sold_datatable').DataTable({
             "processing": true,
             "language": {
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
@@ -107,15 +107,15 @@ $(document).ready(function() {
             },
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'rcustomer_name', name: 'rcustomer_name'},
-                {data: 'type', name: 'type'},
+                {data: 'customer_name', name: 'customer_name'},
+                // {data: 'type', name: 'type'},
                 {data: 'milk_rate', name: 'milk_rate'},
                 {data: 'morning', name: 'morning'},
-                {data: 'sold_date', name: 'sold_date'},
                 {data: 'evening', name: 'evening'},
+                {data: 'sold_date', name: 'sold_date'},
                 {data: 'total_litres', name: 'total_litres'},
-                {data: 'amount_paid', name: 'amount_paid'},
-                {data: 'pending_amount', name: 'pending_amount'},
+                // {data: 'amount_paid', name: 'amount_paid'},
+                // {data: 'pending_amount', name: 'pending_amount'},
                 {data: 'total_amount', name: 'total_amount'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ],
@@ -141,11 +141,10 @@ $(document).ready(function() {
             dom: 'lBfrtip',
             buttons: [
                 'pdf'
-            ],           
-            "pagingType": "simple",
-        });
+            ], 
+        }); */
 
-        $('#internal_datatable').DataTable({
+        /* $('#internal_datatable').DataTable({
             "processing": true,
             "language": {
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>'
@@ -161,11 +160,11 @@ $(document).ready(function() {
                 {data: 'collection_date', name: 'collection_date'},
                 {data: 'morning', name: 'morning'},
                 {data: 'evening', name: 'evening'},
-                {data: 'grand_total', name: 'grand_total'},
-                {data: 'given', name: 'given'},
-                {data: 'givenreturn', name: 'givenreturn'},
-                {data: 'taken', name: 'taken'},
-                {data: 'takenreturn', name: 'takenreturn'},
+                // {data: 'grand_total', name: 'grand_total'},
+                // {data: 'given', name: 'given'},
+                // {data: 'givenreturn', name: 'givenreturn'},
+                // {data: 'taken', name: 'taken'},
+                // {data: 'takenreturn', name: 'takenreturn'},
                 {data: 'total_litres', name: 'total_litres'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ], 
@@ -175,10 +174,10 @@ $(document).ready(function() {
                 'pdf'
             ],
             responsive: true,
-            "pagingType": "simple",
-        });
+            // "pagingType": "simple",
+        }); */
 
-        $('#external_datatable').DataTable({
+        /* $('#external_datatable').DataTable({
            "processing": true,
             "language": {
                 processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
@@ -193,12 +192,13 @@ $(document).ready(function() {
                 {data: 'id', name: 'id'},
                 {data: 'date', name: 'date'},
                 {data: 'type', name: 'type'},
-                {data: 'party_name', name: 'party_name'},
+                // {data: 'party_name', name: 'party_name'},
                 {data: 'morning', name: 'morning'},
                 {data: 'evening', name: 'evening'},
-                {data: 'rate', name: 'rate'},
-                {data: 'total_amount', name: 'total_amount'},
-                {data: 'amount_paid', name: 'amount_paid'},
+                {data: 'total_litres', name: 'total_litres'},
+                // {data: 'rate', name: 'rate'},
+                // {data: 'total_amount', name: 'total_amount'},
+                // {data: 'amount_paid', name: 'amount_paid'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ], 
             "order":false,
@@ -208,7 +208,7 @@ $(document).ready(function() {
             ],
             responsive: true,
             "pagingType": "simple",
-        });   
+        });  */  
 
         $('#footer_datatable1,#footer_datatable2,#footer_datatable3').DataTable({
             "footerCallback": function(row, data, start, end, display) {
@@ -294,8 +294,7 @@ $(document).ready(function() {
             }); */
         }
 
-        $('#weight_datatable,#food_amount_table,#category_amount_table')
-            .DataTable({
+        $('#weight_datatable,#food_amount_table,#category_amount_table').DataTable({
                 order: [[5,'desc']],
                 rowGroup: {
                     dataSrc: [5]
@@ -312,7 +311,7 @@ $(document).ready(function() {
                 "pagingType": "simple",
 
         });
-        $('#week_billing_datatable').DataTable({
+        $('#group5dt').DataTable({
                 rowGroup: {
                     dataSrc: [5]
                 },
@@ -376,7 +375,7 @@ $(document).ready(function() {
             ],
             "order": [],
             responsive: true,
-            "pagingType": "simple"
+            // "pagingType": "simple"
         });
 
         // var date = new Date();
@@ -1363,17 +1362,14 @@ $(document).ready(function() {
             $("#preloader").show();
 
             $.ajax({
-                url: base_url+"/billing/customer_api/0",
+                url: base_url+"/billing/customer_api/0/",
                 method: "GET",
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                contentType: false,
-                processData: false,
                 success: function(res) {
                     console.log(res);
                     var html_table = '';
-                    
                     html_table += `
                     <div class="col-md-12">
                         <div class="row">
@@ -1381,28 +1377,45 @@ $(document).ready(function() {
                                 <h6 class="float-left">Customer Name</h6>
                             </div>
                             <div class="col-md-10 tca_tag">
-                                <span class="cash_entry_class">Total</span>
-                                <span class="cash_entry_class">Paid</span>
+                                <span class="cash_entry_class">Total Milk</span>
+                                <span class="cash_entry_class">Total Amount</span>
+                                <span class="cash_entry_class">Amount Paid</span>
+                                <span class="cash_entry_class">Balance</span>
                                 <span class="cash_entry_class">Cash</span>
-                                <span class="cash_entry_class">Adjusted</span>
                                 <span class="cash_entry_class">Date</span>
                             </div>
                         </div>
                         <br><br>
-                        <div class="row">
-                            <div class="col-md-2">
-                                    <select class="form-control" id="cn_cash_entry" required>
-                                    <option value="">Select</option>`;
-                                        for (var i in res.data) {
-                                            html_table += `
-                                                <option value="${res.data[i].id}">${res.data[i].customer_name}</option>
-                                            `;
-                                        }
-                                html_table += `<select>
-                            </div>
-                            <div class="col-md-10" id="show_cn_entry">
-                               
-                            </div>
+                        <div class="row">`;
+                                var countitem = 1;
+                                for (var i in res.data) {
+                                    countitem++;
+                                    var set_total_amt = res.data[i].total_amount;
+                                    // var set_amount_paid_adjusted = Number(res.data[i].amount_paid) + Number(res.data[i].adjusted);
+                                    var set_amount_paid = Number(res.data[i].amount_paid);
+                                    html_table += `
+                                        <div class="col-md-2">
+                                            <h6>${res.data[i].customer_name}</h6>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <input type="hidden" name="hidden_customer_id[]" value="${res.data[i].customer_id}">
+                                            <input type="hidden" name="hidden_bill_no[]" value="${res.data[i].bill_no}">
+                                            <input type="hidden" name="hidden_week_id[]" value="${res.data[i].id}">
+                                            <input type="hidden" name="from_date[]" value="${res.data[i].from_date}">
+                                            <input type="hidden" name="to_date[]" value="${res.data[i].to_date}">
+                                            <input type="hidden" id="valid_amt_pending" class="valid_amt_pending" data-sub_item="${countitem}" value="${res.data[i].pending_amount}">
+                                            <input type="date" name="cash_date[]" class="cash_entry_class form-control datepicker" ${set_total_amt==set_amount_paid ? 'readonly' : ''} required>
+                                            <input type="number" value="0" name="amount_paid[]" step="0.1" min="0" class="cash_entry_class validate_cash form-control" Bal="${res.data[i].pending_amount}" data-sub_item="${res.data[i].customer_name}" id="validate_cash" ${set_total_amt==set_amount_paid ? 'readonly' : ''} >
+                                            <input type="text" value="${res.data[i].pending_amount}" class="cash_entry_class form-control" disabled>
+                                            <input type="text" value="${set_amount_paid}" class="cash_entry_class form-control" disabled>
+                                            <input type="number" value="${set_total_amt}" name="total_amount[]" class="cash_entry_class form-control" readonly>
+                                            <input type="number" value="${res.data[i].total_litres}" name="total_litres[]" class="cash_entry_class form-control" readonly>
+                                        </div>
+                                    `;
+                                }       
+                                // <input type="number" value="0"  name="adjusted[]" step="0.1" min="0" class="cash_entry_class form-control" id="validate_adj" ${set_total_amt==set_amount_paid_adjusted ? 'readonly' : ''} ></input>
+                                // <input type="hidden" id="valid_total_amt" class="valid_total_amt" data-sub_item="${countitem}" value="${set_total_amt}"></input>
+                            html_table += `                            
                         </div>
                     </div>`;
                     $("#cash_modal").modal('show');
@@ -1411,13 +1424,90 @@ $(document).ready(function() {
                 }
             });
         });
+        
+        $('body').delegate('#submit_cash_entry', 'click', function(e) {
+            e.preventDefault()            
+            $("#preloader").show();
+            var errorlgt = '';
+            $('.validate_cash').each(function() {
+                var Balance = $(this).attr('Bal');
+                var cust = $(this).data('sub_item');
+                $("#preloader").hide();
+                if($(this).val() > Balance){
+                    errorlgt += 'Error';
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: 'Cash Entry should be less than or equal to '+Balance+' For Customer '+cust,
+                        showConfirmButton: true,
+                  })
+                }
+                else {
+                    errorlgt += '';
+                }
+            })
+            if(errorlgt == '') {
+                var dataSerialize = new FormData($('#cash_entry_form')[0]);
+                 $.ajax({
+                    url: base_url+"/billing/store",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    method: "POST",
+                    data : dataSerialize,
+                    contentType: false,
+                    processData: false,
+                    success: function(res) {
+                        $("#show_cn_entry").hide();
+                        // $("#cn_cash_entry").val('');
+                        $("#preloader").hide();
+                        Swal.fire({
+                          position: 'center',
+                          icon: 'success',
+                          title: res.msg,
+                          showConfirmButton: true,
+                          timer: 1500,                          
+                        })
+                        window.location.href = window.location.pathname
+                    }
+                })
+            }
+            /*var a = $("#cash_entry_form #validate_cash").val();
+            var b = $("#cash_entry_form #valid_amt_pending").val();
+            var c = $("#cash_entry_form #validate_adj").val();
+            var d = $("#cash_entry_form #valid_total_amt").val() - $("#cash_entry_form #valid_amt_paid").val() - a;
+            
+             if(!$("#cn_cash_entry").val()) {
+                $("#preloader").hide();
+                alert('Select Customer');
+            }
+            else 
+            if(a > b ) {
+                $("#preloader").hide();
+                Swal.fire({
+                      position: 'center',
+                      icon: 'error',
+                      title: 'Cash Entry should be less than or equal to '+b,
+                      showConfirmButton: true,
+                })
+            }
+            else if (c > d) {
+                $("#preloader").hide();
+                Swal.fire({
+                      position: 'center',
+                      icon: 'error',
+                      title: 'Adjusted Entry should be less than or equal to '+d,
+                      showConfirmButton: true,
+                })
+            } */
+        })
 
-        $('body').delegate('#cn_cash_entry', 'change', function() {
+        /* $('body').delegate('#cn_cash_entry', 'change', function() {
             
             $("#preloader").show();
             var cust_id = $(this).val();
             console.log(cust_id);
-
+            
             $.ajax({
                 url: base_url+"/billing/customer_api/1/"+cust_id,
                 method: "GET",
@@ -1459,66 +1549,8 @@ $(document).ready(function() {
                     $("#show_cn_entry").html(html);
                 }
             });
-        });
-
-        $('body').delegate('#submit_cash_entry', 'click', function(e) {
-            e.preventDefault()            
-            $("#preloader").show();
-            var a = $("#cash_entry_form #validate_cash").val();
-            var b = $("#cash_entry_form #valid_total_amt").val() - $("#cash_entry_form #valid_amt_paid").val();
-            var c = $("#cash_entry_form #validate_adj").val();
-            var d = $("#cash_entry_form #valid_total_amt").val() - $("#cash_entry_form #valid_amt_paid").val() - a;
-            
-            if(!$("#cn_cash_entry").val()) {
-                $("#preloader").hide();
-                alert('Select Customer');
-            }
-            else if(a > b ) {
-                $("#preloader").hide();
-                Swal.fire({
-                      position: 'center',
-                      icon: 'error',
-                      title: 'Cash Entry should be less than or equal to '+b,
-                      showConfirmButton: true,
-                })
-            }
-            else if (c > d) {
-                $("#preloader").hide();
-                Swal.fire({
-                      position: 'center',
-                      icon: 'error',
-                      title: 'Adjusted Entry should be less than or equal to '+d,
-                      showConfirmButton: true,
-                })
-            }
-            else {
-                var dataSerialize = new FormData($('#cash_entry_form')[0]);
-                 $.ajax({
-                    url: base_url+"/billing/store",
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    method: "POST",
-                    data : dataSerialize,
-                    contentType: false,
-                    processData: false,
-                    success: function(res) {
-                        $("#show_cn_entry").hide();
-                        $("#cn_cash_entry").val('');
-                        $("#preloader").hide();
-                        Swal.fire({
-                          position: 'center',
-                          icon: 'success',
-                          title: res.msg,
-                          showConfirmButton: true,
-                          timer: 1500
-                        })
-                    }
-                })
-            }
-            
-        })
-
+        }); */
+        
         // old cash entry method
         /*$('body').delegate('#open_cash_modal2', 'click', function() {
 
@@ -2131,23 +2163,23 @@ $(document).ready(function() {
             var ydate = $(this).attr('tdate');
             var customer_id = $(this).attr('cid');
             var bill_customer_name = $(this).attr('cname');
+            var bill_customer_mobile = $(this).attr('cmobile');
             var bill_no = $(this).attr('bno');
             var get_search_data = [];
             var get_rate = '';
 
             $.ajax({
-                url: base_url+"/billing/api/" + 1 + '/' + customer_id + '/' + xdate +
-                    '/' + ydate,
+                url: `${base_url}/billing/api/1/${customer_id}/${xdate}/${ydate}`,
                 method: "GET",
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                data: {
+                /* data: {
                     id: 1,
                     cid: customer_id,
                     date1: xdate,
                     date2: ydate,
-                },
+                }, */
                 contentType: false,
                 processData: false,
                 success: function(res) {
@@ -2189,28 +2221,28 @@ $(document).ready(function() {
                                 headers: {
                                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                 },
-                                data: {
+                                /* data: {
                                     id: 3,
                                     cid: customer_id,
                                     date1: xdate,
                                     date2: ydate
-                                },
+                                }, */
                                 contentType: false,
                                 processData: false,
                                 success: function(res3) {
                                     console.log(res3);
                                     $.ajax({
-                                        url: base_url+"/billing/api/" + 4 + '/' + customer_id + '/' + xdate + '/' + ydate,
+                                        url: `${base_url}/billing/api/4/${customer_id}/${xdate}/${ydate}`,
                                         method: "GET",
                                         headers: {
                                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                         },
-                                        data: {
+                                        /* data: {
                                             id: 3,
                                             cid: customer_id,
                                             date1: xdate,
                                             date2: ydate
-                                        },
+                                        }, */
                                         contentType: false,
                                         processData: false,
                                         success: function(res4) {
@@ -2224,33 +2256,30 @@ $(document).ready(function() {
                                             // const get_grand_total_amount = get_total_amount + get_pending_amount;
                                             const get_pending_amount = res3.data.pending_amount ? Number(res3.data.pending_amount) : 0;
                                             const get_grand_total_amount = get_total_amount + get_pending_amount;
-                                            if (res.data.length >= 10 && res.data.length <= 31 ) {
+                                            /* if (res.data.length >= 10 && res.data.length <= 31 ) {
                                                 html_table += `
                                                 <div class="container bootstrap snippets bootdeys">
                                                 <div class="row">
                                                 <div class="col-md-12">
                                                 <div class="panel panel-default invoice" id="invoice">
                                                 <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-sm-12 text-center">
+                                                            <h4>OVESH UMAR BHAI</h4>
+                                                            <p>Aarey Milk Colony, Unit No:19, Goregaon (E), Mumbai-400065 (Mobile no: +91-9867835569/36)</p>
+                                                        </div>
+                                                    </div>
                                                 <div class="row">
-                                                <div class="col-sm-12 text-center">
-                                                    <p class="lead1">Subject To Mumbai jurisdiction</p>
-                                                    <p class="lead1 dairy_name">MOONLIGHT DAIRY FARM</p>
-                                                    <p class="lead1">WHOLESALE & RETAIL MILK MERCHANT</p>
-                                                </div>
-                                                </div>
-                                                <div class="row">
-                                                <div class="col-sm-3 invoice_image">
-                                                    <img src="${base_url}/assets/img/p_image.jpg" height="100" widht="100">
-                                                </div>
-                                                <div class="col-sm-6 text-center">
-                                                    <p>Aarey Milk Colony, </p>
-                                                    <p>Unit No:8,</p>
-                                                    <p>Goregaon (E), Mumbai-65</p>
-                                                </div>
-                                                <div class="col-sm-3 text-right invoice_date">
-                                                    <h3 class="marginright invoice_no mb-0">INVOICE-${bill_no}</h3>
-                                                    <span class="marginright">${moment().format('DD-MMM-YYYY')}</span>
-                                                </div>
+                                                    <div class="col-sm-12">
+                                                        <table class="table table-striped table-bordered">
+                                                            <tbody>
+                                                                <tr>
+                                                                   <td>Buyer's Name</td> 
+                                                                   <td>Invoice No</td> 
+                                                                </tr>
+                                                            </tbody>
+                                                        </tale>                                                                                                            
+                                                    </div>
                                                 </div>
                                                 <hr>
                                                 <div class="row">
@@ -2324,14 +2353,6 @@ $(document).ready(function() {
                                                             <td><b>${first15res[1][i].evening}</b></td>
                                                     </tr>`;
                                                 }
-                                                /* for (var i = 0; i < res.data.length; i++) {                                                 
-                                                    html_table +=`<tr>
-                                                    <td>${moment(res.data[i].sold_date).format("DD-MMM-YYYY")}</td>                                                                                
-                                                    <td class="text-right">${res.data[i].morning}</td>
-                                                    <td class="text-right">${res.data[i].evening}</td>
-                                                    <td class="text-right">${res.data[i].total_litres}</td>
-                                                    </tr>`;                                                   
-                                                }    */
                                                 html_table += `
                                                                 <tr>
                                                                     <td class="text-right"></td>
@@ -2366,98 +2387,128 @@ $(document).ready(function() {
                                                     </div>
                                                     </div>
                                                     </div>`;
-                                            }                                            
-                                            else {
+                                            } */
+                                            // else {
                                                 html_table += `
-                                                    <div class="container bootstrap snippets bootdeys">
+                                                <div class="container bootstrap snippets bootdeys">
                                                     <div class="row">
-                                                    <div class="col-md-12">
-                                                    <div class="panel panel-default invoice" id="invoice">
-                                                    <div class="panel-body">
-                                                    <div class="row">
-                                                    <div class="col-sm-12 text-center">
-                                                        <p class="lead1">Subject To Mumbai jurisdiction</p>
-                                                        <p class="lead1 dairy_name">MOONLIGHT DAIRY FARM</p>
-                                                        <p class="lead1">WHOLESALE & RETAIL MILK MERCHANT</p>
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-default invoice" id="invoice">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 text-center">
+                                                                            <h3>OVESH UMARBHAI SULLYA</h3>
+                                                                            <p>Aarey Milk Colony, Unit No:19, Goregaon (E), Mumbai-400065 (Mobile no: +91-9867835569/36)</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <table class="table table-striped table-bordered">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <th>Buyer's Name</th> 
+                                                                                        <th>Invoice No</th>
+                                                                                        <td>${bill_no}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>${bill_customer_name.toUpperCase()}</td>
+                                                                                        <th>Invoice Date</th>
+                                                                                        <td>${moment().format('DD-MMM-YYYY')}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Mumbai</td>
+                                                                                        <th>Period</th>
+                                                                                        <td>${moment(xdate).format("DD-MMM-YYYY")} to ${moment(ydate).format("DD-MMM-YYYY")}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>MOBILE - ${bill_customer_mobile}</td>
+                                                                                        <td></td>
+                                                                                        <td></td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>                                                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row no-gutters">
+                                                                        <div class="col-sm-6 text-center">
+                                                                            <table class="table table-striped table-bordered">
+                                                                                <tr>
+                                                                                    <th colspan="4"><h5 class="mb-0">DESCRIPTION OF GOODS</h5></th>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td colspan="4">Quantity of Milk supplied in litres</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="width:25%">Dates</td>
+                                                                                    <td style="width:25%">Morning</td>
+                                                                                    <td style="width:25%">Evening</td>
+                                                                                    <td style="width:25%">Total</td>                                                                    
+                                                                                </tr>
+                                                                                `;
+                                                                                for (var i = 0; i < res.data.length; i++) {
+                                                                                    html_table += `
+                                                                                        <tr>
+                                                                                            <td style="width:25%">${moment(res.data[i].sold_date).format("DD-MMM-YYYY")}</td>                                                                                
+                                                                                            <td style="width:25%">${res.data[i].morning}</td>
+                                                                                            <td style="width:25%">${res.data[i].evening}</td>
+                                                                                            <th style="width:25%">${res.data[i].total_litres}</th>                                                                            
+                                                                                        </tr>
+                                                                                        `;
+                                                                                }
+                                                                                html_table += `
+                                                                                <tr>
+                                                                                    <th colspan="3">Grand Total</th>
+                                                                                    <th>${ysum}</th>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td colspan="4"><h4 class="my-0">BANK DETAILS</h4></td>
+                                                                                </tr>
+                                                                                <tr class="text-justify">
+                                                                                    <td colspan="4">
+                                                                                        <span>Bank Name: HDFC Bank</span><br>
+                                                                                        <span>Account No: 59209867835569 / 59209867835536</span><br>
+                                                                                        <span>IFSC Code: HDFC0001425</span>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="col-sm-6 text-center">
+                                                                            <table class="table table-striped table-bordered">
+                                                                                <tr>
+                                                                                    <th colspan="8"><h5 class="mb-0">CALCULATION</h5></th>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th style="height:76px;width:60%">TOTAL QUANTITY IN LITRES</th>
+                                                                                    <td>${ysum}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th style="height:76px;width:60%">RATE</th>
+                                                                                    <td>${get_rate}</td>
+                                                                                </tr>                                                                                
+                                                                                <tr>
+                                                                                    <th style="height:76px;width:60%">NET AMOUNT</th>
+                                                                                    <td>${get_total_amount}</td>
+                                                                                </tr>                                                                                
+                                                                                <tr>
+                                                                                    <th style="height:76px;width:60%">BALANCE</th>
+                                                                                    <td>${get_pending_amount}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th style="height:76px;width:60%">GROSS AMOUNT</th>
+                                                                                    <td>${get_grand_total_amount}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="height:131px" colspan="2"><h4 class="my-0">OVESH UMARBHAI SULLYA</h4></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    </div>
-                                                    <div class="row">
-                                                    <div class="col-sm-3 invoice_image">
-                                                        <img src="${base_url}/assets/img/p_image.jpg" height="100" widht="100">
-                                                    </div>
-                                                    <div class="col-sm-6 text-center">
-                                                        <p>Aarey Milk Colony, </p>
-                                                        <p>Unit No:8,</p>
-                                                        <p>Goregaon (E), Mumbai-65</p>
-                                                    </div>
-                                                    <div class="col-sm-3 text-right invoice_date">
-                                                        <h3 class="marginright invoice_no mb-0">INVOICE-${bill_no}</h3>
-                                                        <span class="marginright">${moment().format('DD-MMM-YYYY')}</span>
-                                                    </div>
-                                                    </div>
-                                                    <hr>
-                                                    <div class="row">
-                                                    <div class="col-sm-6">
-                                                        <p class="lead marginbottom">${bill_customer_name.toUpperCase()}</p>
-                                                    </div>
-                                                    <div class="col-sm-6 text-right payment-details">
-                                                        <p><b>Last Payment:-</b><b>Rs.${res3.data.last_payment ? res3.data.last_payment : '0'}/-</b></p>
-                                                        <p>Date : ${moment().format('DD-MMM-YYYY')}</p>
-                                                        <p>Bill Period :<br> ${moment(xdate).format("DD-MMM-YYYY")} to ${moment(ydate).format("DD-MMM-YYYY")}</p>
-                                                    </div>
-                                                    </div>
-                                                    <div class="row table-row">
-                                                    <div class="col-sm-12">
-                                                    <table class="table table-striped table-bordered">
-                                                    <thead>
-                                                    <tr>
-                                                        <th style="width:50%">Dates</th>
-                                                        <th class="text-right" style="width:15%">Morning</th>
-                                                        <th class="text-right" style="width:15%">Evening</th>
-                                                        <th class="text-right" style="width:15%">Total</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>`;
-                                                for (var i = 0; i < res.data.length; i++) {
-                                                    html_table += `<tr>
-                                                                    <td>${moment(res.data[i].sold_date).format("DD-MMM-YYYY")}</td>                                                                                
-                                                                    <td class="text-right">${res.data[i].morning}</td>
-                                                                    <td class="text-right">${res.data[i].evening}</td>
-                                                                    <td class="text-right">${res.data[i].total_litres}</td>
-                                                                    </tr>`;
-                                                }
-                                                html_table += `
-                                                            <tr>
-                                                                <td class="text-right">Total:-</td>
-                                                                <td class="text-right">${get_morning_litres}</td>
-                                                                <td class="text-right">${get_evening_litres}</td>
-                                                                <td class="text-right">${ysum}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                </div>                                                                                    
-                                                <div class="row table-row">
-                                                    <div class="col-sm-6 margintop">
-                                                        <p class="marginbottom">THANK YOU! <span style=" font-size: 12px;">(Rs.${res4.adjusted}/-&nbsp;&nbsp;Bhool/Bhav Pher)</span></p>
-                                                        <p></p>
-                                                        <p id="number_in_words">Amount (in words):<br> ${RsPaise(Math.round((get_grand_total_amount)*100)/100)}</p>
-                                                    </div>
-                                                    <div class="col-sm-2 text-center">
-                                                        <p>Rate : ${get_rate}</p>
-                                                    </div>
-                                                    <div class="col-sm-4 text-right invoice-total">
-                                                        <p>Total : ${get_total_amount}</p>
-                                                        <p>Previous Bal : ${get_pending_amount} </p>
-                                                        <p>Grand Total : ${get_grand_total_amount} </p>
-                                                    </div>
-                                                </div>
-                                                </div>
-                                                </div>
-                                                </div>
-                                                </div>
                                                 </div>`;
-                                            }
+                                            // }
                                             $("#print_modal").modal('show');
                                             $("#preloader").hide();
                                             $("#print_modal  #get_billing_table").html(html_table);
@@ -2513,7 +2564,7 @@ $(document).ready(function() {
                         }
                         return r;
                     }, []);
-                    console.log(result);                    
+                    console.log(result);
                     var html = '';
                     var sr_no = 1;
                     html += `

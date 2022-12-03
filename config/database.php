@@ -46,10 +46,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3307'),
-            'database' => env('DB_DATABASE', 'fms'),
-            'username' => env('DB_USERNAME', 'farm_management_system'),
+            'database' => env('DB_DATABASE', 'patel_dairy_farm'),
+            'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',

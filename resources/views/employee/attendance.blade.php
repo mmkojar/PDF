@@ -122,28 +122,32 @@
                     <div class="row">
                         @csrf
                         <?php $count1 = 1000; $count2 = 2000; $count3 = 3000 ?>
-                        @foreach ($emps as $res)
-                            <div class="col-md-2">
-                                <h4 class="mt-0">{{$res->name}}</h4>
-                                <input type="hidden" name="empid[{{$res->id}}]" value="{{$res->id}}">
-                                <input type="hidden" name="salary[{{$res->id}}]" value="{{$res->salary}}">
-                            </div>
-                            <div class="col-md-10">
-                                <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count1}}" class="select_entry  w-auto d-inline" value="1" required>
-                                    <label for="{{$count1}}" class="text-success">Full Day</label>
+                        @if(count($empsatt) > 0)
+                            @foreach ($empsatt as $res)
+                                <div class="col-md-2">
+                                    <h4 class="mt-0">{{$res->name}}</h4>
+                                    <input type="hidden" name="empid[{{$res->id}}]" value="{{$res->id}}">
+                                    <input type="hidden" name="salary[{{$res->id}}]" value="{{$res->salary}}">
                                 </div>
-                                <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count2}}" class="select_entry  w-auto d-inline" value="0.5" required>
-                                    <label for="{{$count2}}" class="text-warning">Half Day</label>
+                                <div class="col-md-10">
+                                    <div class="form-group radio mx-5 d-inline">
+                                        <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count1}}" class="select_entry  w-auto d-inline" value="1" required>
+                                        <label for="{{$count1}}" class="text-success">Full Day</label>
+                                    </div>
+                                    <div class="form-group radio mx-5 d-inline">
+                                        <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count2}}" class="select_entry  w-auto d-inline" value="0.5" required>
+                                        <label for="{{$count2}}" class="text-warning">Half Day</label>
+                                    </div>
+                                    <div class="form-group radio mx-5 d-inline">
+                                        <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count3}}" class="select_entry  w-auto d-inline" value="0" required>
+                                        <label for="{{$count3}}" class="text-danger">Absent</label>
+                                    </div>
                                 </div>
-                                <div class="form-group radio mx-5 d-inline">
-                                    <input type="radio" name="select_entry[{{$res->id}}]" id="{{$count3}}" class="select_entry  w-auto d-inline" value="0" required>
-                                    <label for="{{$count3}}" class="text-danger">Absent</label>
-                                </div>
-                            </div>
-                            <?php $count1++;$count2++;$count3++ ?>
-                        @endforeach
+                                <?php $count1++;$count2++;$count3++ ?>
+                            @endforeach
+                        @else
+                            <div class="col-md-6"><h3>No Employee Found</h3></div>
+                        @endif
                     </div>
                     <button type="submit" class="btn btn-info btn-round">Submit</button>
                 </form>
@@ -319,7 +323,7 @@
                                 <td>${sr_no}</td>
                                 <td>${result[i].ename}</td>
                                 <td>${result[i].msalary}</td>
-                                <td>${result[i].per_day_salary.toFixed(2)}</td>
+                                <td>${result[i].per_day_salary.toFixed(0)}</td>
                                 <td>${result[i].month}</td>
                             </tr>
                         `;

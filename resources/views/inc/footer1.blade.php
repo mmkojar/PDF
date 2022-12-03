@@ -27,7 +27,7 @@
 <script src="{{ asset('assets/js/plugins/dataTables.buttons.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/buttons.html5.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/dataTables.responsive.min.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/plugins/dataTables.rowGroup.min.js') }}"></script> --}}
+<script src="{{ asset('assets/js/plugins/dataTables.rowGroup.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/pdfmake.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/vfs_fonts.js') }}"></script>
 {{-- <s?php endif ?> --}}

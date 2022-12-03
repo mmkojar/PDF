@@ -41,7 +41,22 @@
                             <div class="row">
                                 <div class="col-12 col-md-12">
                                     <div class="numbers">
-                                        <p class="card-category"><b>Milk Stocks</b></p>
+                                        <p class="card-category"><b>Milk Entries</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <a href="{{ route('billing.index') }}">
+                    <div class="card card-stats">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers">
+                                        <p class="card-category"><b>Billing</b></p>
                                     </div>
                                 </div>
                             </div>

@@ -29,6 +29,8 @@ class CreateWeeklyBillingTable extends Migration
             $table->string('adjusted')->nullable();
             $table->string('pending_amount')->nullable();
             $table->timestamps();
+
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 
@@ -40,5 +42,8 @@ class CreateWeeklyBillingTable extends Migration
     public function down()
     {
         Schema::dropIfExists('weekly_billing');
+        Schema::table('weekly_billing', function (Blueprint $table) {
+            $table->dropForeign('weekly_billing_customer_id_foreign');
+        });
     }
 }

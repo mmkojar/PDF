@@ -17,6 +17,7 @@ class AttendanceController extends Controller
     public function index()
     {        
         $employees = Employee::orderBY('created_at','desc')->get();
+        $employees1 = Employee::orderBY('created_at','desc')->where('status','active')->get();
         $attendance = DB::table('attendance_list')
                     ->Join('employees', 'employees.id', '=', 'attendance_list.eid')
                     ->select('attendance_list.*','employees.name as ename','employees.salary as msalary')
@@ -25,7 +26,7 @@ class AttendanceController extends Controller
                     // ->where('date',$data['date'])
                     ->get();
        
-        return view('employee.attendance')->with(['emps'=>$employees,'attendance'=>$attendance]);
+        return view('employee.attendance')->with(['emps'=>$employees,'empsatt'=>$employees1,'attendance'=>$attendance]);
     }
 
     public function store(Request $req) {
@@ -38,10 +39,10 @@ class AttendanceController extends Controller
                 if($data['empid'][$eid]) {
                     $salary = '';
                     if($data['select_entry'][$eid] == '1') {
-                        $salary = number_format($data['salary'][$eid]/30,2);
+                        $salary = number_format($data['salary'][$eid]/30,0);
                     }
                     else if($data['select_entry'][$eid] == '0.5') {
-                        $salary = number_format($data['salary'][$eid]/60,2);
+                        $salary = number_format($data['salary'][$eid]/60,0);
                     }
                     else {
                         $salary = 0;

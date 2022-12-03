@@ -5,13 +5,13 @@
     <div class="main-panel">
         @include('inc.topnavbar1')
         <div class="content">
-            @if(!Request::is('/'))
-            <div class="row">
-                <div class="col-md-12">
-                    <a class="goback text-dark nc-icon x3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            {{-- @if(!Request::is('/'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="goback text-dark nc-icon x3 mb-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                    </div>
                 </div>
-            </div>
-            @endif
+            @endif --}}
             @include('inc.messages')
             @yield('content')
         </div>
