@@ -7223,8 +7223,8 @@ input[type=checkbox], input[type=radio] {
 }
 /* checkbox and radio buttons */
 .form-control {
-    background-color: #f3f2ee;
-    border: 3px solid #ddd;
+    background-color: #ffffff;
+    border: 2px solid #ddd;
     border-radius: 4px;
     color: #66615b;
     line-height: normal;

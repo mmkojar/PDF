@@ -49,7 +49,7 @@ class MilkSoldController extends Controller
         $soldsdata = DB::table('milksolds')
                 ->leftJoin('customers', 'milksolds.customer_id', '=', 'customers.id')
                 ->select('milksolds.*','customers.customer_name')
-                ->orderBy('milksolds.sold_date', 'desc')
+                ->orderBy('milksolds.sold_date', 'DESC')
                 ->get();
         $icollections = Milkcollection::orderBY('collection_date','desc')->get();
         $ecollections = DB::table('external_collection')->orderBy('date', 'desc')->get();

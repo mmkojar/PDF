@@ -67,11 +67,11 @@
                                     <div class="form-group">
                                         <label>Select Unit</label>
                                         <select class="form-control" name="unit" id="unit">
-                                            <option value="GRAM">GRAM</option>
+                                            {{-- <option value="GRAM">GRAM</option>
                                             <option value="KG">KG</option>
                                             <option value="LTR">LTR</option>
                                             <option value="BOX">BOX</option>
-                                            <option value="PCS">PCS</option>
+                                            <option value="PCS">PCS</option> --}}
                                             <option value="GUNI">GUNI</option>
                                         </select>
                                     </div> 
@@ -104,7 +104,7 @@
               <div class="tab-pane active">
                 <div class="card">
                   <div class="card-body">                      
-                      <a class="btn btn-info btn-round" href="{{config('app.url')}}/stock/form">Add Items</a>
+                      <a class="btn btn-info btn-round" data-toggle="modal" data-target="#item-modal">Add Items</a>
                       <h3 class="text-success font-weight-bold mb-2">Items</h3>
                       <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
@@ -134,6 +134,36 @@
                           @endforeach
                         </tbody>
                       </table>
+                  </div>
+                </div>
+                 <!-- Add item Modal -->
+                <div class="modal fade" id="item-modal">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5>Add Item</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form action="{{route('stock.items.store')}}" accept="" role="form" method="post">
+                          @csrf
+                          <div class="card-body">                  
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-info btn-round">Submit</button>
+                            <button type="button" class="btn btn-dark btn-round" data-dismiss="modal">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -195,7 +225,6 @@
                 var item_id = $("#hidden_item_id").val();
 
                 ajaxGetApi("/stock/out/api/"+item_id, function(res) {
-                    console.log(res);
                     $("#preloader").hide();
                     if(res.length > 0) {
                       var res = res[0];
@@ -240,7 +269,7 @@
                 else {
                   errors.push();
                 }
-                console.log(errors);
+                
                 if(errors.length == '0') {
                     var dataSerialize = new FormData($('#stock_entry_form')[0]);
                     $("#preloader").show();
@@ -314,7 +343,7 @@
                     }
                     return a2;
                 }, []);
-                console.log(response);
+               
                 var html = '';     
                 html += `<thead><tr><th></th>`    
                 for(var i in response) {

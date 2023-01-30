@@ -26,7 +26,8 @@ class ProfileController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required',            
+            'email' => 'required',     
+            'password' => 'confirmed',       
         ]);        
 
         $get_user = Auth::user();

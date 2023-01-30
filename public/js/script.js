@@ -70,7 +70,7 @@ $(document).ready(function() {
                 $(this).parent().parent().closest('li').addClass('active');        
             }
         }
-    });   
+    });
     
     if (pathname == '' || pathname == 'dashboard') {
         const COLORS = [
@@ -312,6 +312,7 @@ $(document).ready(function() {
 
         });
         $('#group5dt').DataTable({
+                order:[],
                 rowGroup: {
                     dataSrc: [5]
                 },
@@ -1433,12 +1434,13 @@ $(document).ready(function() {
                 var Balance = $(this).attr('Bal');
                 var cust = $(this).data('sub_item');
                 $("#preloader").hide();
-                if($(this).val() > Balance){
+               
+                if(Number($(this).val()) > Number(Balance)){
                     errorlgt += 'Error';
                     Swal.fire({
                         position: 'center',
                         icon: 'error',
-                        title: 'Cash Entry should be less than or equal to '+Balance+' For Customer '+cust,
+                        title: 'Cash Entry should be less than or equal to '+Balance+' For '+cust+ 'Dairy',
                         showConfirmButton: true,
                   })
                 }

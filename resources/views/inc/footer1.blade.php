@@ -45,6 +45,15 @@
 {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
 <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {includedLanguages: 'en,gu'},
+            'google_translate_element'
+        );
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 @yield('qty_scripts')
 @yield('stock_script')
 @yield('stockout_script')

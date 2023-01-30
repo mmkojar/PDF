@@ -211,18 +211,18 @@
                     <tr>
                       <th>Sr.No</th>
                       <th>Customer Name</th>
-                      {{-- <th>Customer Type</th> --}}
+                      <!-- {{-- <th>Customer Type</th> --}} -->
                       <th>Rate</th>
                       <th>Morning</th>
                       <th>Evening</th>
                       <th>Sold Date</th>
                       <th>Total Litres</th>
-                      {{-- <th>Amount Paid</th> --}}
-                      {{-- <th>Pending Amount</th>                   --}}
+                      <!-- {{-- <th>Amount Paid</th> --}}
+                      {{-- <th>Pending Amount</th>                   --}} -->
                       <th>Total Amount</th>
-                      {{-- @can('all-access')
+                      <!-- {{-- @can('all-access')
                         <th class="disabled-sorting text-right">Actions</th>
-                      @endcan --}}
+                      @endcan --}} -->
                     </tr>
                   </thead>
                    <tbody>
@@ -230,18 +230,18 @@
                       <tr>
                         <td>{{$row->id}}</td>                  
                         <td>{{$row->customer_name}}</td>
-                        {{-- <td>{{$row->type}}</td> --}}
+                        <!-- {{-- <td>{{$row->type}}</td> --}} -->
                         <td>{{$row->milk_rate}}</td>
                         <td>{{$row->morning}}</td>
                         <td>{{$row->evening}}</td>
-                        <td>{{$row->sold_date}}</td>                  
+                        <td>{{ date('M j Y',strtotime($row->sold_date)) }}</td>                  
                         <td>{{$row->total_litres}}</td>
-                        {{-- <td>{{$row->amount_paid ? $row->amount_paid : 0}}</td> --}}
-                        {{-- <td>{{$row->pending_amount ? $row->pending_amount : 0}}</td> --}}
+                        <!-- {{-- <td>{{$row->amount_paid ? $row->amount_paid : 0}}</td> --}}
+                        {{-- <td>{{$row->pending_amount ? $row->pending_amount : 0}}</td> --}} -->
                         <td>{{$row->total_amount ? $row->total_amount : '-'}}</td>
-                        {{-- <td class="text-right">      
+                        <!-- {{-- <td class="text-right">      
                           <a href="{{route('milk_entries.edit', $row->id)}}" class="btn btn-sm btn-warning edit"><i class="fa fa-edit"></i></a>                    
-                        </td> --}}
+                        </td> --}} -->
                       </tr>
                     @endforeach
                   </tbody>        

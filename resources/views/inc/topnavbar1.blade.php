@@ -19,6 +19,7 @@
       <a class="navbar-brand font-weight-bold" href="{{config('app.url')}}">{{Request::segment(1) == '' ? 'dashboard' : str_replace('_',' ',Request::segment(1))}}</a>      
     </div>
     <a href="{{config('app.url')}}"><h4 class="my-0 text-success font-weight-bold">{{str_replace('_',' ',config('app.name','PATEL DAIRY FARM'))}}</h4></a>
+    <div id="google_translate_element"></div>
     <div class="collapses navbar-collapses justify-content-end" id="navigation">
       <ul class="navbar-nav">
        {{--  @if (Route::currentRouteName() == 'dashboard')
