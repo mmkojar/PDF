@@ -95,13 +95,13 @@ class ProductController extends Controller
     
     public function store_stock(Request $request) {
         
-        if($request->product_no > 0) {                              
-            for($i = 0; $i < count($request->product_no); $i++) {
+        // if($request->product_no > 0) {
+            // for($i = 0; $i < count($request->product_no); $i++) {
                 $input['quantity'] = 1;
                 $input['product_id'] = $request->product_listing;
-				$input['product_no'] = $request->product_no[$i];
-				$input['location_id'] = $request->location_id[$i];
-				$input['khilla_no'] = $request->khilla_no[$i];
+				// $input['product_no'] = $request->product_no[$i];
+				// $input['location_id'] = $request->location_id[$i];
+				// $input['khilla_no'] = $request->khilla_no[$i];
                 $input['gender'] = $request->gender;
                 $input['purchase_from'] = $request->ps_purchase_from;
                 $input['purchase_date'] = $request->ps_purchase_date;
@@ -110,13 +110,13 @@ class ProductController extends Controller
                 $input['created_at'] = date('Y-m-d h:i:s');
                 $id = DB::table('product_stock')->insertGetId($input);
 				
-				DB::table('khilla')
-                    ->where('location_id', $request->location_id[$i])
-                    ->where('khilla_no', $request->khilla_no[$i])
-                    ->update([
-                        'status2' => 'booked',
-                        'updated_at' => date('Y-m-d h:i:s')
-                ]);
+				// DB::table('khilla')
+                //     ->where('location_id', $request->location_id[$i])
+                //     ->where('khilla_no', $request->khilla_no[$i])
+                //     ->update([
+                //         'status2' => 'booked',
+                //         'updated_at' => date('Y-m-d h:i:s')
+                // ]);
                 // $input2['product_id'] = $request->product_listing;
                 // $input2['product_no'] = $request->product_no[$i];
                 // $input2['product_stock_id'] = $id;                
@@ -125,8 +125,8 @@ class ProductController extends Controller
                 // $newdate = date('Y-m-d',strtotime($request->ps_purchase_date . +$d[0]->processing_days."days"));                
                 // $input2['processing_date'] = $newdate;
                 // DB::table('audit_log')->insert($input2);
-            }
-        }
+            // }
+        // }
         return redirect('/product_stock')->with('success','Product Stock Added');    
     }
 
@@ -138,7 +138,7 @@ class ProductController extends Controller
         
         $products = Product::where('status','active')->get();
         $locations = Location::all();
-
+        
         $stock = DB::table('product_stock')
         ->rightJoin('products', 'product_stock.product_id', '=', 'products.id')
         ->leftJoin('locations', 'product_stock.location_id', '=', 'locations.id')
@@ -177,15 +177,15 @@ class ProductController extends Controller
 
     public function update_stock(Request $request, $id) {
         
-        $get_old_khill = DB::table('product_stock')->where('id',$id)->get();
+        // $get_old_khill = DB::table('product_stock')->where('id',$id)->get();
         $product_stock = DB::table('product_stock')
                 ->where('id', $id)
                 ->update([
                     'product_id' => $request->product_id,
-                    'product_no' => $request->product_no,
-                    'location_id' => $request->location_id,
-                    'khilla_no' => $request->khilla_no,
-                    'extra_khilla_no' => $request->extra_khilla_no,
+                    // 'product_no' => $request->product_no,
+                    // 'location_id' => $request->location_id,
+                    // 'khilla_no' => $request->khilla_no,
+                    // 'extra_khilla_no' => $request->extra_khilla_no,
                     'gender' => $request->gender,
                     'quantity' => 1,
                     'purchase_from' => $request->ps_purchase_from,
@@ -197,7 +197,7 @@ class ProductController extends Controller
                 $input2['product_no'] = $request->product_no;
                 DB::table('audit_log')->where('product_stock_id', $id)->update($input2);
          
-        if($product_stock) {
+        /* if($product_stock) {
             if($request->extra_khilla_no !== null) {
                 DB::table('khilla')
                     ->where('location_id', $get_old_khill[0]->location_id)
@@ -217,8 +217,8 @@ class ProductController extends Controller
                 ]);
             }
             
-            return redirect('/product_stock')->with('success','Product Stock Updated');
-        }       
+        } */       
+        return redirect('/product_stock')->with('success','Product Stock Updated');
     }
 
     public function khilla_api ($id) {

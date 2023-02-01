@@ -104,7 +104,7 @@
               <div class="tab-pane active">
                 <div class="card">
                   <div class="card-body">                      
-                      <a class="btn btn-info btn-round" data-toggle="modal" data-target="#item-modal">Add Items</a>
+                      <a class="btn btn-info btn-round text-white" data-toggle="modal" data-target="#item-modal">Add Items</a>
                       <h3 class="text-success font-weight-bold mb-2">Items</h3>
                       <table id="datatable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>

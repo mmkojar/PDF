@@ -19,9 +19,9 @@
               <tr>
                 <th>Sr.No</th>
                 <th>Product Name</th>
-                <th>Product No.</th>           
+                {{-- <th>Product No.</th>           
                 <th>Location Name</th>
-                <th>Khilla No.</th>               
+                <th>Khilla No.</th>--}}
                 <th>Gender</th>
                 <th>Purchase From</th>
                 <th>Purchase Date</th>
@@ -37,13 +37,13 @@
                 <tr class="{{$stock->status == 'inactive' ? 'red-bgcolor' : ''}}">
                   <td>{{$count}}</td>                  
                   <td>{{ucfirst($stock->product_name)}}</td>
-                  <td>{{$stock->product_no ? $stock->product_no : '-'}}</td>
+                  {{-- <td>{{$stock->product_no ? $stock->product_no : '-'}}</td>
                   <td>{{ucfirst($stock->lname ? $stock->lname : '-')}}</td>
                   @if($stock->khilla_no !== null)
                     <td>{{$stock->khilla_no ? $stock->khilla_no : '-'}}</td>
                     @else
                     <td>{{$stock->extra_khilla_no}}</td>
-                  @endif
+                  @endif --}}
                   <td>{{ucfirst($stock->gender)}}</td>
                   <td>{{$stock->purchase_from}}</td>
                   <td>{{date('M j Y',strtotime($stock->purchase_date))}}</td>
@@ -55,10 +55,10 @@
                         {{Form::hidden ('_method','DELETE')}}
                         {{Form::submit('X', ['class' => 'btn btn-sm btn-danger'])}}
                       {!! Form::close() !!} --}}
-                        @if($stock->status == 'active')
+                        {{-- @if($stock->status == 'active') --}}
                           <a id="{{$stock->id}}" class="btn btn-sm btn-danger delete_all" url="product/stock"><i class="fa fa-times"></i></a>
                           <a href="{{route('product.stock.edit', $stock->id)}}" class="btn btn-sm btn-warning edit"><i class="fa fa-edit"></i></a>                    
-                        @endif
+                        {{-- @endif --}}
                     </td>
                   @endcan
                 </tr>  

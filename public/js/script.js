@@ -80,6 +80,9 @@ $(document).ready(function() {
             '#d6c1ab',
             '#F3BB45',
             '#FFD662',
+            '#6b9aebb3',
+            '#36d90f63',
+            '#8944e673'
         ];
 
         var dcards = document.getElementById('dashboard-cards').getElementsByClassName('card');
@@ -850,7 +853,7 @@ $(document).ready(function() {
                 var deleteurl = `${base_url}/${url}/delete/${id}`;
             }
             Swal.fire({
-                title: 'Are you sure you want to delete?(શું તમે ખરેખર કાઢી નાખવા માંગો છો?)',
+                title: 'Are you sure you want to delete ?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

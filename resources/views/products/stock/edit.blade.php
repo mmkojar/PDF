@@ -23,7 +23,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                           {{--  <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Product No.</label>
                                     <input type="text" value="{{$stock->product_no ? $stock->product_no : ''}}" id="product_no" name="product_no" class="form-control" {{$stock->product_no ? 'readonly' : ''}} required>
@@ -45,10 +45,10 @@
                                 <div class="form-group">
                                     <label>Khilla No</label>
                                     <select class="form-control get_khilla_options" name="khilla_no" required>
-                                        {{-- @if($stock->khilla_no !== '') --}}
+                                        
                                         <option value="{{$stock->khilla_no}}">{{$stock->khilla_no}}</option>          
                                         <option value="">--select--</option>                
-                                        {{-- @endif --}}
+                                        
                                     </select>
                                   </div>
                             </div>
@@ -57,7 +57,7 @@
                                     <label>Enter Extra Khilla No</label>
                                     <input type="text" value="{{$stock->extra_khilla_no}}" name="extra_khilla_no" class="form-control">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Select Gender</label>
@@ -89,8 +89,8 @@
                                 <div class="form-group">
                                     <label>Select Status</label>
                                     <select class="form-control" name="ps_purchase_status" required>                   
-                                        <option @if($stock->gender == 'active') selected @endif value="active">Active</option>
-                                        <option @if($stock->gender == 'inactive') selected @endif value="inactive">Inactive</option>
+                                        <option @if($stock->status == 'active') selected @endif value="active">Active</option>
+                                        <option @if($stock->status == 'inactive') selected @endif value="inactive">Inactive</option>
                                         {{-- <option @if($stock->gender == 'kasai') selected @endif value="kasai">Send to Kasai</option>
                                         <option @if($stock->gender == 'salve') selected @endif value="salve">Send to salve</option> --}}
                                     </select>
