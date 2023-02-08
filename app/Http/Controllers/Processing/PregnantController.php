@@ -110,7 +110,7 @@ class PregnantController extends Controller
 
            
             
-            if($send_salves) {
+            /* if($send_salves) {
                 $getpsid = DB::table('product_stock')->where('id',$request->product_stock_id)->get();		
                 DB::table('khilla')
                     ->where('location_id', $getpsid[0]->location_id)
@@ -125,7 +125,7 @@ class PregnantController extends Controller
                         'location_id' => null,
                         'khilla_no' => null
                 ]);
-            }
+            } */
             $check_audit_log = DB::table('audit_log')->get();
             if(count($check_audit_log) > 0) {
                 $get_lastest_product_stock_id = DB::table('audit_log')->where('product_stock_id',$request->product_stock_id)->latest('id')->first();
@@ -238,7 +238,7 @@ class PregnantController extends Controller
                             ->where('id',$request->medical_id)
                             ->delete();                        
                                                         
-                            DB::table('khilla')
+                            /* DB::table('khilla')
                                 ->where('location_id', $request->location_id)
                                 ->where('khilla_no', $request->khilla_no)
                                 ->update([
@@ -250,7 +250,7 @@ class PregnantController extends Controller
                                 ->update([
                                     'location_id' => $request->location_id,
                                     'khilla_no' => $request->khilla_no
-                            ]);	
+                            ]); */	
                     }
             }
             $check_audit_log = DB::table('audit_log')->get();

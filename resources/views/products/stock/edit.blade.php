@@ -23,13 +23,14 @@
                                     </select>
                                 </div>
                             </div>
-                           {{--  <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Product No.</label>
                                     <input type="text" value="{{$stock->product_no ? $stock->product_no : ''}}" id="product_no" name="product_no" class="form-control" {{$stock->product_no ? 'readonly' : ''}} required>
                                     <span id="check_prod_no" class="text-danger"></span>
                                 </div>
                             </div>
+                           {{--  
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>location Name</label>

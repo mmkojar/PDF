@@ -553,19 +553,19 @@ $(document).ready(function() {
             html += '<input type="text" id="product_no_' + count +
                 '" name="product_no[]" class="form-control dnproduct_no" required placeholder="Product No.">';
             html += '</div>';
-            html += '<div class="col-md-3">';
-            html +=
-                '<select class="form-control get_all_location get_dynamic_khillno_on_change dnlocation_id" name="location_id[]" data-loc-id="' +
-                count + '" id="location_id_' + count + '" required>';
-            html += get_d_location();
-            html += '</select>';
-            html += '</div>';
-            html += '<div class="col-md-3">';
-            html +=
-                '<select class="form-control get_dynamic_khilla_options dnkhilla_no" name="khilla_no[]" id="dynamic_khilla_no' +
-                count + '" required>';
-            html += '</select>';
-            html += '</div>';
+            // html += '<div class="col-md-3">';
+            // html +=
+            //     '<select class="form-control get_all_location get_dynamic_khillno_on_change dnlocation_id" name="location_id[]" data-loc-id="' +
+            //     count + '" id="location_id_' + count + '" required>';
+            // html += get_d_location();
+            // html += '</select>';
+            // html += '</div>';
+            // html += '<div class="col-md-3">';
+            // html +=
+            //     '<select class="form-control get_dynamic_khilla_options dnkhilla_no" name="khilla_no[]" id="dynamic_khilla_no' +
+            //     count + '" required>';
+            // html += '</select>';
+            // html += '</div>';
             html += '<div class="col-md-3">';
             html += '<div class="btn btn-sm btn-danger delete_row_icon1"><i class="fa fa-trash"></i></div>';
             html += '</div>';

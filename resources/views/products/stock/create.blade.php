@@ -55,14 +55,14 @@
                                     <input type="text" name="ps_party_name" class="form-control" required>
                                 </div>        
                             </div>   
-							{{-- <div class="col-md-4">
+							<div class="col-md-4">
 								<label></label>
 								<div class="form-group">
 									<div class="btn btn-sm btn-primary add_row_icon1"><i class="fa fa-plus"></i></div>							
 								</div>
-							</div>--}}
+							</div>
                         </div>
-						{{-- <div id="show_textboxes1"></div>--}}
+						<div id="show_textboxes1"></div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info btn-round insert_product_stock">Submit</button>

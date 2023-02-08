@@ -8,7 +8,7 @@
       <span aria-hidden="true">×</span>
   </button>
 </div>
-
+<?php $medical_datetd = '';$medical_datepd = '';$medical_dateex = ''; ?>
 <div class="row">
   <div class="col-md-12 mx-auto">
     <div class="card card-plain card-subcategories">
@@ -69,6 +69,7 @@
                               $delivery_date = date('M j Y',strtotime($newdate2));
                             ?>            
                             @if(strtotime(date('Y-m-d')) == strtotime($medical_date))
+                            <?php $medical_datetd = $medical_date ?>
                               <tr>                                           
                                   <td><input type="checkbox" name="select_process[{{$checkup->id}}]" class="select_process" value="{{$checkup->id}}"></td>                           
                                   <td>{{$count}}</td>
@@ -106,7 +107,7 @@
                             @endforeach                  
                       </tbody>                           
                     </table>
-                    @if(strtotime(date('Y-m-d')) == strtotime($medical_date))
+                    @if(strtotime(date('Y-m-d')) == strtotime($medical_datetd))
                       <button type="submit" class="btn btn-info btn-round m_submit">Submit</button> 
                     @endif
                   </form>
@@ -150,6 +151,7 @@
                               $delivery_date = date('M j Y',strtotime($newdate2));
                             ?>            
                             @if(strtotime(date('Y-m-d')) < strtotime($medical_date))
+                            <?php $medical_datepd = $medical_date ?>
                               <tr>                                           
                                   <td><input type="checkbox" name="select_process[{{$checkup->id}}]"  class="select_process" value="{{$checkup->id}}"></td>                           
                                   <td>{{$count}}</td>
@@ -187,7 +189,7 @@
                             @endforeach                  
                       </tbody>                           
                     </table>
-                    @if(strtotime(date('Y-m-d')) < strtotime($medical_date))
+                    @if(strtotime(date('Y-m-d')) < strtotime($medical_datepd))
                     <button type="submit" class="btn btn-info btn-round m_submit">Submit</button> 
                     @endif
                   </form>
@@ -230,7 +232,8 @@
                               $newdate2 = date('Y-m-d',strtotime($date2 ."10 months"));
                               $delivery_date = date('M j Y',strtotime($newdate2));
                             ?>            
-                              @if(strtotime(date('Y-m-d')) > strtotime($medical_date))           
+                              @if(strtotime(date('Y-m-d')) > strtotime($medical_date))        
+                              <?php $medical_dateex = $medical_date ?>   
                               <tr>                                           
                                   <td><input type="checkbox" name="select_process[{{$checkup->id}}]"  class="select_process" value="{{$checkup->id}}"></td>                           
                                   <td>{{$count}}</td>
@@ -268,7 +271,7 @@
                             @endforeach                  
                       </tbody>                           
                     </table>
-                    @if(strtotime(date('Y-m-d')) > strtotime($medical_date)) 
+                    @if(strtotime(date('Y-m-d')) > strtotime($medical_dateex)) 
                       <button type="submit" class="btn btn-info btn-round m_submit">Submit</button> 
                     @endif
                   </form>

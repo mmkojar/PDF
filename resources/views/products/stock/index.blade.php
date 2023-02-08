@@ -19,7 +19,8 @@
               <tr>
                 <th>Sr.No</th>
                 <th>Product Name</th>
-                {{-- <th>Product No.</th>           
+                <th>Product No.</th>
+                {{--           
                 <th>Location Name</th>
                 <th>Khilla No.</th>--}}
                 <th>Gender</th>
@@ -37,7 +38,8 @@
                 <tr class="{{$stock->status == 'inactive' ? 'red-bgcolor' : ''}}">
                   <td>{{$count}}</td>                  
                   <td>{{ucfirst($stock->product_name)}}</td>
-                  {{-- <td>{{$stock->product_no ? $stock->product_no : '-'}}</td>
+                  <td>{{$stock->product_no ? $stock->product_no : '-'}}</td>
+                  {{--
                   <td>{{ucfirst($stock->lname ? $stock->lname : '-')}}</td>
                   @if($stock->khilla_no !== null)
                     <td>{{$stock->khilla_no ? $stock->khilla_no : '-'}}</td>

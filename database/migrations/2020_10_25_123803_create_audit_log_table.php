@@ -21,7 +21,19 @@ class CreateAuditLogTable extends Migration
             $table->date('processing_date')->nullable();
             $table->date('actual_or_further_processing_date')->nullable();
             $table->string('is_processed_or_not')->nullable();
-            $table->string('note')->nullable();
+            $table->string('process_note')->nullable();
+            $table->date('medical_date')->nullable();
+            $table->date('actual_medical_date')->nullable();
+            $table->date('delivery_date')->nullable();
+            $table->string('is_pregnant_or_not')->nullable();
+            $table->string('medical_note')->nullable();
+            $table->string('salve_name')->nullable();
+            $table->string('salve_location')->nullable();
+            $table->date('salves_date')->nullable();
+            $table->string('back_to_process_note')->nullable();
+            $table->date('back_to_process_date')->nullable();
+            $table->date('back_to_mumbai_date')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

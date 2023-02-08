@@ -10,7 +10,7 @@ use App\Http\Controllers\CommonController as Controller;
 class DashboardController extends Controller
 {
     public function __construct()
-    {        
+    {
         $this->middleware(['auth','verified']);
     }
 

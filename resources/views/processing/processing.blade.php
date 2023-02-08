@@ -8,7 +8,7 @@
       <span aria-hidden="true">×</span>
   </button>
 </div>
-<?php $process_date = ''; ?>
+<?php $process_datetd = '';$process_datepd = '';$process_dateex = ''; ?>
 <div class="row">
   <div class="col-md-12 mx-auto">
     <div class="card card-plain card-subcategories">
@@ -70,6 +70,7 @@
                             }
                             ?>            
                             @if(strtotime(date('Y-m-d')) == strtotime($process_date))
+                            <?php $process_datetd = $process_date ?>
                               <tr class="{{$process->status == 'inactive' ? 'red-bgcolor' : ''}}">
                                   <td><input type="checkbox" name="select_process[{{$process->id}}]" class="select_process" value="{{$process->id}}" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>{{$count}}</td>
@@ -108,7 +109,7 @@
                           @endforeach                  
                       </tbody>                           
                     </table>
-                    @if(strtotime(date('Y-m-d')) == strtotime($process_date))
+                    @if(strtotime(date('Y-m-d')) == strtotime($process_datetd))
                       <button type="submit" class="btn btn-info btn-round p_submit">Submit</button> 
                     @endif
                   </form>
@@ -153,6 +154,7 @@
                             }
                             ?>            
                             @if(strtotime(date('Y-m-d')) < strtotime($process_date))
+                              <?php $process_datepd = $process_date ?>
                               <tr class="{{$process->status == 'inactive' ? 'red-bgcolor' : ''}}">
                                   <td><input type="checkbox" name="select_process[{{$process->id}}]" class="select_process" value="{{$process->id}}" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>{{$count}}</td>
@@ -191,7 +193,7 @@
                           @endforeach                  
                       </tbody>                           
                     </table>
-                    @if(strtotime(date('Y-m-d')) < strtotime($process_date))
+                    @if(strtotime(date('Y-m-d')) < strtotime($process_datepd))
                     <button type="submit" class="btn btn-info btn-round p_submit">Submit</button> 
                     @endif
                   </form>
@@ -235,7 +237,8 @@
                               }              
                             ?>            
                               @if(strtotime(date('Y-m-d')) > strtotime($process_date))          
-                              <tr class="{{$process->status == 'inactive' ? 'red-bgcolor' : ''}}">                                           
+                              <?php $process_dateex = $process_date ?>
+                              <tr class="{{$process->status == 'inactive' ? 'red-bgcolor' : ''}}">                                  
                                   <td><input type="checkbox" name="select_process[{{$process->id}}]" class="select_process" value="{{$process->id}}" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>{{$count}}</td>
                                   <td><input type="hidden" name="product_id[{{$process->id}}]" class="product_id" value="{{$process->product_id}}">{{$process->product_name}}</td>
@@ -251,7 +254,7 @@
                                       $newprocess_date = date('M j Y',strtotime($process->newpdate)); 
                                       echo $newprocess_date;                                                    
                                       echo '<input type="hidden" name="processing_date['.$process->id.']" class="processing_date" value="'.$process->newpdate.'">';
-                                    }                                   
+                                    }
                                     ?>
                                   </td>
                                   <td>
@@ -270,10 +273,10 @@
                               </tr>  
                               <?php $count++ ?>            
                             @endif
-                          @endforeach                  
-                      </tbody>                           
+                          @endforeach
+                      </tbody>
                     </table>
-                    @if(strtotime(date('Y-m-d')) > strtotime($process_date)) 
+                    @if(strtotime(date('Y-m-d')) > strtotime($process_dateex)) 
                       <button type="submit" class="btn btn-info btn-round p_submit">Submit</button> 
                     @endif
                   </form>

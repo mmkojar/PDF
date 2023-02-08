@@ -60,7 +60,7 @@ class ProcessingController extends Controller
         // Helper::debug($pending_processess);
 
                             
-        $process_days = DB::table('days')->select('processing_days')->get(); 
+        $process_days = DB::table('days')->select('processing_days')->get();
         
         return view('processing.processing')->with(['pending_processess' => $pending_processess,'process_days' => $process_days]);
     }

@@ -95,11 +95,11 @@ class ProductController extends Controller
     
     public function store_stock(Request $request) {
         
-        // if($request->product_no > 0) {
-            // for($i = 0; $i < count($request->product_no); $i++) {
+        if($request->product_no > 0) {
+            for($i = 0; $i < count($request->product_no); $i++) {
                 $input['quantity'] = 1;
                 $input['product_id'] = $request->product_listing;
-				// $input['product_no'] = $request->product_no[$i];
+				$input['product_no'] = $request->product_no[$i];
 				// $input['location_id'] = $request->location_id[$i];
 				// $input['khilla_no'] = $request->khilla_no[$i];
                 $input['gender'] = $request->gender;
@@ -125,8 +125,8 @@ class ProductController extends Controller
                 // $newdate = date('Y-m-d',strtotime($request->ps_purchase_date . +$d[0]->processing_days."days"));                
                 // $input2['processing_date'] = $newdate;
                 // DB::table('audit_log')->insert($input2);
-            // }
-        // }
+            }
+        }
         return redirect('/product_stock')->with('success','Product Stock Added');    
     }
 
@@ -159,13 +159,13 @@ class ProductController extends Controller
     public function delete_stock($id)
     {   
 		$stock = DB::table('product_stock')->where('id',$id)->get();		
-		DB::table('khilla')
+		/* DB::table('khilla')
 			->where('location_id', $stock[0]->location_id)
 			->where('khilla_no', $stock[0]->khilla_no)
 			->update([
 				'status2' => 'free',
 				'updated_at' => date('Y-m-d h:i:s')
-		]);
+		]); */
         $delete = DB::table('product_stock')->where('id', '=', $id)->delete();		
         if($delete) {
             DB::table('processing_data')->where('product_stock_id', '=', $id)->delete();
@@ -182,7 +182,7 @@ class ProductController extends Controller
                 ->where('id', $id)
                 ->update([
                     'product_id' => $request->product_id,
-                    // 'product_no' => $request->product_no,
+                    'product_no' => $request->product_no,
                     // 'location_id' => $request->location_id,
                     // 'khilla_no' => $request->khilla_no,
                     // 'extra_khilla_no' => $request->extra_khilla_no,
