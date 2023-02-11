@@ -92,8 +92,8 @@
                                   </td>
                                   <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes" @if($process->pnot=='yes') selected @endif >Want to process</option>
-                                      <option  value="no" @if($process->pnot=='no') selected @endif >Not</option>
+                                      <option value="yes">Want to process</option>
+                                      <option  value="no">Not</option>
                                     </select>
                                   </td>
                                   <td>
@@ -176,8 +176,8 @@
                                   </td>
                                   <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes" @if($process->pnot=='yes') selected @endif >Want to process</option>
-                                      <option  value="no" @if($process->pnot=='no') selected @endif >Not</option>
+                                      <option value="yes">Want to process</option>
+                                      <option  value="no">Not</option>
                                     </select>
                                   </td>
                                   <td>
@@ -259,8 +259,8 @@
                                   </td>
                                   <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes" @if($process->pnot=='yes') selected @endif >Want to process</option>
-                                      <option  value="no" @if($process->pnot=='no') selected @endif >Not</option>
+                                      <option value="yes">Want to process</option>
+                                      <option  value="no">Not</option>
                                     </select>
                                   </td>
                                   <td>

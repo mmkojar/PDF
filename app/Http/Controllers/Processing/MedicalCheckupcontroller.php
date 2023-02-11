@@ -63,7 +63,7 @@ class MedicalCheckupcontroller extends Controller
         foreach(request()->select_process as $selected) {
             if($data['is_pregnant_or_not'][$selected] == 'no') {
 
-                $date1 = str_replace('-', '/', date('Y-m-d'));
+                $date1 = $data['back_to_process_date'][$selected];
                 $newdate = date('Y-m-d',strtotime($date1 . +$processing_days[0]->processing_days."days"));
                 
                 DB::table('processing_data')
@@ -73,11 +73,11 @@ class MedicalCheckupcontroller extends Controller
                         'processing_date'      => $newdate,
                         'is_processed_or_not'    => 'no',
                         'actual_or_further_processing_date' => null,
-                        'note' => null,
+                        'note' => $data['note'][$selected],
                         'no_of_process' => $count++,
                         'updated_at'       => date('Y-m-d h:i:s'),
                     ]
-                );                
+                );
                 // $count++;                 
             }
             else{
@@ -106,7 +106,14 @@ class MedicalCheckupcontroller extends Controller
                     $input['actual_medical_date'] = $data['actual_medical_date'][$selected];
                     $input['delivery_date'] = $data['delivery_date'][$selected];
                     $input['is_pregnant_or_not'] = $data['is_pregnant_or_not'][$selected];
+                    $input['back_to_process_date_from_medical'] = $data['back_to_process_date'][$selected];
                     $input['medical_note'] = $data['note'][$selected];
+                    if ($data['is_pregnant_or_not'][$selected] == 'no') {
+                        $input['status'] = 'notpregnant';
+                    }
+                    else {
+                        $input['status'] = 'ghaban';
+                    }
                     DB::table('audit_log')->where('id',$get_lastest_product_stock_id->id)->update($input); 
                 }
             }

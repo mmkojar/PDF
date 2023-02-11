@@ -26,6 +26,7 @@ class CreateAuditLogTable extends Migration
             $table->date('actual_medical_date')->nullable();
             $table->date('delivery_date')->nullable();
             $table->string('is_pregnant_or_not')->nullable();
+            $table->date('back_to_process_date_from_medical')->nullable();
             $table->string('medical_note')->nullable();
             $table->string('salve_name')->nullable();
             $table->string('salve_location')->nullable();

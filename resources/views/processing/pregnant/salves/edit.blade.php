@@ -86,7 +86,7 @@
                                     <span id="check_prod_no" class="text-danger"></span>
                                 </div>
                             </div> --}}
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="form-group">
                                     <label>location Name</label>
                                     <select class="form-control get_khillno_on_change" name="location_id" id="location_id">
@@ -103,7 +103,7 @@
                                     <select class="form-control get_khilla_options" name="khilla_no" id="khilla_no">                                   
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

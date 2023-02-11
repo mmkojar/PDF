@@ -72,17 +72,12 @@ $(document).ready(function() {
         }
     });
     
-    if (pathname == '' || pathname == 'dashboard') {
+   /*  if (pathname == '' || pathname == 'dashboard') {
         const COLORS = [
             '#b8d8d8',
             '#d5e5a3',
             '#f53e3e6b',
-            '#d6c1ab',
-            '#F3BB45',
-            '#FFD662',
-            '#6b9aebb3',
-            '#36d90f63',
-            '#8944e673'
+            '#6b9aebb3'
         ];
 
         var dcards = document.getElementById('dashboard-cards').getElementsByClassName('card');
@@ -92,7 +87,7 @@ $(document).ready(function() {
             dcards[i].style.backgroundColor = COLORS[count % COLORS.length];
             count++;
         }
-    }
+    } */
     
     if (pathname !== '' || pathname !== 'dashboard') {
 
@@ -1219,6 +1214,12 @@ $(document).ready(function() {
                 return false;
             }
         });
+       /*  if ($(".is_pregnant_or_not").val() == 'no') {
+            $('.back_to_process_date').attr('disabled',false)
+        }
+        else {
+            $('.back_to_process_date').attr('disabled',true)
+        } */
 
         // For Send to Salve checkbox  
         $("#ghabhan_form #status").on('change', function() {
@@ -1259,7 +1260,7 @@ $(document).ready(function() {
         }); */
 
         // For back to mumbai
-        $("#ghabhan_salve_form #status").click(function() {
+        $("#ghabhan_salve_form #status").change(function() {
             if ($("#ghabhan_salve_form #status").val() === 'mumbai') {
                 $("#ghabhan_salve_form #show_on_mumbai").css('display', 'block');
                 $("#ghabhan_salve_form #back_to_mumbai_date,#ghabhan_salve_form #location_id,#ghabhan_salve_form #khilla_no")

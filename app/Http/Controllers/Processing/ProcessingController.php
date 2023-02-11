@@ -94,7 +94,7 @@ class ProcessingController extends Controller
                         'updated_at'       => date('Y-m-d h:i:s'),
                     ]
                 );                
-            } 
+            }
             else {
                 DB::table('processing_data')
                 ->insert(
@@ -118,6 +118,7 @@ class ProcessingController extends Controller
             $input2['actual_or_further_processing_date'] = $data['actual_or_further_processing_date'][$selected];
             $input2['is_processed_or_not'] = $data['is_processed_or_not'][$selected];
             $input2['process_note'] = $data['note'][$selected];
+            $input2['status'] = 'medical';
             DB::table('audit_log')->insert($input2);
         }
         return redirect('/processing')->with('success','Data Added');                                     

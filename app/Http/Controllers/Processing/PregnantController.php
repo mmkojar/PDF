@@ -64,7 +64,7 @@ class PregnantController extends Controller
     {
         if($request->status == 'send_salves') {
             
-            $check_g_count = DB::table('ghabhan_detail')            
+            $check_g_count = DB::table('ghabhan_detail')
             ->where(['ghabhan_detail.product_no' => $request->product_no])
             ->get();
 
@@ -133,6 +133,7 @@ class PregnantController extends Controller
                     $input['salve_name'] = $request->salve_name;
                     $input['salve_location'] = $request->salve_location;
                     $input['salves_date'] = $request->salves_date;
+                    $input['status'] = 'salves';
                     DB::table('audit_log')->where('id',$get_lastest_product_stock_id->id)->update($input);
                 }
             }
@@ -171,7 +172,7 @@ class PregnantController extends Controller
                         'no_of_process' => 2,
                         'updated_at'       => date('Y-m-d h:i:s'),
                     ]
-                );                    
+                );
             
             $check_audit_log = DB::table('audit_log')->get();
             if(count($check_audit_log) > 0) {
@@ -179,6 +180,7 @@ class PregnantController extends Controller
                 if($get_lastest_product_stock_id) {
                     $input['back_to_process_note'] = $request->note;
                     $input['back_to_process_date'] = $request->back_to_process_date;
+                    $input['status'] = 'process-from-ghaban';
                     DB::table('audit_log')->where('id',$get_lastest_product_stock_id->id)->update($input);
                 }
             }
@@ -208,9 +210,9 @@ class PregnantController extends Controller
             ->where('id',$id)
             ->update(
                 [
-                    'back_to_mumbai_date'      => $request->back_to_mumbai_date,
-                    'status'    => 'mumbai',                
-                    'updated_at'       => date('Y-m-d h:i:s'),
+                    'back_to_mumbai_date' => $request->back_to_mumbai_date,
+                    'status'  => 'mumbai',
+                    'updated_at' => date('Y-m-d h:i:s'),
                 ]
             );
             if($update_ghabhan) {
@@ -233,7 +235,7 @@ class PregnantController extends Controller
                     );
                     
                     if($update_processing) {
-
+                            
                             DB::table('medical_checkup')
                             ->where('id',$request->medical_id)
                             ->delete();                        
@@ -258,6 +260,7 @@ class PregnantController extends Controller
                 $get_lastest_product_stock_id = DB::table('audit_log')->where('product_stock_id',$request->product_stock_id)->latest('id')->first();
                 if($get_lastest_product_stock_id) {
                     $input['back_to_mumbai_date'] = $request->back_to_mumbai_date;
+                    $input['status'] = 'completed';
                     DB::table('audit_log')->where('id',$get_lastest_product_stock_id->id)->update($input);
                 }
             }
@@ -281,7 +284,7 @@ class PregnantController extends Controller
                         [                      
                             'status'=>'inactive',
                         ]
-                    );                    
+                    );
             }
             return redirect('/ghabhan')->with('success','Stock Inactive Sucessfully');   
         }

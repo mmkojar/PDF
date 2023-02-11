@@ -53,6 +53,7 @@
                           <th>Medical Date</th>
                           <th>Actual Medical Date</th>
                           <th>Pregnant Or Not</th>
+                          <th>Back to process date</th>
                           <th>Delivery Date</th>
                           <th>Notes</th>
                         </tr>
@@ -89,6 +90,7 @@
                                       <option  value="no">No (Back to Process)</option>
                                     </select>
                                   </td>
+                                    <td><input type="text" name="back_to_process_date[{{$checkup->id}}]" class="form-control datepicker back_to_process_date"></td>
                                   <td>
                                     <?php
                                       echo $delivery_date;
@@ -135,6 +137,7 @@
                           <th>Medical Date</th>
                           <th>Actual Medical Date</th>
                           <th>Pregnant Or Not</th>
+                          <th>Back to process date</th>
                           <th>Delivery Date</th>
                           <th>Notes</th>
                         </tr>
@@ -167,10 +170,11 @@
                                   <td><input type="text" name="actual_medical_date[{{$checkup->id}}]" class="form-control datepicker"></td>
                                    <td>
                                     <select name="is_pregnant_or_not[{{$checkup->id}}]" class="is_pregnant_or_not">                              
-                                      <option value="yes" @if($checkup->pnot=='yes') selected @endif>Yes</option>
-                                      <option  value="no" @if($checkup->pnot=='no') selected @endif>No (Back to Process)</option>
+                                      <option value="yes">Yes</option>
+                                      <option  value="no">No (Back to Process)</option>
                                     </select>
                                   </td>
+                                    <td><input type="text" name="back_to_process_date[{{$checkup->id}}]" class="form-control datepicker back_to_process_date"></td>
                                   <td>
                                     <?php
                                       echo $delivery_date;
@@ -217,6 +221,7 @@
                           <th>Medical Date</th>
                           <th>Actual Medical Date</th>
                           <th>Pregnant Or Not</th>
+                          <th>Back to process date</th>
                           <th>Delivery Date</th>
                           <th>Notes</th>
                         </tr>
@@ -253,6 +258,7 @@
                                       <option  value="no">No (Back to Process)</option>
                                     </select>
                                   </td>
+                                    <td><input type="text" name="back_to_process_date[{{$checkup->id}}]" class="form-control datepicker back_to_process_date"></td>
                                   <td>
                                     <?php
                                       echo $delivery_date;
