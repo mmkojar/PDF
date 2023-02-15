@@ -52,7 +52,7 @@
                           <th>Product No.</th>
                           <th>Purchase Date</th>
                           <th>Processing Date</th>
-                          <th>Processed Or Not</th>
+                          {{-- <th>Is Processed Or Not</th> --}}
                           <th>Actual/Further Processing Date</th>
                           <th>Note</th>
                         </tr>
@@ -90,19 +90,20 @@
                                     }                                   
                                     ?>
                                   </td>
-                                  <td>
+                                  {{-- <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes">Want to process</option>
+                                      <option value="yes">Yes</option>
                                       <option  value="no">Not</option>
                                     </select>
-                                  </td>
+                                  </td> --}}
                                   <td>
                                     <input type="text" name="actual_or_further_processing_date[{{$process->id}}]" value="{{$process->afdate ? $process->afdate : ''}}" class="afdate form-control datepicker" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>
-                                    <input type="text" name="note[{{$process->id}}]" value="{{$process->note ? $process->note : ''}}" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
+                                    <input type="text" name="note[{{$process->id}}]" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
                                   </td>
                                   <input type="hidden" name="product_no[{{$process->id}}]" value="{{$process->product_no}}">
                                   <input type="hidden" name="prid[{{$process->id}}]" value="{{$process->prrid}}">
+                                  <input type="hidden" name="is_processed_or_not[{{$process->id}}]" value="yes">
                               </tr>                              
                               <?php $count++ ?>    
                             @endif        
@@ -136,7 +137,7 @@
                           <th>Product No.</th>
                           <th>Purchase Date</th>
                           <th>Processing Date</th>
-                          <th>Processed Or Not</th>
+                          {{-- <th>Is Processed Or Not</th> --}}
                           <th>Actual/Further Processing Date</th>
                           <th>Note</th>
                         </tr>
@@ -174,19 +175,20 @@
                                     }                                   
                                     ?>
                                   </td>
-                                  <td>
+                                  {{-- <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes">Want to process</option>
+                                      <option value="yes">Yes</option>
                                       <option  value="no">Not</option>
                                     </select>
-                                  </td>
+                                  </td> --}}
                                   <td>
                                     <input type="text" name="actual_or_further_processing_date[{{$process->id}}]" value="{{$process->afdate ? $process->afdate : ''}}" class="afdate form-control datepicker" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>
-                                    <input type="text" name="note[{{$process->id}}]" value="{{$process->note ? $process->note : ''}}" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
+                                    <input type="text" name="note[{{$process->id}}]" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
                                   </td>
                                   <input type="hidden" name="product_no[{{$process->id}}]" value="{{$process->product_no}}">
                                   <input type="hidden" name="prid[{{$process->id}}]" value="{{$process->prrid}}">
+                                  <input type="hidden" name="is_processed_or_not[{{$process->id}}]" value="yes">
                               </tr>                              
                               <?php $count++ ?>    
                             @endif        
@@ -219,7 +221,7 @@
                           <th>Product No.</th>
                           <th>Purchase Date</th>
                           <th>Processing Date</th>
-                          <th>Processed Or Not</th>
+                          {{-- <th>Is Processed Or Not</th> --}}
                           <th>Actual/Further Processing Date</th>
                           <th>Note</th>
                         </tr>
@@ -257,19 +259,20 @@
                                     }
                                     ?>
                                   </td>
-                                  <td>
+                                  {{-- <td>
                                     <select name="is_processed_or_not[{{$process->id}}]" class="is_processed_or_not" {{$process->status == 'inactive' ? 'disabled' : ''}}>                              
-                                      <option value="yes">Want to process</option>
+                                      <option value="yes">Yes</option>
                                       <option  value="no">Not</option>
                                     </select>
-                                  </td>
+                                  </td> --}}
                                   <td>
                                     <input type="text" name="actual_or_further_processing_date[{{$process->id}}]" value="{{$process->afdate ? $process->afdate : ''}}" class="afdate form-control datepicker" {{$process->status == 'inactive' ? 'disabled' : ''}}></td>
                                   <td>
-                                    <input type="text" name="note[{{$process->id}}]" value="{{$process->note ? $process->note : ''}}" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
+                                    <input type="text" name="note[{{$process->id}}]" class="note form-control" {{$process->status == 'inactive' ? 'disabled' : ''}}>
                                   </td>
                                   <input type="hidden" name="product_no[{{$process->id}}]" value="{{$process->product_no}}">
                                   <input type="hidden" name="prid[{{$process->id}}]" value="{{$process->prrid}}">
+                                  <input type="hidden" name="is_processed_or_not[{{$process->id}}]" value="yes">
                               </tr>  
                               <?php $count++ ?>            
                             @endif

@@ -72,7 +72,6 @@ class ProcessingController extends Controller
         return view('processing.create')->with(['products' => $products]); */
     }
 
-    
     public function store(Request $request)
     {        
         $prid = [];
@@ -110,13 +109,13 @@ class ProcessingController extends Controller
                         'created_at'       => date('Y-m-d h:i:s'),
                     ]
                 );                           
-            }            
+            }    
             $input2['product_id'] = $data['product_id'][$selected];
             $input2['product_stock_id'] = $data['product_stock_id'][$selected];
             $input2['product_no'] = $data['product_no'][$selected];
             $input2['processing_date'] = $data['processing_date'][$selected];
             $input2['actual_or_further_processing_date'] = $data['actual_or_further_processing_date'][$selected];
-            $input2['is_processed_or_not'] = $data['is_processed_or_not'][$selected];
+            // $input2['is_processed_or_not'] = $data['is_processed_or_not'][$selected];
             $input2['process_note'] = $data['note'][$selected];
             $input2['status'] = 'medical';
             DB::table('audit_log')->insert($input2);

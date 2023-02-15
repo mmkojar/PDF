@@ -1155,12 +1155,13 @@ $(document).ready(function() {
             });
             if (select_length.length > 0) {
                 if (afdate == '') {
-                    if ($(".is_processed_or_not").val() == 'yes') {
-                        $("#process_alert strong").text('Please Enter Acutal Processing Date');
-                    }
-                    if ($(".is_processed_or_not").val() == 'no') {
-                        $("#process_alert strong").text('Please Enter Further Processing Date');
-                    }
+                    // if ($(".is_processed_or_not").val() == 'yes') {
+                    //     $("#process_alert strong").text('Please Enter Acutal Processing Date');
+                    // }
+                    // if ($(".is_processed_or_not").val() == 'no') {
+                    //     $("#process_alert strong").text('Please Enter Further Processing Date');
+                    // }
+                    $("#process_alert strong").text('Please Enter Acutal/Further Processing Date');
                     $("#process_alert").addClass('d-block');
                     $("#process_alert").removeClass('d-none');
                     return false;
@@ -2393,49 +2394,8 @@ $(document).ready(function() {
                                                     </div>
                                                     </div>
                                                     </div>`;
-                                            } */
-                                            // else {
-                                                html_table += `
-                                                <div class="container bootstrap snippets bootdeys">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <div class="panel panel-default invoice" id="invoice">
-                                                                <div class="panel-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12 text-center">
-                                                                            <h3>OVESH UMARBHAI SULLYA</h3>
-                                                                            <p>Aarey Milk Colony, Unit No:19, Goregaon (E), Mumbai-400065 (Mobile no: +91-9867835569/36)</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row">
-                                                                        <div class="col-sm-12">
-                                                                            <table class="table table-striped table-bordered">
-                                                                                <tbody>
-                                                                                    <tr>
-                                                                                        <th>Buyer's Name</th> 
-                                                                                        <th>Invoice No</th>
-                                                                                        <td>${bill_no}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>${bill_customer_name.toUpperCase()}</td>
-                                                                                        <th>Invoice Date</th>
-                                                                                        <td>${moment().format('DD-MMM-YYYY')}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>Mumbai</td>
-                                                                                        <th>Period</th>
-                                                                                        <td>${moment(xdate).format("DD-MMM-YYYY")} to ${moment(ydate).format("DD-MMM-YYYY")}</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>MOBILE - ${bill_customer_mobile}</td>
-                                                                                        <td></td>
-                                                                                        <td></td>
-                                                                                    </tr>
-                                                                                </tbody>
-                                                                            </table>                                                                                                            
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row no-gutters">
+                                                    // new one
+                                                    <div class="row no-gutters">
                                                                         <div class="col-sm-6 text-center">
                                                                             <table class="table table-striped table-bordered">
                                                                                 <tr>
@@ -2481,30 +2441,174 @@ $(document).ready(function() {
                                                                         <div class="col-sm-6 text-center">
                                                                             <table class="table table-striped table-bordered">
                                                                                 <tr>
-                                                                                    <th colspan="8"><h5 class="mb-0">CALCULATION</h5></th>
+                                                                                    <th colspan="2"><h5 class="mb-0">CALCULATION</h5></th>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th style="height:76px;width:60%">TOTAL QUANTITY IN LITRES</th>
+                                                                                    <th>TOTAL QUANTITY IN LITRES</th>
                                                                                     <td>${ysum}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th style="height:76px;width:60%">RATE</th>
+                                                                                    <th>RATE</th>
                                                                                     <td>${get_rate}</td>
                                                                                 </tr>                                                                                
                                                                                 <tr>
-                                                                                    <th style="height:76px;width:60%">NET AMOUNT</th>
+                                                                                    <th>NET AMOUNT</th>
                                                                                     <td>${get_total_amount}</td>
                                                                                 </tr>                                                                                
                                                                                 <tr>
-                                                                                    <th style="height:76px;width:60%">BALANCE</th>
+                                                                                    <th>BALANCE</th>
                                                                                     <td>${get_pending_amount}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <th style="height:76px;width:60%">GROSS AMOUNT</th>
+                                                                                    <th>GROSS AMOUNT</th>
                                                                                     <td>${get_grand_total_amount}</td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="height:131px" colspan="2"><h4 class="my-0">OVESH UMARBHAI SULLYA</h4></td>
+                                                                                    <td colspan="2"><h4 class="my-0">OVESH UMARBHAI SULLYA</h4></td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>`
+                                                                    </div>
+                                            } */
+                                            // else {
+                                                html_table += `
+                                                <div class="container bootstrap snippets bootdeys">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <div class="panel panel-default invoice" id="invoice">
+                                                                <div class="panel-body">
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12 text-center">
+                                                                            <h3>OVESH UMARBHAI SULLYA</h3>
+                                                                            <p>Aarey Milk Colony, Unit No:19, Goregaon (E), Mumbai-400065 (Mobile no: +91-9867835569/36)</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            <table class="table table-striped table-bordered">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <th>Buyer's Name</th> 
+                                                                                        <th>${bill_customer_name.toUpperCase()} - ${bill_customer_mobile}</th>
+                                                                                        <th>Invoice No</th>
+                                                                                        <td>${bill_no}</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <th>Invoice Date</th>
+                                                                                        <td>${moment().format('DD-MMM-YYYY')}</td>
+                                                                                        <th>Invoice Period</th>
+                                                                                        <td>${moment(xdate).format("DD-MMM-YYYY")} to ${moment(ydate).format("DD-MMM-YYYY")}</td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>                                                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row no-gutters">
+                                                                        <div class="col-12 text-center">
+                                                                            <table class="table table-striped table-bordered">`;
+                                                                                let first15res = [];
+                                                                                if (res.data.length < 8) {
+                                                                                    for (var i =0; i < res.data.length; i += res.data.length) {
+                                                                                        var sliced = res.data.slice(i,i +res.data.length);
+                                                                                        first15res.push(sliced);
+                                                                                    }
+                                                                                } 
+                                                                                else {
+                                                                                    var check = res.data.length
+                                                                                    if (check % 2 == 0) {
+                                                                                        var clength = check / 2;
+                                                                                    } else {
+                                                                                        var clength = (check / 2) + 0.5;
+                                                                                    }
+                                                                                    for (var i = 0; i < res.data.length; i += clength) {
+                                                                                        var sliced = res.data.slice( i, i + clength);
+                                                                                        first15res.push(sliced);
+                                                                                    }
+                                                                                }
+                                                                                if (res.data.length > 7) {
+                                                                                    first15res[1].push(Object.create({
+                                                                                            sold_date: '',
+                                                                                            morning: '',
+                                                                                            evening: '',
+                                                                                            total_litres: ''
+                                                                                        })
+                                                                                    );
+                                                                                }
+                                                                                html_table += `
+                                                                                    <tr>
+                                                                                        <th colspan="${res.data.length > 7 ? '8' : '4'}"><h5 class="mb-0">DESCRIPTION OF GOODS</h5></th>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Dates</td>
+                                                                                        <td>Morning</td>
+                                                                                        <td>Evening</td>
+                                                                                        <td>Total</td>`;
+                                                                                    if (res.data.length > 7) {
+                                                                                        html_table+=`<td>Dates</td>
+                                                                                        <td>Morning</td>
+                                                                                        <td>Evening</td>
+                                                                                        <td>Total</td>`;
+                                                                                    }
+                                                                                html_table+=`</tr>`;
+                                                                                for (var i = 0; i < first15res[0].length; i++) {
+                                                                                        html_table+=`</tr>
+                                                                                        <tr>
+                                                                                            <td><b>${moment(first15res[0][i].sold_date).format("DD-MMM-YYYY")}</b></td>
+                                                                                            <td><b>${first15res[0][i].morning}</b></td>
+                                                                                            <td><b>${first15res[0][i].evening}</b></td>
+                                                                                            <td><b>${first15res[0][i].total_litres}</b></td>`;
+                                                                                            if (res.data.length > 7) {
+                                                                                                html_table+=`<td><b>${first15res[1][i].sold_date ? (moment(first15res[1][i].sold_date).format("DD-MMM-YYYY")) : ''}</b></td>
+                                                                                                <td><b>${first15res[1][i].morning}</b></td>
+                                                                                                <td><b>${first15res[0][i].evening}</b></td>
+                                                                                                <td><b>${first15res[1][i].total_litres}</b></td>`;
+                                                                                            }
+                                                                                    html_table+=`</tr>`;
+                                                                                }
+                                                                                /* for (var i = 0; i < res.data.length; i++) {
+                                                                                    html_table += `
+                                                                                        <tr>
+                                                                                            <td style="width:25%">${moment(res.data[i].sold_date).format("DD-MMM-YYYY")}</td>                                                                                
+                                                                                            <td style="width:25%">${res.data[i].morning}</td>
+                                                                                            <td style="width:25%">${res.data[i].evening}</td>
+                                                                                            <th style="width:25%">${res.data[i].total_litres}</th>                                                                            
+                                                                                        </tr>
+                                                                                        `;
+                                                                                } */
+                                                                                html_table += `
+                                                                            </table>
+                                                                        <div class="row no-gutters">
+                                                                            <div class="col-12 text-center">
+                                                                            <table class="table table-striped table-bordered">
+                                                                                <tr>
+                                                                                    <td><h4 class="my-0">BANK DETAILS</h4></td>
+                                                                                    <td colspan="4"><h4 class="my-0">Calculations</h4></td>
+                                                                                </tr>
+                                                                                <tr class="text-justify">
+                                                                                    <td rowspan="6">
+                                                                                        <h6>Bank Name: HDFC Bank</h6><br>
+                                                                                        <h6>Account No: 59209867835569 / 59209867835536</h6><br>
+                                                                                        <h6>IFSC Code: HDFC0001425</h6>
+                                                                                    </td>
+                                                                                </tr>    
+                                                                                <tr>
+                                                                                    <th>Grand Total</th>
+                                                                                    <th>${ysum}</th>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>RATE</th>
+                                                                                    <td>${get_rate}</td></tr>                                                                          
+                                                                                <tr>
+                                                                                    <th>NET AMOUNT</th>
+                                                                                    <td>${get_total_amount}</td>
+                                                                                </tr>                                                                                
+                                                                                <tr>
+                                                                                    <th>BALANCE</th>
+                                                                                    <td>${get_pending_amount}</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th>GROSS AMOUNT</th>
+                                                                                    <td>${get_grand_total_amount}</td>
                                                                                 </tr>
                                                                             </table>
                                                                         </div>
@@ -2570,7 +2674,6 @@ $(document).ready(function() {
                         }
                         return r;
                     }, []);
-                    console.log(result);
                     var html = '';
                     var sr_no = 1;
                     html += `
@@ -2598,7 +2701,6 @@ $(document).ready(function() {
                         var date1 = new Date(result[i].from_date);
                         var date2 = new Date(result[i].to_date);
                         var diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10); 
-                        console.log(diffDays);
                         if(diffDays == '27' || diffDays == '28' || diffDays == '29'|| diffDays == '30'|| diffDays == '31') {
                             diffDays = 'Monthly';
                         }

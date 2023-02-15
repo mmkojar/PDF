@@ -1,6 +1,7 @@
 @include('inc.header1')
 <!-- Extra details for Live View on GitHub Pages -->
 <div class="wrapper ">
+    <div id="google_translate_element"></div>
     @include('inc.navbar')
     <div class="main-panel">
         @include('inc.topnavbar1')

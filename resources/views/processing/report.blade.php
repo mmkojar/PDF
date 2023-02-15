@@ -17,7 +17,7 @@
                         <th>Product No.</th>
                         <th>Processing Date</th>
                         <th>Actual Or Further Processing Date</th>
-                        <th>Is Processed Or Not</th>
+                        {{-- <th>Is Processed Or Not</th> --}}
                         <th>Process Note</th>
                         <th>Medical Date</th>
                         <th>Acutal Medical Date</th>                      
@@ -37,12 +37,12 @@
                       @foreach($reports as $report)
                       <tr>
                         <td>{{$count}}</td>
-                        <td class="badge badge-info m-3">{{$report->status ? $report->status : '-'}}</td>
+                        <td class="badge m-3 {{$report->status == 'completed' ? 'badge-success' : 'badge-info'}}">{{$report->status ? $report->status : '-'}}</td>
                         <td>{{ucfirst($report->product_name)}}</td>
                         <td>{{ucfirst($report->product_name)}} {{$report->product_no}}</td>
                         <td>{{$report->processing_date ?  date('M j Y',strtotime($report->processing_date)) : ''}}</td>
                         <td>{{$report->actual_or_further_processing_date ?  date('M j Y',strtotime($report->actual_or_further_processing_date)) : ''}}</td>
-                        <td>{{$report->is_processed_or_not}}</td>
+                        {{-- <td>{{$report->is_processed_or_not}}</td> --}}
                         <td>{{$report->process_note}}</td>
                         <td>{{$report->medical_date ?  date('M j Y',strtotime($report->medical_date)) : ''}}</td>
                         <td>{{$report->actual_medical_date ?  date('M j Y',strtotime($report->actual_medical_date)) : ''}}</td>

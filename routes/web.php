@@ -84,7 +84,7 @@ Route::middleware(['disablebackbtn'])->group(function () {
     
     Route::delete('/product/delete/{id}', [ProductController::class,'delete'])->name('product.delete');
     Route::resource('/categories', ProductController::class)->except(['show','create','update','destroy']);
-
+    
     Route::delete('/customer/delete/{id}', [CustomerController::class,'delete'])->name('customer.delete');
     Route::resource('/customer', CustomerController::class)->except(['show','destroy','create']);
 
@@ -155,6 +155,22 @@ Route::middleware(['disablebackbtn'])->group(function () {
     Route::post('/days/store', [DaysController::class,'store'])->name('days.store');
 
     //Route::get('/processing/api', [ProcessingController::class,'process_api'])->name('processing.api');
+    Route::get('api/medical',function (Request $request) {
+        $medical_days = DB::table('days')->select('medical_days1')->get();
+        
+        $log = DB::table('audit_log')
+        // ->select('actual_or_further_processing_date.')
+        ->where('status','medical')
+        ->get();
+        foreach($log as $checkup)       {
+            $date1 = str_replace('-', '/', $checkup->actual_or_further_processing_date);
+            $newdate = date('Y-m-d',strtotime($date1 . +$medical_days[0]->medical_days1."days"));
+            $checkup->medical_date = date('Y-m-d',strtotime($newdate));
+            $alert_date = date('Y-m-d',strtotime($newdate."-15 days"));
+            $checkup->alert_date = $alert_date; 
+        }
+        return $log;
+    });
     Route::resource('/processing', ProcessingController::class);
     Route::resource('/medical_checkup', MedicalCheckupcontroller::class);
     Route::get('/ghabhan/salve/{id}/edit', [PregnantController::class,'edit_salves'])->name('ghabhan.salve.edit');

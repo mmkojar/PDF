@@ -107,9 +107,9 @@
                         <span aria-hidden="true">&times;</span>
                         </button>
                      </div>
-                     <div class="modal-body">
+                     <div class="modal-body p-0">
                         <div class="card" id="get_billing_detail">
-                           <div class="card-body">
+                           <div class="card-body p-2">
                               <div id="get_billing_table">
                               </div>
                            </div>

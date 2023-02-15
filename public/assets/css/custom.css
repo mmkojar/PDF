@@ -219,9 +219,9 @@ tr.group, tr.group:hover {
         display: none !important;
     }
     .invoice {
-        width: 560px;
-        height: 790px;
-        margin: 40px auto;
+        width: 687px;
+        height: 971px;
+        margin: auto;
         font-weight: bold;
     }
     .invoice_date, .invoice_image {
