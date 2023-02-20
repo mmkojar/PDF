@@ -27,7 +27,7 @@ class ProfileController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',     
-            'password' => 'confirmed',       
+            'password' => ['confirmed'],       
         ]);        
 
         $get_user = Auth::user();
@@ -40,12 +40,12 @@ class ProfileController extends Controller
             $password = Hash::make($password);
         }
 
-        $product = User::find($id);
-        $product->name = $request->input('name');
-        $product->email = $request->input('email');
-        $product->password = $password;
-        $product->save();
-
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->password = $password;
+        $user->save();
+        Auth::login($user);
         return redirect('/dashboard')->with('success','User Updated Successfuly');
     }
 

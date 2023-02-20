@@ -38,6 +38,21 @@
                 </a>
             </div>
             <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+                <a href="{{ route('days.index') }}">
+                    <div class="card card-stats" style="background-color:#b8d8d8">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers">
+                                        <p class="card-category"><b>Days</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-2 col-lg-4 col-md-4 col-6">
                 <a href="{{ route('customer.index') }}">
                     <div class="card card-stats" style="background-color:#b8d8d8">
                         <div class="card-body">

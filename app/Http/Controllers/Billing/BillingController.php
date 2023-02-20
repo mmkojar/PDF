@@ -570,12 +570,21 @@ class BillingController extends Controller
             $customer_last_entries = DB::table('weekly_billing')
                 ->select('weekly_billing.*', 'customers.customer_name')
                 ->leftJoin('customers','customers.id','=','weekly_billing.customer_id')
-                ->whereIn('weekly_billing.created_at',function ($query) {
-                        $query->select(DB::raw('MAX(weekly_billing.created_at)'))                          
+                ->whereIn('weekly_billing.id',function ($query) {
+                        $query->select(DB::raw('MAX(weekly_billing.id)'))                          
                           ->from('weekly_billing')
                           ->groupBy('weekly_billing.customer_id');
                 })
                 ->get();
+                /* $customer_last_entries = DB::table('weekly_billing')
+                ->select('weekly_billing.*', 'customers.customer_name')
+                ->leftJoin('customers','customers.id','=','weekly_billing.customer_id')
+                ->whereIn('weekly_billing.id',function ($query) {
+                    $query->from('weekly_billing')
+                        ->select(DB::raw('MAX(weekly_billing.id)'))
+                        ->groupBy('weekly_billing.customer_id');
+                })
+                ->get(); */
             if($customer_last_entries) {
                 return ['status' => 1, 'data' => $customer_last_entries];
             }

@@ -88,6 +88,53 @@ $(document).ready(function() {
             count++;
         }
     } */
+    // For Medical Alert
+    setInterval(() => {
+        medicalAlert();
+    },600000)
+    function medicalAlert() {
+        $.ajax({
+            url: base_url+"/api/medical/",
+            method: 'GET',
+            dataType: "json",
+            success: function(res) {
+                var current_date = moment().format('YYYY-MM-DD');
+                var alertData = [];
+                var html = '';
+                for(var i in res) {
+                    if(res[i].alert_date == current_date) {
+                        $("#medical_alert_modal").modal('show');
+                        alertData.push(res[i]);
+                    }
+                }
+                console.log(alertData);
+                html+=`
+                    after 15 days ${alertData.length} buffalow has medical checkup to be done
+                `;
+                var count = 1;
+                html+=`
+                    <table class="table table-striped table-bordered mt-2">
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Product No</th>
+                        <th>Medical Date</th>
+                    </tr>    
+                `;
+                for(var i in alertData) {
+                    html+=`
+                        <tr>
+                            <th>${count}</th>
+                            <th><a href="${base_url}/medical_checkup">${alertData[i].product_no}</a></th>
+                            <th>${alertData[i].medical_date}</th>
+                        </tr>
+                    `
+                    count++;
+                }
+                html+='</table>';
+                $("#getMedicalAlert").html(html)
+            }
+        });
+    }
     
     if (pathname !== '' || pathname !== 'dashboard') {
 
