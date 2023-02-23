@@ -35,7 +35,7 @@
                 <div class="card-footer">
                     <input name="_method" type="hidden" value="PUT">
                     <button type="submit" class="btn btn-info btn-round">Submit</button>
-                    <a href="{{config('app.url')}}" class="btn btn-danger btn-round ml-2">Cancel</a>
+                    <a href="{{config('app.url')}}/income_expense" class="btn btn-danger btn-round ml-2">Cancel</a>
                 </div>
             </form>
         </div>

@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info btn-round">Submit</button>
-                    <a href="{{config('app.url')}}/expense" class="btn btn-danger btn-round ml-2">Cancel</a>
+                    <a href="{{config('app.url')}}/income_expense" class="btn btn-danger btn-round ml-2">Cancel</a>
                 </div>
             </form>
         </div>

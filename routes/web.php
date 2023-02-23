@@ -117,7 +117,7 @@ Route::middleware(['disablebackbtn'])->group(function () {
     Route::resource('/rent', RentController::class)->except(['show','destroy']);
 
     Route::delete('/general_income/delete/{id}', [GeneralIncomeController::class,'delete'])->name('general_income.delete');
-    Route::resource('/general_income', GeneralIncomeController::class)->except(['show','destroy','index']);
+    Route::resource('/income_expense', GeneralIncomeController::class)->except(['show','destroy']);
 
     Route::delete('/expense/delete/{id}', [ExpenseController::class,'delete'])->name('expense.delete');
     Route::resource('/expense', ExpenseController::class)->except(['show','destroy']);
@@ -142,7 +142,7 @@ Route::middleware(['disablebackbtn'])->group(function () {
     /* Route::delete('/food/amount/delete/{id}', [FoodController::class,'delete_food_use'])->name('food.amountpaid.delete');*/
     // For Food Stock
     Route::resource('/food', FoodController::class)->except(['show','destroy']);
-
+    
     // For Category Management Amount
     Route::get('/category_management/amount/api/{id}', [ManageCategoryController::class,'cat_manage_amount_api'])->name('cat_manage.amount.api');
     Route::get('/category_management/amount/create', [ManageCategoryController::class,'cat_manage_amount_create'])->name('cat_manage.amount.create');

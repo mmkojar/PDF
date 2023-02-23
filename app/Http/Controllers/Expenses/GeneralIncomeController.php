@@ -5,12 +5,42 @@ namespace App\Http\Controllers\Expenses;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\GeneralIncome;
+use App\Models\Rent;
+use App\Models\Expense;
 
 class GeneralIncomeController extends Controller
 {
     public function __construct()
     {
         $this->middleware(['auth']);
+    }
+
+    public function index()
+    {
+        // $rents = Rent::orderBY('created_at','desc')->get();
+        $incomes = GeneralIncome::orderBY('created_at','desc')->get();
+		
+		//Helper::debug($rents);
+		
+		/* $rent_sum = 0;
+		foreach($rents as $r) {
+			$rent_sum+=$r->rent_paid;
+		} */
+		
+		$income_sum = 0;
+		foreach($incomes as $ic) {
+			$income_sum+=$ic->amount;
+		}
+		
+		// $display_total = $rent_sum+$income_sum;
+        $expenses = Expense::orderBY('created_at','desc')->get();
+		
+        return view('expenses.index')->with([
+            // 'rents'=> $rents,
+            'incomes'=> $incomes, 
+            // 'total_income'=>$display_total,
+            'expenses'=> $expenses
+        ]);
     }
     
     public function create()
@@ -27,7 +57,7 @@ class GeneralIncomeController extends Controller
         $income->date = $request->input('date');
         $income->save();
 
-        return redirect('/rent')->with('success','Record Created');
+        return redirect('/income_expense')->with('success','Record Created');
     }
 
 
@@ -46,7 +76,7 @@ class GeneralIncomeController extends Controller
         $income->date = $request->input('date');
         $income->save();
 
-        return redirect('/rent')->with('success','Record Updated');
+        return redirect('/income_expense')->with('success','Record Updated');
     }
 
 

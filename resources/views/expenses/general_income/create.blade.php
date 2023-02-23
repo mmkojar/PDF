@@ -8,7 +8,7 @@
             <div class="card-header">
                 <h4 class="card-title">Add General Income</h4>
             </div>
-            <form action="{{route('general_income.store')}}" accept="" role="form" method="post">
+            <form action="{{route('income_expense.store')}}" accept="" role="form" method="post">
                 @csrf        
                 <div class="card-body">                               
                     <div class="row">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info btn-round">Submit</button>
-                    <a href="{{config('app.url')}}/rent" class="btn btn-danger btn-round ml-2">Cancel</a>
+                    <a href="{{config('app.url')}}/income_expense" class="btn btn-danger btn-round ml-2">Cancel</a>
                 </div>
             </form>
         </div>

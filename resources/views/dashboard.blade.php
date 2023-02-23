@@ -102,6 +102,26 @@
                     </div>
                 </a>
             </div>
+            <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+                <a href="{{ route('income_expense.index') }}">
+                    <div class="card card-stats" style="background-color:#b8d8d8">
+                        <div class="card-body">
+                            <div class="row">
+                               {{--  <div class="col-5 col-md-4">
+                                    <div class="icon-big text-center icon-warning">
+                                        <i class="nc-icon nc-shop text-dark"></i>
+                                    </div>
+                                </div> --}}
+                                <div class="col-12 col-md-12">
+                                    <div class="numbers">
+                                        <p class="card-category"><b>Income &amp; Expense</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <div class="col-12">
                 <h5>Manage Category</h5>
             </div>

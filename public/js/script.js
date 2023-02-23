@@ -288,7 +288,7 @@ $(document).ready(function() {
 
                 // Update footer
                 $(api.column(3).footer()).html(
-                    'â‚¹' + pageTotal + ' ( â‚¹' + total + ' total)'
+                    pageTotal + ' (' + total + ' total)'
                 );
             },
             dom: 'lBfrtip',
@@ -2737,7 +2737,7 @@ $(document).ready(function() {
                                 <th>Total Amount</th>
                                 <th>Amount Paid</th>
                                 <th>Remaining Balance</th>
-                                <th>Adjusted</th>
+                                
                                 <th>Created At</th>
                                 <th>Updated At</th>
                             </tr>
@@ -2758,7 +2758,7 @@ $(document).ready(function() {
                             diffDays = 'Weekly';
                         }
                         else {
-                            diffDays = diffDays+' days';
+                            diffDays = diffDays+1+' days';
                         }
                         html += `
                             <tr>
@@ -2776,7 +2776,7 @@ $(document).ready(function() {
                                 <td>${result[i].total_amount}</td>
                                 <td>${result[i].amount_paid}</td>
                                 <td>${result[i].pending_amount}</td>
-                                <td>${result[i].adjusted}</td>
+                                
                                 <td>${moment(result[i].created_at).format('MMM D YYYY')}</td>
                                 <td>${result[i].updated_at ? moment(result[i].updated_at).format('MMM D YYYY') : '-'}</td>
                             </tr>
@@ -2851,7 +2851,7 @@ $(document).ready(function() {
                             <th scope="col">Total Amount</th>
                             <th scope="col">Amount Paid</th>
                             <th scope="col">Remaining Balance</th>
-                            <th scope="col">Adjusted</th>
+                            
                             </tr>
                         </thead>
                         <tbody>
@@ -2867,7 +2867,7 @@ $(document).ready(function() {
                                     <td>${result[i].total_amount}</td>
                                     <td>${result[i].amount_paid}</td>
                                     <td>${result[i].pending_amount}</td>
-                                    <td>${result[i].adjusted}</td>
+                                    
                                 </tr>
                             `;
                             sr_no++;
@@ -2890,9 +2890,9 @@ $(document).ready(function() {
                         const total_bill_pending_amount = result
             						.map(results => Number(results.pending_amount))
             						.reduce((total, count) => total + count, 0);
-                        const total_bill_adjusted = result
+                        /* const total_bill_adjusted = result
             						.map(results => Number(results.adjusted))
-            						.reduce((total, count) => total + count, 0);
+            						.reduce((total, count) => total + count, 0); */
                         html += `
                             </tbody>
                             <tfoot>
@@ -2905,7 +2905,7 @@ $(document).ready(function() {
                                     <td><b>${total_bill_total_amount}</b></td>
                                     <td><b>${total_bill_amount_paid}</b></td>
                                     <td><b>${total_bill_pending_amount}</b></td>
-                                    <td><b>${total_bill_adjusted}</b></td>
+                                    
                                 </tr>
                             </tfoot>
                             </table>

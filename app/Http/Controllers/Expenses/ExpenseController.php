@@ -33,7 +33,7 @@ class ExpenseController extends Controller
         $expense->date = $request->input('date');
         $expense->save();
 
-        return redirect('/expense')->with('success','Record Created');
+        return redirect('/income_expense')->with('success','Record Created');
     }
 
 
@@ -52,7 +52,7 @@ class ExpenseController extends Controller
         $expense->date = $request->input('date');
         $expense->save();
 
-        return redirect('/expense')->with('success','Record Updated');
+        return redirect('/income_expense')->with('success','Record Updated');
     }
 
 
